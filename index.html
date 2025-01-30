@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation Interactive - Scénarios RCP et SSP</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Ajouter Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Ajouter Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header>
+    <h1>Scénarios RCP et SSP - Analyse par Pays</h1>
+    <nav>
+        <button onclick="showTab('scenario-tab')">Scénario du GIEC</button>
+        <button onclick="showTab('state-info-tab')">Informations sur les États</button>
+        <button onclick="showTab('country-tab')">Stratégie par pays</button>
+
+    </nav>
+</header>
+
+<main>
+    <!-- Onglet Scénario -->
+    <div id="scenario-tab" class="tab-content">
+        <h2>Scénarios RCP et SSP</h2>
+        <p>
+            Les <strong>RCP (Representative Concentration Pathways)</strong> décrivent les trajectoires de concentration de gaz à effet de serre dans l'atmosphère, tandis que les <strong>SSP (Shared Socioeconomic Pathways)</strong> décrivent les évolutions socio-économiques possibles. Voici une explication des 4 scénarios combinant RCP et SSP :
+        </p>
+
+        <!-- Boutons des scénarios -->
+        <div id="scenario-tab-buttons">
+            <button onclick="showScenario('SSP1 + RCP1.9')">SSP1 + RCP1.9</button>
+            <button onclick="showScenario('SSP2 + RCP4.5')">SSP2 + RCP4.5</button>
+            <button onclick="showScenario('SSP3 + RCP6.0')">SSP3 + RCP6.0</button>
+            <button onclick="showScenario('SSP5 + RCP8.5')">SSP5 + RCP8.5</button>
+        </div>
+
+        <!-- Conteneur pour les trois colonnes -->
+        <div class="scenario-column-layout">
+            <!-- Colonne de description (25%) -->
+            <div class="scenario-description-column">
+                <h3 id="scenario-title">Sélectionnez un scénario</h3>
+                <p id="scenario-text">Cliquez sur un bouton pour afficher les détails du scénario.</p>
+                <img id="scenario-image" src="" alt="Image du scénario" style="max-width: 100%; display: none;">
+            </div>
+
+            <!-- Graphique des performances (30%) -->
+            <div class="scenario-performance-chart">
+                <div class="chart-container">
+                    <h3>Performance du Scénario</h3>
+                    <canvas id="scenarioChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Graphique d'évolution des scénarios (45%) -->
+            <div class="scenario-evolution-chart">
+                <div class="chart-container">
+                    <h3>Évolution des Scénarios (2025 - 2100)</h3>
+                    <canvas id="scenarioEvolutionChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Onglet Pays -->
+    <div id="country-tab" class="tab-content">
+        <h2>Analyse par Pays</h2>
+        <label for="country-select">Choisissez un pays :</label>
+        <select id="country-select" onchange="updateCountryScenario()">
+            <option value="Brésil">Brésil</option>
+            <option value="Chili">Chili</option>
+            <option value="Émirats Arabes Unis">Émirats Arabes Unis</option>
+            <option value="États-Unis">États-Unis</option>
+            <option value="Russie">Russie</option>
+            <option value="France">France</option>
+            <option value="Haïti">Haïti</option>
+            <option value="Île Maurice">Île Maurice</option>
+            <option value="Sénégal">Sénégal</option>
+            <option value="Vanuatu">Vanuatu</option>
+            <option value="Mexique">Mexique</option>
+            <option value="République Populaire de Chine">République Populaire de Chine</option>
+        </select>
+
+        <div id="country-tab-buttons">
+            <button onclick="loadScenario('SSP1 + RCP1.9')">SSP1 + RCP1.9</button>
+            <button onclick="loadScenario('SSP2 + RCP4.5')">SSP2 + RCP4.5</button>
+            <button onclick="loadScenario('SSP3 + RCP6.0')">SSP3 + RCP6.0</button>
+            <button onclick="loadScenario('SSP5 + RCP8.5')">SSP5 + RCP8.5</button>
+        </div>
+
+        <!-- Conteneur pour les deux colonnes -->
+        <div class="country-column-layout">
+            <!-- Colonne de gauche : Tableau et carte -->
+            <div class="country-description-column">
+                <div class="country-flag-background" data-country=""></div>
+                <div class="country-content-overlay">
+                    <div id="country-description">
+                        <h3>Description du Scénario</h3>
+                        <table id="country-description-table">
+                            <thead>
+                            <tr>
+                                <th>Paramètre</th>
+                                <th>Valeur</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- Les lignes du tableau seront ajoutées dynamiquement par JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div>
+                        <h3>Carte du Pays</h3>
+                        <div id="country-map" style="height: 300px; margin-top: 20px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Colonne de droite : Deux graphiques -->
+            <div class="country-charts-column">
+                <!-- Radar Chart -->
+                <div class="country-radar-chart">
+                    <div class="chart-container">
+                        <h3>Performance du Scénario</h3>
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- CO2 Chart -->
+                <div class="country-co2-chart">
+                    <div class="chart-container">
+                        <h3>Émissions de CO2, Déforestation et Reboisement</h3>
+                        <canvas id="co2Chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Ajouter avant la fermeture de la balise main -->
+    <div id="state-info-tab" class="tab-content">
+        <h2>Informations détaillées sur les États</h2>
+
+        <div class="state-selector">
+            <label for="state-select">Sélectionnez un État :</label>
+            <select id="state-select" onchange="updateStateInfo()">
+                <option value="Brésil">Brésil</option>
+                <option value="Chili">Chili</option>
+                <option value="Chine">Chine</option>
+                <option value="Émirats Arabes Unis">Émirats Arabes Unis</option>
+                <option value="États-Unis">États-Unis</option>
+                <option value="France">France</option>
+                <option value="Haïti">Haïti</option>
+                <option value="Île Maurice">Île Maurice</option>
+                <option value="Mexique">Mexique</option>
+                <option value="Russie">Russie</option>
+                <option value="Sénégal">Sénégal</option>
+                <option value="Vanuatu">Vanuatu</option>
+            </select>
+        </div>
+
+        <div class="state-info-container">
+            <div class="country-flag-background" data-country=""></div>
+            <div class="country-content-overlay">
+                <table id="state-info-table">
+                    <thead>
+                    <tr>
+                        <th>Indicateur</th>
+                        <th>Valeur</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Contenu dynamique -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>Projet de présentation interactive - Scénarios RCP et SSP</p>
+</footer>
+
+<!-- Ajouter Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- Votre script JS -->
+<script src="js/script.js" defer></script>
+</body>
+</html>

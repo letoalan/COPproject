@@ -1,0 +1,383 @@
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+nav button:hover {
+    background-color: #2980b9;
+}
+
+main {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.tab-content h3 {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.tab-content p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Styles pour les boutons des scénarios */
+#scenario-tab-buttons, #country-tab-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#scenario-tab-buttons button, #country-tab-buttons button {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    flex: 1;
+}
+
+#scenario-tab-buttons button:hover, #country-tab-buttons button:hover {
+    background-color: #219653;
+}
+
+/* Styles pour les graphiques de la page Scénario */
+.scenario-column-layout {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.scenario-description-column {
+    flex: 0 0 25%;
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scenario-charts-column {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+}
+
+.scenario-performance-chart {
+    flex: 0 0 30%;
+    max-height: 400px;
+}
+
+.scenario-evolution-chart {
+    flex: 0 0 42%;
+    max-height: 400px;
+}
+
+/* Styles pour le conteneur avec drapeau */
+.country-description-column {
+    flex: 0 0 40%;
+    position: relative;
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Style pour le conteneur du drapeau */
+.country-flag-background {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+/* Overlay blanc semi-transparent */
+
+.country-content-overlay {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.9); /* Fond légèrement transparent */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour le contenu à l'intérieur de l'overlay */
+.country-content-overlay h3,
+.country-content-overlay table,
+.country-content-overlay #country-map {
+    position: relative;
+    z-index: 3;
+}
+
+/* Afficher le drapeau uniquement dans l'onglet Pays */
+#country-tab .country-flag-background {
+    display: block;
+}
+
+/* Styles pour les graphiques de la page Pays */
+.country-column-layout {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.country-charts-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.country-radar-chart {
+    flex: 1;
+    max-height: 400px;
+}
+
+.country-co2-chart {
+    flex: 1;
+    max-height: 400px;
+}
+
+/* Styles communs des graphiques */
+.chart-container {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-container canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+}
+
+/* Styles pour la carte */
+#country-map, #scenario-country-map {
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Styles pour le tableau */
+#scenario-description-table, #country-description-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#scenario-description-table th,
+#scenario-description-table td,
+#country-description-table th,
+#country-description-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#scenario-description-table th,
+#country-description-table th {
+    background-color: #3498db;
+    color: white;
+}
+
+#scenario-description-table tr:hover,
+#country-description-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Adaptation mobile */
+@media (max-width: 768px) {
+    .scenario-column-layout,
+    .country-column-layout {
+        flex-direction: column;
+    }
+
+    .scenario-description-column,
+    .country-description-column {
+        flex: 1;
+    }
+
+    .scenario-charts-column,
+    .country-charts-column {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .scenario-performance-chart,
+    .scenario-evolution-chart,
+    .country-radar-chart,
+    .country-co2-chart {
+        flex: 1 1 auto;
+        max-height: none;
+    }
+
+    #scenario-tab-buttons,
+    #country-tab-buttons {
+        flex-direction: column;
+    }
+
+    #scenario-tab-buttons button,
+    #country-tab-buttons button {
+        width: 100%;
+    }
+
+}
+/* Styles pour l'onglet Informations sur les États */
+.state-selector {
+    margin: 20px 0;
+}
+
+.state-selector label {
+    font-size: 1.1rem;
+    margin-right: 10px;
+}
+
+.state-selector select {
+    padding: 8px 15px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.state-info-container {
+    position: relative;
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.state-info-container .country-flag-background {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.state-info-container .country-content-overlay {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#state-info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#state-info-table th,
+#state-info-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#state-info-table th {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+#state-info-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .state-selector select {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    #state-info-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
