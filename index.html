@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <!-- Ajouter Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"></script>
 </head>
 <body>
 <header>
@@ -177,9 +178,24 @@
                     <!-- Contenu dynamique -->
                     </tbody>
                 </table>
+
+                <!-- Conteneurs pour les graphiques -->
+                <div class="chart-container">
+                    <h3>Population et Émissions de GES</h3>
+                    <canvas id="populationEmissionsChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Comparaison des Rangs</h3>
+                    <canvas id="ranksChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Répartition des Secteurs Émetteurs de GES</h3>
+                    <canvas id="gesSectorsChart"></canvas>
+                </div>
             </div>
         </div>
     </div>
+
 </main>
 
 <footer>

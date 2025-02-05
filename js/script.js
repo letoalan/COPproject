@@ -597,59 +597,279 @@ function loadScenario(scenario) {
         .catch((error) => console.error("Erreur lors du chargement des données :", error));
 }
 
+// Fonction pour mettre à jour les informations sur les États
 function updateStateInfo() {
-const stateName = document.getElementById('state-select').value;
-const tableBody = document.querySelector('#state-info-table tbody');
+    const stateName = document.getElementById('state-select').value;
+    const tableBody = document.querySelector('#state-info-table tbody');
 
-// Vider le tableau actuel
-tableBody.innerHTML = '';
+    // Vider le tableau actuel
+    tableBody.innerHTML = '';
 
-// Mettre à jour le drapeau en arrière-plan
-updateCountryFlag(stateName);
+    // Mettre à jour le drapeau en arrière-plan
+    updateCountryFlag(stateName);
 
-// Récupérer les données de l'état sélectionné depuis etats.json
-fetch('data/etats.json')
-    .then(response => response.json())
-    .then(data => {
-        const stateData = data.find(state => state.Pays === stateName);
+    // Récupérer les données de l'état sélectionné depuis etats.json
+    fetch('data/etats.json')
+        .then(response => response.json())
+        .then(data => {
+            const stateData = data.find(state => state.Pays === stateName);
 
-        if (stateData) {
-            // Créer les lignes du tableau pour chaque propriété
-            Object.entries(stateData).forEach(([key, value]) => {
-                if (key !== 'Pays') { // Exclure la clé "Pays" car elle est déjà affichée dans le sélecteur
-                    const row = document.createElement('tr');
-                    const keyCell = document.createElement('td');
-                    const valueCell = document.createElement('td');
+            if (stateData) {
+                // Créer les lignes du tableau pour chaque propriété
+                Object.entries(stateData).forEach(([key, value]) => {
+                    if (key !== 'Pays') { // Exclure la clé "Pays" car elle est déjà affichée dans le sélecteur
+                        const row = document.createElement('tr');
+                        const keyCell = document.createElement('td');
+                        const valueCell = document.createElement('td');
 
-                    keyCell.textContent = key;
-                    valueCell.textContent = value;
+                        keyCell.textContent = key;
+                        valueCell.textContent = value;
 
-                    row.appendChild(keyCell);
-                    row.appendChild(valueCell);
-                    tableBody.appendChild(row);
-                }
-            });
-        } else {
-            // Afficher un message si l'état n'est pas trouvé
+                        row.appendChild(keyCell);
+                        row.appendChild(valueCell);
+                        tableBody.appendChild(row);
+                    }
+                });
+
+                // Mettre à jour les graphiques
+                updatePopulationEmissionsChart(stateData);
+                updateRanksChart(stateData);
+                updateGesSectorsChart(stateData);
+            } else {
+                // Afficher un message si l'état n'est pas trouvé
+                const row = document.createElement('tr');
+                const cell = document.createElement('td');
+                cell.colSpan = 2;
+                cell.textContent = 'Données non disponibles pour cet État';
+                row.appendChild(cell);
+                tableBody.appendChild(row);
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors du chargement des données:', error);
             const row = document.createElement('tr');
             const cell = document.createElement('td');
             cell.colSpan = 2;
-            cell.textContent = 'Données non disponibles pour cet État';
+            cell.textContent = 'Erreur lors du chargement des données';
             row.appendChild(cell);
             tableBody.appendChild(row);
-        }
-    })
-    .catch(error => {
-        console.error('Erreur lors du chargement des données:', error);
-        const row = document.createElement('tr');
-        const cell = document.createElement('td');
-        cell.colSpan = 2;
-        cell.textContent = 'Erreur lors du chargement des données';
-        row.appendChild(cell);
-        tableBody.appendChild(row);
-    });
-
+        });
 }
+
+function updatePopulationEmissionsChart(stateData) {
+    const ctx = document.getElementById('populationEmissionsChart').getContext('2d');
+
+    // Détruire le graphique existant s'il y en a un
+    if (window.populationEmissionsChart && typeof window.populationEmissionsChart.destroy === 'function') {
+        window.populationEmissionsChart.destroy();
+    }
+
+    // Extraire les valeurs numériques
+    const populationMatch = stateData['Population'].match(/(\d+(\.\d+)?) millions?/);
+    const population = populationMatch ? parseFloat(populationMatch[1]) : 0;
+
+    const emissionsMatch = stateData['Émissions de GES'].match(/(\d+(\.\d+)?) tonnes?/);
+    const emissions = emissionsMatch ? parseFloat(emissionsMatch[1]) : 0;
+
+    // Créer un nouveau graphique avec des échelles proportionnelles
+    window.populationEmissionsChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Population (millions)', 'Émissions de GES (tonnes CO2eq)'],
+            datasets: [{
+                label: 'Population (millions)',
+                data: [population, null], // Population
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                yAxisID: 'y-axis-population' // Premier axe pour la population
+            }, {
+                label: 'Émissions de GES (tonnes CO2eq)',
+                data: [null, emissions], // Émissions de GES
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1,
+                yAxisID: 'y-axis-emissions' // Second axe pour les émissions de GES
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    id: 'y-axis-population',
+                    type: 'linear',
+                    position: 'left',
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Population (millions)'
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        max: 1400 // Population maximale (Chine : 1400 millions)
+                    }
+                }, {
+                    id: 'y-axis-emissions',
+                    type: 'linear',
+                    position: 'right',
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Émissions de GES (tonnes CO2eq)'
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        max: 30 // Émissions maximales (Émirats Arabes Unis : 29,3 tonnes)
+                    },
+                    gridLines: {
+                        drawOnChartArea: false // Ne pas dessiner les lignes de grille pour le second axe
+                    }
+                }]
+            },
+            plugins: {
+                datalabels: {
+                    anchor: 'center',
+                    align: 'center',
+                    formatter: function(value, context) {
+                        return value !== null ? value.toFixed(2) : '';
+                    },
+                    color: 'black',
+                    font: {
+                        weight: 'bold',
+                        size: 12
+                    },
+                    clip: false
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
+    });
+}
+
+// Fonction pour mettre à jour le graphique de comparaison des rangs
+function updateRanksChart(stateData) {
+    const ctx = document.getElementById('ranksChart').getContext('2d');
+
+    // Détruire le graphique existant s'il y en a un
+    if (window.ranksChart && typeof window.ranksChart.destroy === 'function') {
+        window.ranksChart.destroy();
+    }
+
+    // Extraire les valeurs numériques
+    const pibRank = parseFloat(stateData['PIB par habitant'].match(/\d+/)[0]);
+    const idhRank = parseFloat(stateData['IDH'].match(/\d+/)[0]);
+    const vulnerabilityRank = parseFloat(stateData['Vulnérabilité'].match(/\d+/)[0]);
+
+    // Créer un nouveau graphique
+    window.ranksChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['PIB par habitant', 'IDH', 'Vulnérabilité'],
+            datasets: [{
+                label: 'Rangs',
+                data: [pibRank, idhRank, vulnerabilityRank],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+function updateGesSectorsChart(stateData) {
+    const ctx = document.getElementById('gesSectorsChart').getContext('2d');
+
+    // Nettoyage du graphique existant
+    if (window.gesSectorsChart && typeof window.gesSectorsChart.destroy === 'function') {
+        window.gesSectorsChart.destroy();
+    }
+
+    // Extraction et normalisation des données des secteurs
+    const sectorsString = stateData['Secteurs Émetteurs de GES'];
+
+    // Normalisation et parsing des secteurs
+    let sectorsArray = sectorsString
+        .split(',')
+        .map(sector => {
+            const cleanSector = sector.trim();
+            const [name, percentageStr] = cleanSector.split(':').map(s => s.trim());
+            const percentage = parseFloat(percentageStr.replace('%', ''));
+
+            return {
+                name: name,
+                value: percentage
+            };
+        });
+
+    // Trier par valeur décroissante et prendre les 3 premiers secteurs
+    sectorsArray.sort((a, b) => b.value - a.value);
+    const topSectors = sectorsArray.slice(0, 3);
+
+    // Séparer les labels et les données pour Chart.js
+    const labels = topSectors.map(sector => sector.name);
+    const data = topSectors.map(sector => sector.value);
+
+    // Création du nouveau graphique circulaire
+    window.gesSectorsChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Top 3 des Secteurs Émetteurs de GES',
+                data: data,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top'
+                },
+                title: {
+                    display: true,
+                    text: `Top 3 des Secteurs Émetteurs de GES - ${stateData.Pays}`
+                },
+                datalabels: {
+                    color: '#000',
+                    font: {
+                        weight: 'bold',
+                        size: 16
+                    },
+                    formatter: (value, ctx) => {
+                        return `${value}%`;
+                    },
+                    // Placement des étiquettes au centre de chaque portion
+                    anchor: 'center',
+                    align: 'center',
+                    offset: 0,
+                    // Ajustement de la rotation pour une meilleure lisibilité
+                    rotation: (ctx) => {
+                        const angle = (ctx.startAngle + ctx.endAngle) / 2;
+                        // Ajuster la rotation pour que le texte soit toujours lisible
+                        return angle > Math.PI ? angle + Math.PI : angle;
+                    }
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
+    });
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
     initMap();
