@@ -70,6 +70,13 @@ main {
     margin-bottom: 10px;
 }
 
+.tab-content h4 {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
 .tab-content p {
     font-size: 1.1rem;
     margin-bottom: 15px;
@@ -106,7 +113,7 @@ main {
 }
 
 .scenario-description-column {
-    flex: 0 0 25%;
+    flex: 0 0 30%; /* 30% pour le tableau des scénarios */
     background-color: #ecf0f1;
     padding: 15px;
     border-radius: 5px;
@@ -114,18 +121,18 @@ main {
 }
 
 .scenario-charts-column {
-    flex: 1;
+    flex: 1; /* Occupe les 70% restants */
     display: flex;
-    gap: 20px;
+    gap: 20px; /* Espace entre les graphiques */
 }
 
 .scenario-performance-chart {
-    flex: 0 0 30%;
+    flex: 0 0 35%; /* 35% pour le graphique "Efficacité du scénario" */
     max-height: 400px;
 }
 
 .scenario-evolution-chart {
-    flex: 0 0 42%;
+    flex: 0 0 35%; /* 35% pour le graphique "Évolution des scénarios" */
     max-height: 400px;
 }
 
@@ -155,7 +162,6 @@ main {
 }
 
 /* Overlay blanc semi-transparent */
-
 .country-content-overlay {
     position: relative;
     z-index: 2;
@@ -167,6 +173,7 @@ main {
 
 /* Styles pour le contenu à l'intérieur de l'overlay */
 .country-content-overlay h3,
+.country-content-overlay h4,
 .country-content-overlay table,
 .country-content-overlay #country-map {
     position: relative;
@@ -175,6 +182,11 @@ main {
 
 /* Afficher le drapeau uniquement dans l'onglet Pays */
 #country-tab .country-flag-background {
+    display: block;
+}
+
+/* Afficher le drapeau dans l'onglet Informations sur les États */
+#state-info-tab .country-flag-background {
     display: block;
 }
 
@@ -202,7 +214,17 @@ main {
     max-height: 400px;
 }
 
-/* Styles communs des graphiques */
+.chart-title {
+    position: absolute;
+    bottom: 10px; /* Ajustez cette valeur si nécessaire */
+    left: 15px;
+    z-index: 3;
+    font-size: 1.5rem;
+    color: #3498db;
+    background-color: rgba(255, 255, 255, 0.8); /* Ajoutez un fond pour améliorer la lisibilité */
+    padding: 5px; /* Ajoutez du padding pour éviter que le texte ne touche les bords */
+}
+
 .chart-container {
     background-color: #fff;
     padding: 15px;
@@ -210,13 +232,14 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 400px;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Empêche le débordement */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .chart-container canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative; /* Évite le positionnement absolu */
     width: 100% !important;
     height: 100% !important;
     object-fit: contain;
@@ -293,8 +316,8 @@ main {
     #country-tab-buttons button {
         width: 100%;
     }
-
 }
+
 /* Styles pour l'onglet Informations sur les États */
 .state-selector {
     margin: 20px 0;

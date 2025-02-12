@@ -69,85 +69,79 @@ function getScenarioDescription(scenario) {
 // Fonction pour obtenir des données fictives pour le graphique des performances
 function getScenarioData(scenario) {
     const data = {
-        "SSP1 + RCP1.9": [5, 7, 8, 6, 4, 7, 6, 5],
-        "SSP2 + RCP4.5": [6, 6, 7, 5, 5, 6, 5, 6],
-        "SSP3 + RCP6.0": [7, 5, 6, 4, 6, 5, 4, 7],
-        "SSP5 + RCP8.5": [8, 4, 5, 3, 7, 4, 3, 8],
+        "SSP1 + RCP1.9": [7, 6, 8, 9, 6, 4, 5, 5], // Fortes performances sociales et environnementales, mais attractivité économique plus faible
+        "SSP2 + RCP4.5": [6, 7, 6, 5, 6, 6, 6, 6], // Équilibré, sans extrêmes
+        "SSP3 + RCP6.0": [4, 5, 5, 3, 4, 7, 6, 4], // Conflits et désorganisation, impactant économie et climat
+        "SSP5 + RCP8.5": [8, 9, 4, 2, 5, 3, 4, 9], // Croissance économique, mais désastre social et climatique
     };
     return data[scenario] || [0, 0, 0, 0, 0, 0, 0, 0];
 }
 
-// Fonction pour mettre à jour le graphique des performances (histogramme vertical)
 function updateScenarioChart(data) {
-    console.log("Données pour le graphique des performances :", data);
     const ctx = document.getElementById("scenarioChart").getContext("2d");
 
-    // Détruire le graphique existant s'il y en a un
     if (window.scenarioChart && typeof window.scenarioChart.destroy === "function") {
         window.scenarioChart.destroy();
     }
 
-    // Créer un nouveau graphique (histogramme vertical)
     window.scenarioChart = new Chart(ctx, {
-        type: "bar", // Type de graphique : bar (vertical par défaut)
+        type: "bar",
         data: {
             labels: ["Décisions clés", "Économie", "Social", "Climat/Santé", "Opinion publique", "Pression des lobbies", "Coût de la vie", "Attractivité pour les décideurs"],
             datasets: [
                 {
-                    label: "Performance",
+                    label: "Efficacité du scénario",
                     data: data,
-                    backgroundColor: "rgba(75, 192, 192, 0.2)", // Couleur de fond des barres
-                    borderColor: "rgba(75, 192, 192, 1)", // Couleur de bordure des barres
-                    borderWidth: 1, // Épaisseur de la bordure
+                    backgroundColor: "rgba(75, 192, 192, 0.2)",
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    borderWidth: 1,
                 },
             ],
         },
         options: {
-            indexAxis: "x", // Axe des labels en X (vertical)
+            indexAxis: "x",
             scales: {
                 x: {
-                    beginAtZero: true, // Commencer à zéro
+                    beginAtZero: true,
                     title: {
                         display: true,
-                        text: "Performance", // Titre de l'axe X
+                        text: "Catégories",
                     },
                 },
                 y: {
                     title: {
                         display: true,
-                        text: "Catégories", // Titre de l'axe Y
+                        text: "Efficacité du scénario",
                     },
                 },
             },
-            responsive: true, // Adapter le graphique à la taille du conteneur
-            maintainAspectRatio: false, // Ne pas maintenir le ratio d'aspect
+            responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    display: true, // Afficher la légende
-                    position: "top", // Position de la légende
+                    display: true,
+                    position: "top",
                 },
             },
         },
     });
 }
 
-// Fonction pour mettre à jour le drapeau en arrière-plan
+
 function updateCountryFlag(country) {
     const flagBackground = document.querySelector('.country-flag-background');
     if (flagBackground) {
-        // Nettoyer le nom du pays pour correspondre au nom du fichier
         const normalizedCountry = country
             .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '') // Enlever les accents
-            .replace(/\s+/g, '-') // Remplacer les espaces par des tirets
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/\s+/g, '-')
             .toLowerCase();
 
-        // Mettre à jour l'attribut data-country
         flagBackground.setAttribute('data-country', country);
-        console.log(normalizedCountry)
-        // Mettre à jour l'image de fond
         console.log(`Chemin du drapeau : images/flags/${normalizedCountry}.svg`);
         flagBackground.style.backgroundImage = `url('images/flags/${normalizedCountry}.svg')`;
+    } else {
+        console.error("Element .country-flag-background non trouvé.");
     }
 }
 
@@ -395,7 +389,7 @@ function updateMap(country, scenario) {
     return lastUpdatePromise;
 }
 
-// Fonction pour mettre à jour le radar chart
+// Fonction pour mettre à jour le radar chart avec une échelle commençant à 0
 function updateRadarChart(data) {
     console.log("Données pour le radar chart :", data);
     const ctx = document.getElementById("radarChart").getContext("2d");
@@ -409,10 +403,14 @@ function updateRadarChart(data) {
     window.radarChart = new Chart(ctx, {
         type: "radar",
         data: {
-            labels: ["Décisions clés", "Économie", "Social", "Climat/Santé", "Opinion publique", "Pression des lobbies", "Coût de la vie", "Attractivité pour les décideurs"],
+            labels: [
+                "Décisions clés", "Économie", "Social", "Climat/Santé",
+                "Opinion publique", "Pression des lobbies", "Coût de la vie",
+                "Attractivité pour les décideurs"
+            ],
             datasets: [
                 {
-                    label: "Performance",
+                    label: "Efficacité du scénario",
                     data: data,
                     backgroundColor: "rgba(75, 192, 192, 0.2)",
                     borderColor: "rgba(75, 192, 192, 1)",
@@ -421,15 +419,20 @@ function updateRadarChart(data) {
             ],
         },
         options: {
-            scale: {
-                ticks: {
-                    beginAtZero: true,
-                    max: 10,
+            scales: {
+                r: { // 'r' pour radar scale
+                    suggestedMin: 0,  // Plage recommandée à partir de 0
+                    suggestedMax: 10, // Maximum cohérent avec l'échelle
+                    ticks: {
+                        beginAtZero: true, // Assure que l'échelle commence bien à 0
+                        stepSize: 1,       // Espacement entre chaque graduation
+                    },
                 },
             },
         },
     });
 }
+
 
 // Fonction pour mettre à jour la description du scénario
 function updateDescription(description, tableId) {
@@ -569,7 +572,7 @@ function updateCO2Chart(peakYear, reductionYear, reductionPercentage, deforestat
 // Fonction pour charger un scénario
 function loadScenario(scenario) {
     console.log("Scénario chargé :", scenario);
-    fetch("data/countries.json")
+    fetch("data/countries2.json")
         .then((response) => response.json())
         .then((data) => {
             console.log("Données chargées :", data);
@@ -656,6 +659,7 @@ function updateStateInfo() {
         });
 }
 
+// Fonction pour mettre à jour le graphique de population et émissions de GES
 function updatePopulationEmissionsChart(stateData) {
     const ctx = document.getElementById('populationEmissionsChart').getContext('2d');
 
@@ -780,6 +784,7 @@ function updateRanksChart(stateData) {
     });
 }
 
+// Fonction pour mettre à jour le graphique de répartition des secteurs émetteurs de GES
 function updateGesSectorsChart(stateData) {
     const ctx = document.getElementById('gesSectorsChart').getContext('2d');
 
