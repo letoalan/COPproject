@@ -24,7 +24,9 @@
         "Année de réduction": 2030,
         "% de réduction": 50,
         "Réduction de la déforestation (% par an)": 5,
-        "Surfaces reboisées (% par an)": 3
+        "Surfaces reboisées (% par an)": 3,
+        "Contribution (Milliards d'Euros)": 15,
+        "Aides (Milliards d'Euros)": 5
       }
     },
     "SSP2 + RCP4.5": {
@@ -51,7 +53,9 @@
         "Année de réduction": 2040,
         "% de réduction": 30,
         "Réduction de la déforestation (% par an)": 3,
-        "Surfaces reboisées (% par an)": 1.5
+        "Surfaces reboisées (% par an)": 1.5,
+        "Contribution (Milliards d'Euros)": 10,
+        "Aides (Milliards d'Euros)": 3
       }
     },
     "SSP3 + RCP6.0": {
@@ -78,7 +82,9 @@
         "Année de réduction": 2050,
         "% de réduction": 10,
         "Réduction de la déforestation (% par an)": 1,
-        "Surfaces reboisées (% par an)": 0.5
+        "Surfaces reboisées (% par an)": 0.5,
+        "Contribution (Milliards d'Euros)": 2,
+        "Aides (Milliards d'Euros)": 1
       }
     },
     "SSP5 + RCP8.5": {
@@ -105,7 +111,9 @@
         "Année de réduction": 2060,
         "% de réduction": 0,
         "Réduction de la déforestation (% par an)": 0,
-        "Surfaces reboisées (% par an)": 0
+        "Surfaces reboisées (% par an)": 0,
+        "Contribution (Milliards d'Euros)": 0,
+        "Aides (Milliards d'Euros)": 0
       }
     }
   },
@@ -134,7 +142,9 @@
         "Année de réduction": 2030,
         "% de réduction": 60,
         "Réduction de la déforestation (% par an)": 6,
-        "Surfaces reboisées (% par an)": 4
+        "Surfaces reboisées (% par an)": 4,
+        "Contribution (Milliards d'Euros)": 5,
+        "Aides (Milliards d'Euros)": 3
       }
     },
     "SSP2 + RCP4.5": {
@@ -161,7 +171,9 @@
         "Année de réduction": 2040,
         "% de réduction": 40,
         "Réduction de la déforestation (% par an)": 4,
-        "Surfaces reboisées (% par an)": 2
+        "Surfaces reboisées (% par an)": 2,
+        "Contribution (Milliards d'Euros)": 3,
+        "Aides (Milliards d'Euros)": 2
       }
     },
     "SSP3 + RCP6.0": {
@@ -188,7 +200,9 @@
         "Année de réduction": 2050,
         "% de réduction": 20,
         "Réduction de la déforestation (% par an)": 2,
-        "Surfaces reboisées (% par an)": 1
+        "Surfaces reboisées (% par an)": 1,
+        "Contribution (Milliards d'Euros)": 2,
+        "Aides (Milliards d'Euros)": 1
       }
     },
     "SSP5 + RCP8.5": {
@@ -215,7 +229,9 @@
         "Année de réduction": 2060,
         "% de réduction": 0,
         "Réduction de la déforestation (% par an)": 0,
-        "Surfaces reboisées (% par an)": 0
+        "Surfaces reboisées (% par an)": 0,
+        "Contribution (Milliards d'Euros)": 0,
+        "Aides (Milliards d'Euros)": 0
       }
     }
   },
@@ -244,7 +260,9 @@
         "Année de réduction": 2030,
         "% de réduction": 70,
         "Réduction de la déforestation (% par an)": 7,
-        "Surfaces reboisées (% par an)": 5
+        "Surfaces reboisées (% par an)": 5,
+        "Contribution (Milliards d'Euros)": 25,
+        "Aides (Milliards d'Euros)": 0.5
       }
     },
     "SSP2 + RCP4.5": {
@@ -271,7 +289,9 @@
         "Année de réduction": 2040,
         "% de réduction": 50,
         "Réduction de la déforestation (% par an)": 5,
-        "Surfaces reboisées (% par an)": 3
+        "Surfaces reboisées (% par an)": 3,
+        "Contribution (Milliards d'Euros)": 15,
+        "Aides (Milliards d'Euros)": 0.3
       }
     },
     "SSP3 + RCP6.0": {
@@ -298,7 +318,9 @@
         "Année de réduction": 2050,
         "% de réduction": 30,
         "Réduction de la déforestation (% par an)": 3,
-        "Surfaces reboisées (% par an)": 1.5
+        "Surfaces reboisées (% par an)": 1.5,
+        "Contribution (Milliards d'Euros)": 8,
+        "Aides (Milliards d'Euros)": 0.5
       }
     },
     "SSP5 + RCP8.5": {
@@ -325,7 +347,9 @@
         "Année de réduction": 2060,
         "% de réduction": 0,
         "Réduction de la déforestation (% par an)": 0,
-        "Surfaces reboisées (% par an)": 0
+        "Surfaces reboisées (% par an)": 0,
+        "Contribution (Milliards d'Euros)": 0,
+        "Aides (Milliards d'Euros)": 0
       }
     }
   },
@@ -354,7 +378,9 @@
         "Année de réduction": 2030,
         "% de réduction": 60,
         "Réduction de la déforestation (% par an)": 6,
-        "Surfaces reboisées (% par an)": 4
+        "Surfaces reboisées (% par an)": 4,
+        "Contribution (Milliards d'Euros)": 200,
+        "Aides (Milliards d'Euros)": 1
       }
     },
     "SSP2 + RCP4.5": {
@@ -381,7 +407,9 @@
         "Année de réduction": 2040,
         "% de réduction": 40,
         "Réduction de la déforestation (% par an)": 4,
-        "Surfaces reboisées (% par an)": 2
+        "Surfaces reboisées (% par an)": 2,
+        "Contribution (Milliards d'Euros)": 100,
+        "Aides (Milliards d'Euros)": 0.5
       }
     },
     "SSP3 + RCP6.0": {
@@ -408,7 +436,9 @@
         "Année de réduction": 2050,
         "% de réduction": 20,
         "Réduction de la déforestation (% par an)": 2,
-        "Surfaces reboisées (% par an)": 1
+        "Surfaces reboisées (% par an)": 1,
+        "Contribution (Milliards d'Euros)": 50,
+        "Aides (Milliards d'Euros)": 0.2
       }
     },
     "SSP5 + RCP8.5": {
@@ -435,7 +465,9 @@
         "Année de réduction": 2060,
         "% de réduction": 0,
         "Réduction de la déforestation (% par an)": 0,
-        "Surfaces reboisées (% par an)": 0
+        "Surfaces reboisées (% par an)": 0,
+        "Contribution (Milliards d'Euros)": 0,
+        "Aides (Milliards d'Euros)": 0
       }
     }
   },
@@ -464,7 +496,9 @@
         "Année de réduction": 2030,
         "% de réduction": 50,
         "Réduction de la déforestation (% par an)": 5,
-        "Surfaces reboisées (% par an)": 3
+        "Surfaces reboisées (% par an)": 3,
+        "Contribution (Milliards d'Euros)": 20,
+        "Aides (Milliards d'Euros)": 1
       }
     },
     "SSP2 + RCP4.5": {
@@ -491,7 +525,9 @@
         "Année de réduction": 2040,
         "% de réduction": 30,
         "Réduction de la déforestation (% par an)": 3,
-        "Surfaces reboisées (% par an)": 1.5
+        "Surfaces reboisées (% par an)": 1.5,
+        "Contribution (Milliards d'Euros)": 15,
+        "Aides (Milliards d'Euros)": 0.5
       }
     },
     "SSP3 + RCP6.0": {
@@ -518,7 +554,9 @@
         "Année de réduction": 2050,
         "% de réduction": 10,
         "Réduction de la déforestation (% par an)": 1,
-        "Surfaces reboisées (% par an)": 0.5
+        "Surfaces reboisées (% par an)": 0.5,
+        "Contribution (Milliards d'Euros)": 8,
+        "Aides (Milliards d'Euros)": 0.2
       }
     },
     "SSP5 + RCP8.5": {
@@ -545,7 +583,9 @@
         "Année de réduction": 2060,
         "% de réduction": 0,
         "Réduction de la déforestation (% par an)": 0,
-        "Surfaces reboisées (% par an)": 0
+        "Surfaces reboisées (% par an)": 0,
+        "Contribution (Milliards d'Euros)": 0,
+        "Aides (Milliards d'Euros)": 0
       }
     }
   },
@@ -574,7 +614,9 @@
         "Année de réduction": 2030,
         "% de réduction": 70,
         "Réduction de la déforestation (% par an)": 7,
-        "Surfaces reboisées (% par an)": 5
+        "Surfaces reboisées (% par an)": 5,
+        "Contribution (Milliards d'Euros)": 50,
+        "Aides (Milliards d'Euros)": 0.5
       }
     },
     "SSP2 + RCP4.5": {
@@ -601,7 +643,9 @@
         "Année de réduction": 2040,
         "% de réduction": 50,
         "Réduction de la déforestation (% par an)": 5,
-        "Surfaces reboisées (% par an)": 3
+        "Surfaces reboisées (% par an)": 3,
+        "Contribution (Milliards d'Euros)": 35,
+        "Aides (Milliards d'Euros)": 0.3
       }
     },
     "SSP3 + RCP6.0": {
@@ -628,7 +672,9 @@
         "Année de réduction": 2050,
         "% de réduction": 30,
         "Réduction de la déforestation (% par an)": 3,
-        "Surfaces reboisées (% par an)": 1.5
+        "Surfaces reboisées (% par an)": 1.5,
+        "Contribution (Milliards d'Euros)": 20,
+        "Aides (Milliards d'Euros)": 0.2
       }
     },
     "SSP5 + RCP8.5": {
@@ -655,7 +701,9 @@
         "Année de réduction": 2060,
         "% de réduction": 0,
         "Réduction de la déforestation (% par an)": 0,
-        "Surfaces reboisées (% par an)": 0
+        "Surfaces reboisées (% par an)": 0,
+        "Contribution (Milliards d'Euros)": 0,
+        "Aides (Milliards d'Euros)": 0
       }
     }
   },
@@ -684,7 +732,9 @@
         "Année de réduction": 2030,
         "% de réduction": 60,
         "Réduction de la déforestation (% par an)": 6,
-        "Surfaces reboisées (% par an)": 4
+        "Surfaces reboisées (% par an)": 4,
+        "Contribution (Milliards d'Euros)": 0.2,
+        "Aides (Milliards d'Euros)": 7
       }
     },
     "SSP2 + RCP4.5": {
@@ -711,7 +761,9 @@
         "Année de réduction": 2040,
         "% de réduction": 40,
         "Réduction de la déforestation (% par an)": 4,
-        "Surfaces reboisées (% par an)": 2
+        "Surfaces reboisées (% par an)": 2,
+        "Contribution (Milliards d'Euros)": 0.1,
+        "Aides (Milliards d'Euros)": 5
       }
     },
     "SSP3 + RCP6.0": {
@@ -738,7 +790,9 @@
         "Année de réduction": 2050,
         "% de réduction": 20,
         "Réduction de la déforestation (% par an)": 2,
-        "Surfaces reboisées (% par an)": 1
+        "Surfaces reboisées (% par an)": 1,
+        "Contribution (Milliards d'Euros)": 0.05,
+        "Aides (Milliards d'Euros)": 3
       }
     },
     "SSP5 + RCP8.5": {
@@ -765,7 +819,9 @@
         "Année de réduction": 2060,
         "% de réduction": 0,
         "Réduction de la déforestation (% par an)": 0,
-        "Surfaces reboisées (% par an)": 0
+        "Surfaces reboisées (% par an)": 0,
+        "Contribution (Milliards d'Euros)": 0,
+        "Aides (Milliards d'Euros)": 0
       }
     }
   },
@@ -794,7 +850,9 @@
         "Année de réduction": 2030,
         "% de réduction": 70,
         "Réduction de la déforestation (% par an)": 7,
-        "Surfaces reboisées (% par an)": 5
+        "Surfaces reboisées (% par an)": 5,
+        "Contribution (Milliards d'Euros)": 0.5,
+        "Aides (Milliards d'Euros)": 6
       }
     },
     "SSP2 + RCP4.5": {
@@ -821,7 +879,9 @@
         "Année de réduction": 2040,
         "% de réduction": 50,
         "Réduction de la déforestation (% par an)": 5,
-        "Surfaces reboisées (% par an)": 3
+        "Surfaces reboisées (% par an)": 3,
+        "Contribution (Milliards d'Euros)": 0.3,
+        "Aides (Milliards d'Euros)": 4
       }
     },
     "SSP3 + RCP6.0": {
@@ -848,7 +908,9 @@
         "Année de réduction": 2050,
         "% de réduction": 30,
         "Réduction de la déforestation (% par an)": 3,
-        "Surfaces reboisées (% par an)": 1.5
+        "Surfaces reboisées (% par an)": 1.5,
+        "Contribution (Milliards d'Euros)": 0.1,
+        "Aides (Milliards d'Euros)": 2
       }
     },
     "SSP5 + RCP8.5": {
@@ -875,7 +937,9 @@
         "Année de réduction": 2060,
         "% de réduction": 0,
         "Réduction de la déforestation (% par an)": 0,
-        "Surfaces reboisées (% par an)": 0
+        "Surfaces reboisées (% par an)": 0,
+        "Contribution (Milliards d'Euros)": 0,
+        "Aides (Milliards d'Euros)": 0
       }
     }
   },
@@ -904,7 +968,9 @@
         "Année de réduction": 2030,
         "% de réduction": 60,
         "Réduction de la déforestation (% par an)": 6,
-        "Surfaces reboisées (% par an)": 4
+        "Surfaces reboisées (% par an)": 4,
+        "Contribution (Milliards d'Euros)": 1,
+        "Aides (Milliards d'Euros)": 6
       }
     },
     "SSP2 + RCP4.5": {
@@ -931,7 +997,9 @@
         "Année de réduction": 2040,
         "% de réduction": 40,
         "Réduction de la déforestation (% par an)": 4,
-        "Surfaces reboisées (% par an)": 2
+        "Surfaces reboisées (% par an)": 2,
+        "Contribution (Milliards d'Euros)": 0.8,
+        "Aides (Milliards d'Euros)": 4
       }
     },
     "SSP3 + RCP6.0": {
@@ -958,7 +1026,9 @@
         "Année de réduction": 2050,
         "% de réduction": 20,
         "Réduction de la déforestation (% par an)": 2,
-        "Surfaces reboisées (% par an)": 1
+        "Surfaces reboisées (% par an)": 1,
+        "Contribution (Milliards d'Euros)": 0.5,
+        "Aides (Milliards d'Euros)": 2
       }
     },
     "SSP5 + RCP8.5": {
@@ -985,7 +1055,9 @@
         "Année de réduction": 2060,
         "% de réduction": 0,
         "Réduction de la déforestation (% par an)": 0,
-        "Surfaces reboisées (% par an)": 0
+        "Surfaces reboisées (% par an)": 0,
+        "Contribution (Milliards d'Euros)": 0,
+        "Aides (Milliards d'Euros)": 0
       }
     }
   },
@@ -1014,7 +1086,9 @@
         "Année de réduction": 2030,
         "% de réduction": 70,
         "Réduction de la déforestation (% par an)": 7,
-        "Surfaces reboisées (% par an)": 5
+        "Surfaces reboisées (% par an)": 5,
+        "Contribution (Milliards d'Euros)": 0.2,
+        "Aides (Milliards d'Euros)": 6
       }
     },
     "SSP2 + RCP4.5": {
@@ -1041,7 +1115,9 @@
         "Année de réduction": 2040,
         "% de réduction": 50,
         "Réduction de la déforestation (% par an)": 5,
-        "Surfaces reboisées (% par an)": 3
+        "Surfaces reboisées (% par an)": 3,
+        "Contribution (Milliards d'Euros)": 0.1,
+        "Aides (Milliards d'Euros)": 4
       }
     },
     "SSP3 + RCP6.0": {
@@ -1068,7 +1144,9 @@
         "Année de réduction": 2050,
         "% de réduction": 30,
         "Réduction de la déforestation (% par an)": 3,
-        "Surfaces reboisées (% par an)": 1.5
+        "Surfaces reboisées (% par an)": 1.5,
+        "Contribution (Milliards d'Euros)": 0.05,
+        "Aides (Milliards d'Euros)": 2
       }
     },
     "SSP5 + RCP8.5": {
@@ -1095,7 +1173,9 @@
         "Année de réduction": 2060,
         "% de réduction": 0,
         "Réduction de la déforestation (% par an)": 0,
-        "Surfaces reboisées (% par an)": 0
+        "Surfaces reboisées (% par an)": 0,
+        "Contribution (Milliards d'Euros)": 0,
+        "Aides (Milliards d'Euros)": 0
       }
     }
   },
@@ -1124,7 +1204,9 @@
         "Année de réduction": 2030,
         "% de réduction": 60,
         "Réduction de la déforestation (% par an)": 6,
-        "Surfaces reboisées (% par an)": 4
+        "Surfaces reboisées (% par an)": 4,
+        "Contribution (Milliards d'Euros)": 10,
+        "Aides (Milliards d'Euros)": 5
       }
     },
     "SSP2 + RCP4.5": {
@@ -1151,7 +1233,9 @@
         "Année de réduction": 2040,
         "% de réduction": 40,
         "Réduction de la déforestation (% par an)": 4,
-        "Surfaces reboisées (% par an)": 2
+        "Surfaces reboisées (% par an)": 2,
+        "Contribution (Milliards d'Euros)": 7,
+        "Aides (Milliards d'Euros)": 3
       }
     },
     "SSP3 + RCP6.0": {
@@ -1178,7 +1262,9 @@
         "Année de réduction": 2050,
         "% de réduction": 20,
         "Réduction de la déforestation (% par an)": 2,
-        "Surfaces reboisées (% par an)": 1
+        "Surfaces reboisées (% par an)": 1,
+        "Contribution (Milliards d'Euros)": 4,
+        "Aides (Milliards d'Euros)": 1
       }
     },
     "SSP5 + RCP8.5": {
@@ -1205,7 +1291,9 @@
         "Année de réduction": 2060,
         "% de réduction": 0,
         "Réduction de la déforestation (% par an)": 0,
-        "Surfaces reboisées (% par an)": 0
+        "Surfaces reboisées (% par an)": 0,
+        "Contribution (Milliards d'Euros)": 0,
+        "Aides (Milliards d'Euros)": 0
       }
     }
   },
@@ -1234,7 +1322,9 @@
         "Année de réduction": 2030,
         "% de réduction": 70,
         "Réduction de la déforestation (% par an)": 7,
-        "Surfaces reboisées (% par an)": 5
+        "Surfaces reboisées (% par an)": 5,
+        "Contribution (Milliards d'Euros)": 120,
+        "Aides (Milliards d'Euros)": 1
       }
     },
     "SSP2 + RCP4.5": {
@@ -1261,7 +1351,9 @@
         "Année de réduction": 2040,
         "% de réduction": 50,
         "Réduction de la déforestation (% par an)": 5,
-        "Surfaces reboisées (% par an)": 3
+        "Surfaces reboisées (% par an)": 3,
+        "Contribution (Milliards d'Euros)": 90,
+        "Aides (Milliards d'Euros)": 0.5
       }
     },
     "SSP3 + RCP6.0": {
@@ -1288,7 +1380,9 @@
         "Année de réduction": 2050,
         "% de réduction": 30,
         "Réduction de la déforestation (% par an)": 3,
-        "Surfaces reboisées (% par an)": 1.5
+        "Surfaces reboisées (% par an)": 1.5,
+        "Contribution (Milliards d'Euros)": 50,
+        "Aides (Milliards d'Euros)": 0.2
       }
     },
     "SSP5 + RCP8.5": {
@@ -1315,7 +1409,9 @@
         "Année de réduction": 2060,
         "% de réduction": 0,
         "Réduction de la déforestation (% par an)": 0,
-        "Surfaces reboisées (% par an)": 0
+        "Surfaces reboisées (% par an)": 0,
+        "Contribution (Milliards d'Euros)": 0,
+        "Aides (Milliards d'Euros)": 0
       }
     }
   }

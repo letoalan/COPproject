@@ -1,0 +1,89 @@
+{
+  "strategie_negociation": [
+    {
+      "etape": "Comprendre les Scénarios",
+      "objectifs": "Adapter la stratégie au contexte climatique et économique",
+      "actions_cles": [
+        "Analyser les 4 scénarios :",
+        "SSP1 + RCP1.9 : Transition rapide",
+        "SSP2 + RCP4.5 : Transition modérée",
+        "SSP3 + RCP6.0 : Engagements faibles",
+        "SSP5 + RCP8.5 : Croissance sans contrainte climatique"
+      ],
+      "exemples_pratiques": [
+        "SSP1 + RCP1.9 : Prioriser les demandes d'aides et de reboisement",
+        "SSP3 + RCP6.0 : Demander des flexibilités sur les engagements"
+      ]
+    },
+    {
+      "etape": "Analyser les Objectifs Nationaux",
+      "objectifs": "Définir les priorités climatiques et économiques",
+      "actions_cles": [
+        "Identifier les objectifs par scénario :",
+        "Réductions d'émissions",
+        "Reboisement et déforestation",
+        "Contributions et aides financières"
+      ],
+      "exemples_pratiques": [
+        "SSP1 : Objectifs ambitieux de réduction et de reboisement",
+        "SSP2 : Réductions modérées avec soutien au développement économique"
+      ]
+    },
+    {
+      "etape": "Identification des États Cibles",
+      "objectifs": "Maximiser les gains en ciblant les partenaires stratégiques",
+      "actions_cles": [
+        "Classer les États cibles :",
+        "Financeurs (États-Unis, France, Chine)",
+        "Économies émergentes (Brésil, Mexique, Émirats)",
+        "Alliances Sud-Sud (Chili, Sénégal, Vanuatu)"
+      ],
+      "exemples_pratiques": [
+        "Haïti : Cible les États-Unis pour +20% d'aides et la Chine pour le transfert technologique",
+        "Chine : Négocie avec la Russie et le Mexique pour avancer les réductions"
+      ]
+    },
+    {
+      "etape": "Définir les Demandes et Marges de Négociation",
+      "objectifs": "Formuler des demandes stratégiques et maximiser les marges de négociation",
+      "actions_cles": [
+        "Définir des demandes spécifiques :",
+        "Aides financières (+20% des États-Unis)",
+        "Transferts technologiques (Chine)",
+        "Réduction de la déforestation (France)",
+        "Flexibilité sur les engagements (Brésil, Chine)"
+      ],
+      "exemples_pratiques": [
+        "Haïti (SSP1) : États-Unis (+20% d'aides), France (reboisement), Chine (technologies vertes)",
+        "Chine (SSP2) : Russie (flexibilité), Émirats (contribution), Mexique (reboisement)"
+      ]
+    },
+    {
+      "etape": "Séquencement des Négociations",
+      "objectifs": "Optimiser le déroulement des négociations pour maximiser les gains",
+      "actions_cles": [
+        "Pré-négociation : Évaluer les positions et construire des alliances",
+        "Phase initiale : Établir un climat de confiance",
+        "Négociations bilatérales : Échanger des concessions et proposer des compromis",
+        "Consolidation des accords : Formaliser les engagements avec suivi et vérification"
+      ],
+      "exemples_pratiques": [
+        "Chine (SSP2) : Flexibilité avec la Russie, compromis avec les Émirats, suivi avec le Mexique",
+        "Haïti (SSP1) : Accès préférentiel au marché européen avec la France"
+      ]
+    },
+    {
+      "etape": "Stratégies de Concession",
+      "objectifs": "Optimiser les gains en échangeant des concessions stratégiques",
+      "actions_cles": [
+        "Échanger des avantages économiques contre des engagements climatiques",
+        "Offrir des partenariats technologiques contre flexibilité sur les réductions",
+        "Négocier des coopérations régionales pour maximiser les financements"
+      ],
+      "exemples_pratiques": [
+        "Chine : Partenariats technologiques avec le Mexique contre flexibilité sur les réductions",
+        "Haïti : Avantages commerciaux à la France pour des financements de reboisement"
+      ]
+    }
+  ]
+}

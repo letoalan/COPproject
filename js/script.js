@@ -1,13 +1,157 @@
+document.querySelectorAll('.info-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        // Masquer tous les contenus
+        document.querySelectorAll('.cop-info').forEach(info => {
+            info.style.display = 'none';
+        });
+
+        // Afficher le contenu correspondant au bouton cliqué
+        const targetId = this.getAttribute('data-target');
+        document.getElementById(targetId).style.display = 'block';
+    });
+});
+
+// Fonction pour afficher la section correspondante dans l'onglet "Objectifs de la simulation"
+function showSimulationSection(sectionId) {
+    // Masquer toutes les sections
+    document.querySelectorAll('.simulation-section').forEach(section => {
+        section.style.display = 'none';
+    });
+
+    // Afficher la section sélectionnée
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.style.display = 'block';
+    }
+}
+
+// Afficher la section "Général" par défaut au chargement de la page
+document.addEventListener("DOMContentLoaded", () => {
+    showSimulationSection('general');
+});
+
+function updateNegociationInfo() {
+    const country = document.getElementById("negociation-country-select").value;
+    const contributionElement = document.getElementById("negociation-contribution");
+    const aidesElement = document.getElementById("negociation-aides");
+    const scenariosContent = document.getElementById("negociation-scenarios-content");
+
+    // Charger les données de négociation depuis negociation.json
+    fetch("data/negociation.json")
+        .then(response => response.json())
+        .then(data => {
+            const paysData = data.state.find(p => p.pays === country);
+            if (paysData) {
+                // Trouver le scénario SSP1 + RCP1.9
+                const scenarioData = paysData.scenarios.find(s => s.nom === "SSP1 + RCP1.9");
+
+                if (scenarioData) {
+                    // Mettre à jour les informations de base
+                    contributionElement.textContent = scenarioData.contribution_milliards.min + "-" + scenarioData.contribution_milliards.max;
+                    aidesElement.textContent = scenarioData.aides_milliards.min + "-" + scenarioData.aides_milliards.max;
+
+                    // Afficher uniquement le scénario SSP1 + RCP1.9
+                    scenariosContent.innerHTML = `
+                        <div class="negociation-scenario">
+                            <h4>${scenarioData.nom}</h4>
+                            <p><strong>Année de pic :</strong> ${scenarioData.annee_pic.min}-${scenarioData.annee_pic.max}</p>
+                            <p><strong>Année de réduction :</strong> ${scenarioData.annee_reduction.min}-${scenarioData.annee_reduction.max}</p>
+                            <p><strong>Réduction des émissions :</strong> ${scenarioData.reduction_pourcentage.min}-${scenarioData.reduction_pourcentage.max}%</p>
+                            <p><strong>Déforestation :</strong> ${scenarioData.deforestation.min}-${scenarioData.deforestation.max}%</p>
+                            <p><strong>Reboisement :</strong> ${scenarioData.reboisement.min}-${scenarioData.reboisement.max}%</p>
+                            <div class="negociation-demandes">
+                                <strong>Demandes principales :</strong>
+                                ${scenarioData.demandes_principales.map(demande => `
+                                    <p><strong>${demande.pays} :</strong> ${demande.demandes.join(", ")}</p>
+                                `).join("")}
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    scenariosContent.innerHTML = "<p>Aucune donnée disponible pour ce scénario.</p>";
+                }
+            } else {
+                scenariosContent.innerHTML = "<p>Aucune donnée disponible pour ce pays.</p>";
+            }
+        })
+        .catch(error => {
+            console.error("Erreur lors du chargement des données de négociation :", error);
+            scenariosContent.innerHTML = "<p>Erreur lors du chargement des données.</p>";
+        });
+}
+
+// Fonction pour charger et afficher les données de négociation pour un scénario donné
+function loadNegociationScenario(scenario) {
+    const country = document.getElementById("negociation-country-select").value;
+    const contributionElement = document.getElementById("negociation-contribution");
+    const aidesElement = document.getElementById("negociation-aides");
+    const scenariosContent = document.getElementById("negociation-scenarios-content");
+
+    // Charger les données de négociation depuis negociation.json
+    fetch("data/negociation.json")
+        .then(response => response.json())
+        .then(data => {
+            const paysData = data.state.find(p => p.pays === country);
+            if (paysData) {
+                // Trouver le scénario correspondant
+                const scenarioData = paysData.scenarios.find(s => s.nom === scenario);
+                if (scenarioData) {
+                    // Mettre à jour les informations de base
+                    contributionElement.textContent = scenarioData.contribution_milliards.min + "-" + scenarioData.contribution_milliards.max + " milliards";
+                    aidesElement.textContent = scenarioData.aides_milliards.min + "-" + scenarioData.aides_milliards.max + " milliards";
+
+                    // Afficher uniquement le scénario sélectionné
+                    scenariosContent.innerHTML = `
+                        <div class="negociation-scenario">
+                            <h4>${scenarioData.nom}</h4>
+                            <p><strong>Année de pic :</strong> ${scenarioData.annee_pic.min}-${scenarioData.annee_pic.max}</p>
+                            <p><strong>Année de réduction :</strong> ${scenarioData.annee_reduction.min}-${scenarioData.annee_reduction.max}</p>
+                            <p><strong>Réduction des émissions :</strong> ${scenarioData.reduction_pourcentage.min}-${scenarioData.reduction_pourcentage.max}%</p>
+                            <p><strong>Déforestation :</strong> ${scenarioData.deforestation.min}-${scenarioData.deforestation.max}%</p>
+                            <p><strong>Reboisement :</strong> ${scenarioData.reboisement.min}-${scenarioData.reboisement.max}%</p>
+                            <div class="negociation-demandes">
+                                <strong>Demandes principales :</strong>
+                                ${scenarioData.demandes_principales.map(demande => `
+                                    <p><strong>${demande.pays} :</strong> ${demande.demandes.join(", ")}</p>
+                                `).join("")}
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    scenariosContent.innerHTML = "<p>Aucune donnée disponible pour ce scénario.</p>";
+                }
+            } else {
+                scenariosContent.innerHTML = "<p>Aucune donnée disponible pour ce pays.</p>";
+            }
+        })
+        .catch(error => {
+            console.error("Erreur lors du chargement des données de négociation :", error);
+            scenariosContent.innerHTML = "<p>Erreur lors du chargement des données.</p>";
+        });
+}
 
 // Variable globale pour stocker le scénario actuel
 let currentScenario = "SSP1 + RCP1.9"; // Scénario par défaut
 
 
-// Fonction pour basculer entre les onglets
 function showTab(tabId) {
+    // Masquer tous les onglets
     const tabs = document.querySelectorAll(".tab-content");
     tabs.forEach((tab) => (tab.style.display = "none"));
-    document.getElementById(tabId).style.display = "block";
+
+    // Afficher l'onglet sélectionné
+    const tab = document.getElementById(tabId);
+    if (tab) {
+        tab.style.display = "block";
+    } else {
+        console.error(`Onglet non trouvé : ${tabId}`);
+        return;
+    }
+
+    // Si l'onglet "Scénario du GIEC" est sélectionné, charger le scénario SSP1 + RCP1.9
+    if (tabId === "scenario-tab") {
+        showScenario("SSP1 + RCP1.9"); // Charger et afficher le scénario par défaut
+    }
 
     // Mettre à jour le drapeau uniquement si l'onglet "Pays" est sélectionné
     if (tabId === "country-tab") {
@@ -876,16 +1020,19 @@ function updateGesSectorsChart(stateData) {
 }
 
 
+// Modifier la fonction DOMContentLoaded pour afficher l'onglet "COP-tab" par défaut
 document.addEventListener("DOMContentLoaded", () => {
     initMap();
-    showTab("scenario-tab"); // Afficher l'onglet "Scénario" par défaut
+    showTab("COP-tab"); // Afficher l'onglet "Présentation des COP" par défaut
 
-    // Charger le Scénario 1 du Brésil par défaut
+    // Afficher la section "Histoire des COP" par défaut
+    document.getElementById("histoire-cop").style.display = "block";
+
+    // Charger le Scénario 1 du Brésil par défaut (au cas où l'utilisateur navigue vers l'onglet Scénario)
     const defaultScenario = "SSP1 + RCP1.9";
     const defaultCountry = "Brésil";
 
-    // Mettre à jour les éléments visuels
-    showScenario(defaultScenario); // Afficher le scénario par défaut
+    // Mettre à jour les éléments visuels pour le scénario par défaut
     document.getElementById("country-select").value = defaultCountry; // Sélectionner le Brésil
     loadScenario(defaultScenario); // Charger les données du Brésil pour le scénario par défaut
     updateCountryFlag("Brésil");

@@ -316,6 +316,34 @@ main {
     #country-tab-buttons button {
         width: 100%;
     }
+    /* Styles pour le sélecteur de pays dans l'onglet Stratégie par pays */
+    #country-tab .state-selector {
+        margin: 20px 0;
+    }
+
+    #country-tab .state-selector label {
+        font-size: 1.1rem;
+        margin-right: 10px;
+    }
+
+    #country-tab .state-selector select {
+        padding: 8px 15px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: white;
+        cursor: pointer;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    #country-tab .state-selector select:hover {
+        border-color: #3498db; /* Couleur de la bordure au survol */
+    }
+
+    #country-tab .state-selector select:focus {
+        border-color: #3498db; /* Couleur de la bordure lorsqu'il est sélectionné */
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Effet de focus */
+    }
 }
 
 /* Styles pour l'onglet Informations sur les États */
@@ -403,4 +431,214 @@ main {
         overflow-x: auto;
         white-space: nowrap;
     }
+}
+/* Styles pour centrer les boutons de l'onglet "Présentation des COP" */
+/* Styles pour centrer les boutons horizontalement dans l'onglet "Présentation des COP" */
+/* Styles pour centrer les boutons de l'onglet "Présentation des COP" */
+#COP-tab {
+    display: flex;
+    justify-content: center; /* Centre les boutons horizontalement */
+    gap: 10px; /* Espacement entre les boutons */
+    padding: 20px; /* Ajoute un peu d'espace autour des boutons */
+}
+
+/* Styles pour les boutons d'information */
+.info-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    text-align: center; /* Centre le texte à l'intérieur des boutons */
+}
+
+.info-btn:hover {
+    background-color: #219653;
+}
+
+
+
+
+/* Styles pour les sections d'information */
+.cop-info {
+    margin-top: 20px;
+}
+
+.cop-info h3 {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.cop-info p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Styles pour les images des COP */
+.cop-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour les boutons de l'onglet "Objectifs de la simulation" */
+#simulation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne si nécessaire */
+}
+
+#simulation-buttons button {
+    background-color: #27ae60; /* Couleur verte comme les autres boutons */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    flex: 1; /* Les boutons prennent une largeur égale */
+    max-width: 150px; /* Largeur maximale pour éviter qu'ils ne deviennent trop larges */
+}
+
+#simulation-buttons button:hover {
+    background-color: #219653; /* Couleur au survol */
+}
+
+/* Styles pour les sections de l'onglet "Objectifs de la simulation" */
+.simulation-section {
+    display: none; /* Masquer toutes les sections par défaut */
+    text-align: center;
+    padding: 20px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.simulation-section.active {
+    display: block; /* Afficher la section active */
+}
+
+.simulation-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.simulation-section h3 {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.simulation-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Styles pour l'onglet Négociation par pays */
+#negociation-tab {
+    padding: 20px;
+}
+
+#negociation-infos-base {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#negociation-scenarios-content {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.negociation-scenario {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-left: 4px solid #3498db;
+    background-color: #ecf5ff;
+}
+
+.negociation-scenario h4 {
+    margin-top: 0;
+    color: #2980b9;
+}
+
+.negociation-demandes {
+    margin-left: 20px;
+}
+
+.negociation-demandes p {
+    margin: 5px 0;
+}
+
+/* Styles pour les boutons de scénarios dans l'onglet Négociation par pays */
+#negociation-scenario-buttons {
+    display: flex;
+    justify-content: center; /* Centre les boutons horizontalement */
+    gap: 10px; /* Espacement entre les boutons */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne si nécessaire */
+}
+
+#negociation-scenario-buttons button {
+    background-color: #27ae60; /* Couleur verte comme les autres boutons */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    flex: 1; /* Les boutons prennent une largeur égale */
+    max-width: 150px; /* Largeur maximale pour éviter qu'ils ne deviennent trop larges */
+}
+
+#negociation-scenario-buttons button:hover {
+    background-color: #219653; /* Couleur au survol */
+}
+
+/* Styles pour le sélecteur de pays dans l'onglet Négociation par pays */
+#negociation-tab .state-selector {
+    margin: 20px 0;
+}
+
+#negociation-tab .state-selector label {
+    font-size: 1.1rem;
+    margin-right: 10px;
+}
+
+#negociation-tab .state-selector select {
+    padding: 8px 15px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#negociation-tab .state-selector select:hover {
+    border-color: #3498db; /* Couleur de la bordure au survol */
+}
+
+#negociation-tab .state-selector select:focus {
+    border-color: #3498db; /* Couleur de la bordure lorsqu'il est sélectionné */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Effet de focus */
 }
