@@ -643,7 +643,7 @@ main {
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Effet de focus */
 }
 
-/* Styles pour le tableau des stratégies des États */
+/* Styles pour le tableau des stratégies des États new */
 #strategie-etats-table {
     width: 100%;
     border-collapse: collapse;

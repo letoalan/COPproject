@@ -50,7 +50,7 @@ function loadStrategieEtats() {
         });
 }
 
-// Appeler la fonction pour charger les données lorsque la section États est affichée
+// Appeler la fonction pour charger les données lorsque la section États est affichée new
 function showSimulationSection(sectionId) {
     // Masquer toutes les sections
     document.querySelectorAll('.simulation-section').forEach(section => {
