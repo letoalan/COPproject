@@ -23,23 +23,44 @@ header h1 {
     color: #2c3e50;
 }
 
-nav {
-    margin-top: 10px;
+/* Styles pour le conteneur des boutons de navigation */
+header nav {
+    display: flex;
+    flex-wrap: nowrap; /* Empêche le retour à la ligne */
+    overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
+    gap: 10px; /* Espacement entre les boutons */
+    padding: 10px 0; /* Espacement intérieur */
 }
 
-nav button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1rem;
+/* Styles pour les boutons de navigation */
+header nav button {
+    flex: 0 0 auto; /* Empêche les boutons de rétrécir ou de grandir */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    padding: 10px 20px; /* Espacement intérieur des boutons */
+    background-color: #3498db; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border: none; /* Supprime la bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur en forme de main */
+    font-size: 1rem; /* Taille de la police */
+    transition: background-color 0.3s; /* Transition fluide */
 }
 
-nav button:hover {
-    background-color: #2980b9;
+/* Effet de survol pour les boutons */
+header nav button:hover {
+    background-color: #2980b9; /* Couleur de fond au survol */
+}
+
+/* Styles pour les petits écrans (optionnel) */
+@media (max-width: 768px) {
+    header nav {
+        padding: 5px 0; /* Réduire l'espacement sur les petits écrans */
+    }
+
+    header nav button {
+        padding: 8px 15px; /* Réduire la taille des boutons sur les petits écrans */
+        font-size: 0.9rem; /* Réduire la taille de la police */
+    }
 }
 
 main {
