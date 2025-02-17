@@ -124,6 +124,21 @@ function updateNegociationInfo() {
         });
 }
 
+// Fonction pour initialiser les données par défaut (Brésil avec SSP1 + RCP1.9)
+function initNegociationDefault() {
+    // Sélectionner le Brésil dans le menu déroulant
+    const countrySelect = document.getElementById("negociation-country-select");
+    countrySelect.value = "Brésil";
+
+    // Charger les données du Brésil pour le scénario SSP1 + RCP1.9
+    loadNegociationScenario("SSP1 + RCP1.9");
+}
+
+// Appeler la fonction d'initialisation au chargement de la page
+document.addEventListener("DOMContentLoaded", () => {
+    initNegociationDefault(); // Initialiser les données par défaut
+});
+
 // Fonction pour charger et afficher les données de négociation pour un scénario donné
 function loadNegociationScenario(scenario) {
     const country = document.getElementById("negociation-country-select").value;
