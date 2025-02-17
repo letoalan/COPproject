@@ -10,8 +10,47 @@ document.querySelectorAll('.info-btn').forEach(button => {
         document.getElementById(targetId).style.display = 'block';
     });
 });
+// Fonction pour charger et afficher les données de stratégie de négociation sous la section États
+function loadStrategieEtats() {
+    fetch("data/exemples.json")
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.querySelector("#strategie-etats-table tbody");
+            tableBody.innerHTML = ""; // Vider le tableau avant de le remplir
 
-// Fonction pour afficher la section correspondante dans l'onglet "Objectifs de la simulation"
+            data.strategie_negociation.forEach(etape => {
+                const row = document.createElement("tr");
+
+                // Colonne Étape
+                const etapeCell = document.createElement("td");
+                etapeCell.textContent = etape.etape;
+                row.appendChild(etapeCell);
+
+                // Colonne Objectifs
+                const objectifsCell = document.createElement("td");
+                objectifsCell.textContent = etape.objectifs;
+                row.appendChild(objectifsCell);
+
+                // Colonne Actions Clés
+                const actionsCell = document.createElement("td");
+                actionsCell.innerHTML = etape.actions_cles.join("<br>"); // Afficher chaque action sur une nouvelle ligne
+                row.appendChild(actionsCell);
+
+                // Colonne Exemples Pratiques
+                const exemplesCell = document.createElement("td");
+                exemplesCell.innerHTML = etape.exemples_pratiques.join("<br>"); // Afficher chaque exemple sur une nouvelle ligne
+                row.appendChild(exemplesCell);
+
+                // Ajouter la ligne au tableau
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error("Erreur lors du chargement des données de stratégie de négociation :", error);
+        });
+}
+
+// Appeler la fonction pour charger les données lorsque la section États est affichée
 function showSimulationSection(sectionId) {
     // Masquer toutes les sections
     document.querySelectorAll('.simulation-section').forEach(section => {
@@ -22,6 +61,11 @@ function showSimulationSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {
         section.style.display = 'block';
+
+        // Si la section "États" est affichée, charger les données de stratégie
+        if (sectionId === 'etats') {
+            loadStrategieEtats();
+        }
     }
 }
 

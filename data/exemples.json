@@ -1,88 +1,89 @@
 {
   "strategie_negociation": [
     {
-      "etape": "Comprendre les Scénarios",
-      "objectifs": "Adapter la stratégie au contexte climatique et économique",
+      "etape": "Comprendre les Scénarios Climatiques",
+      "objectifs": "Apprendre à adapter les actions en fonction des différents scénarios climatiques.",
       "actions_cles": [
-        "Analyser les 4 scénarios :",
-        "SSP1 + RCP1.9 : Transition rapide",
-        "SSP2 + RCP4.5 : Transition modérée",
-        "SSP3 + RCP6.0 : Engagements faibles",
-        "SSP5 + RCP8.5 : Croissance sans contrainte climatique"
+        "Découvrir les 4 scénarios principaux :",
+        "1. SSP1 + RCP1.9 : Un monde où on agit rapidement pour réduire les émissions et protéger l'environnement.",
+        "2. SSP2 + RCP4.5 : Un monde où on agit modérément, avec des efforts moyens pour réduire les émissions.",
+        "3. SSP3 + RCP6.0 : Un monde où les pays ne coopèrent pas beaucoup, et les émissions restent élevées.",
+        "4. SSP5 + RCP8.5 : Un monde où on ne fait presque rien pour réduire les émissions, ce qui entraîne un réchauffement climatique important."
       ],
       "exemples_pratiques": [
-        "SSP1 + RCP1.9 : Prioriser les demandes d'aides et de reboisement",
-        "SSP3 + RCP6.0 : Demander des flexibilités sur les engagements"
+        "Dans le scénario SSP1 + RCP1.9, les pays investissent dans des énergies propres et réduisent la déforestation.",
+        "Dans le scénario SSP3 + RCP6.0, les pays se concentrent sur leurs propres intérêts et ne coopèrent pas beaucoup."
       ]
     },
     {
-      "etape": "Analyser les Objectifs Nationaux",
-      "objectifs": "Définir les priorités climatiques et économiques",
+      "etape": "Analyser les Objectifs de Chaque Pays",
+      "objectifs": "Comprendre ce que chaque pays veut accomplir dans les négociations climatiques.",
       "actions_cles": [
-        "Identifier les objectifs par scénario :",
-        "Réductions d'émissions",
-        "Reboisement et déforestation",
-        "Contributions et aides financières"
+        "Identifier les priorités des pays :",
+        "1. Réduire les émissions de gaz à effet de serre : Certains pays veulent réduire leurs émissions rapidement.",
+        "2. Protéger les forêts : D'autres pays veulent arrêter la déforestation et planter des arbres.",
+        "3. Recevoir de l'aide financière : Les pays en développement demandent de l'aide pour financer leurs projets écologiques."
       ],
       "exemples_pratiques": [
-        "SSP1 : Objectifs ambitieux de réduction et de reboisement",
-        "SSP2 : Réductions modérées avec soutien au développement économique"
+        "Le Brésil veut réduire la déforestation en Amazonie, mais il a besoin d'aide financière pour y parvenir.",
+        "La France veut aider les pays en développement à financer des projets écologiques."
       ]
     },
     {
-      "etape": "Identification des États Cibles",
-      "objectifs": "Maximiser les gains en ciblant les partenaires stratégiques",
+      "etape": "Identifier les Alliés et les Partenaires",
+      "objectifs": "Trouver des pays qui partagent les mêmes objectifs pour travailler ensemble.",
       "actions_cles": [
-        "Classer les États cibles :",
-        "Financeurs (États-Unis, France, Chine)",
-        "Économies émergentes (Brésil, Mexique, Émirats)",
-        "Alliances Sud-Sud (Chili, Sénégal, Vanuatu)"
+        "Classer les pays en trois groupes :",
+        "1. Les pays riches : Ils peuvent fournir de l'argent et des technologies.",
+        "2. Les pays émergents : Ils ont besoin d'aide pour réduire leurs émissions tout en développant leur économie.",
+        "3. Les pays vulnérables : Ils sont les plus touchés par le changement climatique et ont besoin de soutien."
       ],
       "exemples_pratiques": [
-        "Haïti : Cible les États-Unis pour +20% d'aides et la Chine pour le transfert technologique",
-        "Chine : Négocie avec la Russie et le Mexique pour avancer les réductions"
+        "Haïti peut demander de l'aide aux États-Unis pour financer des projets écologiques.",
+        "La Chine peut collaborer avec le Mexique pour partager des technologies vertes."
       ]
     },
     {
-      "etape": "Définir les Demandes et Marges de Négociation",
-      "objectifs": "Formuler des demandes stratégiques et maximiser les marges de négociation",
+      "etape": "Définir les Demandes et les Concessions",
+      "objectifs": "Préparer des demandes claires et savoir ce qu'on peut offrir en échange.",
       "actions_cles": [
-        "Définir des demandes spécifiques :",
-        "Aides financières (+20% des États-Unis)",
-        "Transferts technologiques (Chine)",
-        "Réduction de la déforestation (France)",
-        "Flexibilité sur les engagements (Brésil, Chine)"
+        "Préparer des demandes spécifiques :",
+        "1. Demander de l'aide financière : Par exemple, +20% d'aide des pays riches.",
+        "2. Demander des réductions de déforestation : Par exemple, réduire la déforestation de 2%.",
+        "3. Offrir des concessions : Par exemple, réduire les émissions en échange d'aide financière."
       ],
       "exemples_pratiques": [
-        "Haïti (SSP1) : États-Unis (+20% d'aides), France (reboisement), Chine (technologies vertes)",
-        "Chine (SSP2) : Russie (flexibilité), Émirats (contribution), Mexique (reboisement)"
+        "Haïti peut demander +20% d'aide aux États-Unis en échange de projets de reboisement.",
+        "La Chine peut offrir des réductions d'émissions au Mexique en échange de flexibilité sur les engagements."
       ]
     },
     {
-      "etape": "Séquencement des Négociations",
-      "objectifs": "Optimiser le déroulement des négociations pour maximiser les gains",
+      "etape": "Organiser les Négociations",
+      "objectifs": "Planifier les étapes des négociations pour maximiser les chances de succès.",
       "actions_cles": [
-        "Pré-négociation : Évaluer les positions et construire des alliances",
-        "Phase initiale : Établir un climat de confiance",
-        "Négociations bilatérales : Échanger des concessions et proposer des compromis",
-        "Consolidation des accords : Formaliser les engagements avec suivi et vérification"
+        "Suivre ces étapes :",
+        "1. Pré-négociation : Discuter avec les alliés pour préparer une stratégie commune.",
+        "2. Phase initiale : Établir un climat de confiance avec les autres pays.",
+        "3. Négociations bilatérales : Discuter directement avec les pays pour échanger des concessions.",
+        "4. Consolidation des accords : Formaliser les engagements et s'assurer qu'ils sont respectés."
       ],
       "exemples_pratiques": [
-        "Chine (SSP2) : Flexibilité avec la Russie, compromis avec les Émirats, suivi avec le Mexique",
-        "Haïti (SSP1) : Accès préférentiel au marché européen avec la France"
+        "La Chine peut négocier avec la Russie pour obtenir de la flexibilité sur les réductions d'émissions.",
+        "Haïti peut obtenir un accès préférentiel au marché européen en échange de projets écologiques."
       ]
     },
     {
-      "etape": "Stratégies de Concession",
-      "objectifs": "Optimiser les gains en échangeant des concessions stratégiques",
+      "etape": "Faire des Concessions Stratégiques",
+      "objectifs": "Savoir ce qu'on peut offrir pour obtenir ce qu'on veut.",
       "actions_cles": [
-        "Échanger des avantages économiques contre des engagements climatiques",
-        "Offrir des partenariats technologiques contre flexibilité sur les réductions",
-        "Négocier des coopérations régionales pour maximiser les financements"
+        "Échanger des avantages :",
+        "1. Offrir des réductions d'émissions : Par exemple, réduire les émissions de 10% en échange d'aide financière.",
+        "2. Partager des ressources : Par exemple, offrir des avantages commerciaux en échange de financements écologiques.",
+        "3. Coopérer régionalement : Travailler avec des pays voisins pour maximiser les financements."
       ],
       "exemples_pratiques": [
-        "Chine : Partenariats technologiques avec le Mexique contre flexibilité sur les réductions",
-        "Haïti : Avantages commerciaux à la France pour des financements de reboisement"
+        "La Chine peut offrir des réductions d'émissions au Mexique en échange de flexibilité sur les engagements.",
+        "Haïti peut offrir des avantages commerciaux à la France en échange de financements pour le reboisement."
       ]
     }
   ]
