@@ -1,0 +1,469 @@
+{
+  "acteurs non-étatiques": [
+    {
+      "nom": "Greenpeace",
+      "strategies": [
+        {
+          "scenario": "SSP1 + RCP1.9",
+          "strategies_action": [
+            {
+              "nom": "Campagnes d'action directe contre les énergies fossiles",
+              "objectifs": "Arrêt immédiat des nouveaux projets fossiles",
+              "etats_concernes": ["France", "Allemagne", "États-Unis"],
+              "actions": {
+                "France": "Bloquer les nouveaux projets de terminaux méthaniers",
+                "Allemagne": "Manifestations contre les centrales à charbon restantes",
+                "États-Unis": "Actions en justice contre les nouveaux permis de forage pétrolier"
+              }
+            },
+            {
+              "nom": "Promotion des solutions énergétiques durables",
+              "objectifs": "Accélération de la transition énergétique",
+              "etats_concernes": ["Indonésie", "Brésil", "Inde"],
+              "actions": {
+                "Indonésie": "Campagnes pour la protection des forêts et le développement du solaire",
+                "Brésil": "Documentation des impacts de la déforestation et promotion des alternatives",
+                "Inde": "Soutien aux communautés développant des micro-réseaux solaires"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP2 + RCP4.5",
+          "strategies_action": [
+            {
+              "nom": "Pression sur les institutions financières",
+              "objectifs": "Désinvestissement des énergies fossiles",
+              "etats_concernes": ["Royaume-Uni", "Suisse", "Japon"],
+              "actions": {
+                "Royaume-Uni": "Campagnes ciblées contre les banques finançant les énergies fossiles",
+                "Suisse": "Actions de sensibilisation auprès des grandes banques",
+                "Japon": "Mobilisation contre les investissements dans le charbon"
+              }
+            },
+            {
+              "nom": "Lobbying pour des régulations climatiques strictes",
+              "objectifs": "Renforcement des politiques climatiques",
+              "etats_concernes": ["Union Européenne", "Canada", "Australie"],
+              "actions": {
+                "Union Européenne": "Plaidoyer pour le renforcement des objectifs de réduction d'émissions",
+                "Canada": "Campagnes pour l'arrêt des subventions aux énergies fossiles",
+                "Australie": "Pression pour la sortie du charbon et la protection de la Grande Barrière"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP3 + RCP6.0",
+          "strategies_action": [
+            {
+              "nom": "Documentation et dénonciation des impacts climatiques",
+              "objectifs": "Sensibilisation aux conséquences du changement climatique",
+              "etats_concernes": ["Îles du Pacifique", "Afrique subsaharienne", "Arctique"],
+              "actions": {
+                "Îles du Pacifique": "Documentation de la montée des eaux et des impacts sur les communautés",
+                "Afrique subsaharienne": "Rapport sur les impacts de la sécheresse et promotion des solutions locales",
+                "Arctique": "Documentation de la fonte des glaces et mobilisation internationale"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP5 + RCP8.5",
+          "strategies_action": [
+            {
+              "nom": "Actions de résistance civile intensifiées",
+              "objectifs": "Forcer l'arrêt d'urgence des projets les plus polluants",
+              "etats_concernes": ["Chine", "Russie", "Arabie Saoudite"],
+              "actions": {
+                "Chine": "Campagnes internationales contre l'expansion des centrales à charbon",
+                "Russie": "Documentation et dénonciation des projets d'exploitation en Arctique",
+                "Arabie Saoudite": "Mobilisation contre les nouveaux projets pétroliers"
+              }
+            },
+            {
+              "nom": "Mobilisation mondiale d'urgence climatique",
+              "objectifs": "Déclaration d'urgence climatique mondiale",
+              "etats_concernes": ["États-Unis", "Union Européenne", "Nations Unies"],
+              "actions": {
+                "États-Unis": "Manifestations massives pour la déclaration d'urgence climatique",
+                "Union Européenne": "Pression pour un plan d'action climatique d'urgence",
+                "Nations Unies": "Campagne pour une réponse internationale coordonnée"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nom": "BlackRock",
+      "strategies": [
+        {
+          "scenario": "SSP1 + RCP1.9",
+          "strategies_action": [
+            {
+              "nom": "Investissement massif dans les énergies renouvelables",
+              "objectifs": "Atteindre la neutralité carbone",
+              "etats_concernes": ["France", "Allemagne", "États-Unis"],
+              "actions": {
+                "France": "Accorder des subventions pour encourager l'énergie solaire et éolienne",
+                "Allemagne": "Investir dans l'hydrogène vert comme énergie du futur",
+                "États-Unis": "Encourager les entreprises à investir dans les technologies propres avec des réductions fiscales"
+              }
+            },
+            {
+              "nom": "Développement de fonds verts et obligations climatiques",
+              "objectifs": "Financer des projets à faible émission",
+              "etats_concernes": ["Mexique", "Chili", "Sénégal"],
+              "actions": {
+                "Mexique": "Financer des fermes solaires dans les régions ensoleillées du nord du pays",
+                "Chili": "Développer des projets géothermiques grâce à l'activité volcanique",
+                "Sénégal": "Installer des panneaux solaires pour électrifier les zones rurales"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP2 + RCP4.5",
+          "strategies_action": [
+            {
+              "nom": "Diversification des portefeuilles vers les technologies bas carbone",
+              "objectifs": "Réduction progressive des émissions",
+              "etats_concernes": ["Chine", "Inde", "Brésil"],
+              "actions": {
+                "Chine": "Développer des véhicules électriques pour réduire la pollution dans les grandes villes",
+                "Inde": "Augmenter l'utilisation de l'énergie solaire pour diminuer la dépendance au charbon",
+                "Brésil": "Investir dans l'hydroélectricité pour tirer parti des fleuves amazoniens"
+              }
+            },
+            {
+              "nom": "Engagement actionnarial pour influencer les entreprises polluantes",
+              "objectifs": "Transformation des secteurs polluants",
+              "etats_concernes": ["Russie", "États-Unis", "Chine"],
+              "actions": {
+                "Russie": "Inciter les industries pétrolières à adopter des technologies de captage du carbone",
+                "États-Unis": "Encourager les entreprises automobiles à produire des véhicules électriques",
+                "Chine": "Exiger des réductions d'émissions dans les industries manufacturières"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP3 + RCP6.0",
+          "strategies_action": [
+            {
+              "nom": "Maintien des investissements dans les énergies fossiles tout en explorant des options de transition",
+              "objectifs": "Optimisation des profits à court terme",
+              "etats_concernes": ["Russie", "États-Unis", "Émirats Arabes Unis"],
+              "actions": {
+                "Russie": "Continuer l'exportation de gaz naturel vers l'Europe tout en investissant dans des alternatives locales",
+                "États-Unis": "Exploiter le pétrole de schiste tout en explorant des solutions de stockage d'énergie",
+                "Émirats Arabes Unis": "Maximiser les profits pétroliers pour financer la diversification économique"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP5 + RCP8.5",
+          "strategies_action": [
+            {
+              "nom": "Maximisation des investissements dans les secteurs énergétiques traditionnels",
+              "objectifs": "Rentabilité maximale à court terme",
+              "etats_concernes": ["Russie", "États-Unis", "Chine"],
+              "actions": {
+                "Russie": "Augmenter l'extraction de pétrole en Sibérie",
+                "États-Unis": "Prioriser le charbon et le pétrole pour stimuler l'économie locale",
+                "Chine": "Maintenir l'utilisation du charbon pour soutenir son industrie manufacturière"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nom": "TotalEnergies",
+      "strategies": [
+        {
+          "scenario": "SSP1 + RCP1.9",
+          "strategies_action": [
+            {
+              "nom": "Transition accélérée vers les énergies renouvelables",
+              "objectifs": "Neutralité carbone et diversification",
+              "etats_concernes": ["France", "Chili", "Sénégal"],
+              "actions": {
+                "France": "Développer des parcs éoliens en mer pour produire de l'électricité propre",
+                "Chili": "Exploiter l'énergie solaire dans le désert d'Atacama",
+                "Sénégal": "Utiliser l'énergie solaire pour alimenter les infrastructures publiques"
+              }
+            },
+            {
+              "nom": "Réduction des investissements dans le pétrole et le gaz",
+              "objectifs": "Alignement avec les objectifs de Paris",
+              "etats_concernes": ["France", "Mexique", "Chili"],
+              "actions": {
+                "France": "Réduire la dépendance au gaz naturel et investir dans l'hydrogène vert",
+                "Mexique": "Diversifier son mix énergétique en ajoutant des énergies renouvelables",
+                "Chili": "Diminuer les importations de gaz en favorisant la géothermie"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP2 + RCP4.5",
+          "strategies_action": [
+            {
+              "nom": "Développement d'un mix énergétique équilibré (renouvelables + gaz naturel)",
+              "objectifs": "Réduction progressive des émissions",
+              "etats_concernes": ["Brésil", "Mexique", "Vanuatu"],
+              "actions": {
+                "Brésil": "Utiliser l'hydroélectricité tout en développant le solaire dans le nord-est",
+                "Mexique": "Combiner gaz naturel et solaire pour un mix énergétique équilibré",
+                "Vanuatu": "Investir dans des solutions d'énergie renouvelable pour réduire la dépendance aux importations de carburant"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP3 + RCP6.0",
+          "strategies_action": [
+            {
+              "nom": "Maintien des activités dans le pétrole et le gaz avec optimisation de l'efficacité énergétique",
+              "objectifs": "Maximisation des profits à court terme",
+              "etats_concernes": ["Russie", "États-Unis", "Émirats Arabes Unis"],
+              "actions": {
+                "Russie": "Maximiser l'efficacité des pipelines pour réduire les pertes énergétiques",
+                "États-Unis": "Améliorer l'efficacité du raffinage pétrolier",
+                "Émirats Arabes Unis": "Optimiser la production pétrolière pour réduire les coûts"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP5 + RCP8.5",
+          "strategies_action": [
+            {
+              "nom": "Expansion agressive dans le pétrole et le gaz",
+              "objectifs": "Rentabilité maximale à court terme",
+              "etats_concernes": ["Russie", "États-Unis", "Chine"],
+              "actions": {
+                "Russie": "Augmenter l'extraction en Arctique",
+                "États-Unis": "Exploiter davantage les réserves de pétrole de schiste",
+                "Chine": "Développer les infrastructures pour importer du gaz à bas coût"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nom": "GIEC",
+      "strategies": [
+        {
+          "scenario": "SSP1 + RCP1.9",
+          "strategies_action": [
+            {
+              "nom": "Évaluation scientifique des trajectoires de décarbonation",
+              "objectifs": "Fournir une base scientifique pour les politiques climatiques ambitieuses",
+              "etats_concernes": ["Monde entier", "UE", "Chine", "USA"],
+              "actions": {
+                "Monde entier": "Analyser les trajectoires permettant de limiter le réchauffement à 1.5°C",
+                "UE": "Évaluer l'efficacité des politiques de transition énergétique",
+                "USA et Chine": "Étudier le potentiel de réduction rapide des émissions"
+              }
+            },
+            {
+              "nom": "Analyse des solutions technologiques et sociétales",
+              "objectifs": "Identifier les leviers de transformation",
+              "etats_concernes": ["Pays développés", "Pays en développement"],
+              "actions": {
+                "Pays développés": "Évaluer les solutions de décarbonation profonde des industries",
+                "Pays en développement": "Étudier les trajectoires de développement bas carbone",
+                "Tous": "Analyser les changements comportementaux nécessaires"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP2 + RCP4.5",
+          "strategies_action": [
+            {
+              "nom": "Évaluation des politiques d'adaptation et d'atténuation",
+              "objectifs": "Guider les stratégies nationales climatiques",
+              "etats_concernes": ["Régions vulnérables", "Pays émergents"],
+              "actions": {
+                "Régions vulnérables": "Évaluer les besoins d'adaptation prioritaires",
+                "Pays émergents": "Analyser les compromis entre développement et réduction des émissions",
+                "Tous": "Identifier les co-bénéfices des actions climatiques"
+              }
+            },
+            {
+              "nom": "Analyse des impacts sectoriels",
+              "objectifs": "Comprendre les vulnérabilités et opportunités",
+              "etats_concernes": ["Secteurs clés mondiaux"],
+              "actions": {
+                "Agriculture": "Évaluer les impacts sur la sécurité alimentaire",
+                "Énergie": "Analyser les transitions possibles",
+                "Transport": "Étudier les options de décarbonation"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP3 + RCP6.0",
+          "strategies_action": [
+            {
+              "nom": "Évaluation des risques climatiques",
+              "objectifs": "Alerter sur les conséquences de l'inaction",
+              "etats_concernes": ["Zones à risque élevé"],
+              "actions": {
+                "Zones côtières": "Évaluer les risques de montée des eaux",
+                "Régions arides": "Analyser les impacts des sécheresses",
+                "Zones urbaines": "Étudier les vulnérabilités aux chaleurs extrêmes"
+              }
+            },
+            {
+              "nom": "Analyse des points de basculement",
+              "objectifs": "Identifier les risques systémiques",
+              "etats_concernes": ["Écosystèmes sensibles"],
+              "actions": {
+                "Arctique": "Évaluer la fonte du permafrost",
+                "Amazonie": "Analyser les risques de dégradation",
+                "Coraux": "Étudier les seuils de température critiques"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP5 + RCP8.5",
+          "strategies_action": [
+            {
+              "nom": "Évaluation des impacts catastrophiques",
+              "objectifs": "Documenter les scénarios extrêmes",
+              "etats_concernes": ["Zones critiques mondiales"],
+              "actions": {
+                "Régions côtières": "Modéliser les impacts d'une montée des eaux majeure",
+                "Zones tropicales": "Évaluer les limites de l'habitabilité",
+                "Écosystèmes": "Analyser les risques d'effondrement"
+              }
+            },
+            {
+              "nom": "Analyse des besoins d'adaptation d'urgence",
+              "objectifs": "Préparer les réponses aux crises",
+              "etats_concernes": ["Populations vulnérables"],
+              "actions": {
+                "Mégapoles côtières": "Évaluer les besoins de relocalisation",
+                "Zones agricoles": "Analyser l'adaptation aux conditions extrêmes",
+                "Régions pauvres": "Étudier les capacités d'adaptation"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nom": "Médias",
+      "strategies": [
+        {
+          "scenario": "SSP1 + RCP1.9",
+          "strategies_action": [
+            {
+              "nom": "Campagnes de sensibilisation sur les énergies renouvelables",
+              "objectifs": "Informer le public sur les avantages des énergies renouvelables",
+              "etats_concernes": ["France", "Allemagne", "États-Unis"],
+              "actions": {
+                "France": "Reportages sur les projets éoliens et solaires locaux",
+                "Allemagne": "Documentaires sur la transition énergétique",
+                "États-Unis": "Campagnes médiatiques sur les réductions d'émissions réussies"
+              }
+            },
+            {
+              "nom": "Promotion des initiatives locales de durabilité",
+              "objectifs": "Encourager les initiatives locales en matière de durabilité",
+              "etats_concernes": ["Indonésie", "Brésil", "Inde"],
+              "actions": {
+                "Indonésie": "Reportages sur la protection des forêts",
+                "Brésil": "Documentaires sur les impacts de la déforestation",
+                "Inde": "Campagnes médiatiques sur les micro-réseaux solaires"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP2 + RCP4.5",
+          "strategies_action": [
+            {
+              "nom": "Couverture des politiques climatiques nationales",
+              "objectifs": "Informer sur les politiques climatiques et leurs impacts",
+              "etats_concernes": ["Royaume-Uni", "Suisse", "Japon"],
+              "actions": {
+                "Royaume-Uni": "Reportages sur les désinvestissements des banques",
+                "Suisse": "Documentaires sur les actions des grandes banques",
+                "Japon": "Campagnes médiatiques sur les investissements dans le charbon"
+              }
+            },
+            {
+              "nom": "Analyse des compromis entre développement et climat",
+              "objectifs": "Explorer les compromis entre croissance économique et réduction des émissions",
+              "etats_concernes": ["Union Européenne", "Canada", "Australie"],
+              "actions": {
+                "Union Européenne": "Reportages sur les objectifs de réduction d'émissions",
+                "Canada": "Documentaires sur les subventions aux énergies fossiles",
+                "Australie": "Campagnes médiatiques sur la sortie du charbon"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP3 + RCP6.0",
+          "strategies_action": [
+            {
+              "nom": "Reportages sur les impacts climatiques locaux",
+              "objectifs": "Sensibiliser aux conséquences locales du changement climatique",
+              "etats_concernes": ["Îles du Pacifique", "Afrique subsaharienne", "Arctique"],
+              "actions": {
+                "Îles du Pacifique": "Documentaires sur la montée des eaux",
+                "Afrique subsaharienne": "Reportages sur les sécheresses",
+                "Arctique": "Campagnes médiatiques sur la fonte des glaces"
+              }
+            },
+            {
+              "nom": "Couverture des points de basculement climatiques",
+              "objectifs": "Informer sur les risques systémiques liés au climat",
+              "etats_concernes": ["Arctique", "Amazonie", "Coraux"],
+              "actions": {
+                "Arctique": "Reportages sur la fonte du permafrost",
+                "Amazonie": "Documentaires sur la dégradation de la forêt",
+                "Coraux": "Campagnes médiatiques sur les seuils de température critiques"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP5 + RCP8.5",
+          "strategies_action": [
+            {
+              "nom": "Campagnes d'urgence climatique",
+              "objectifs": "Mobiliser l'opinion publique face à l'urgence climatique",
+              "etats_concernes": ["États-Unis", "Union Européenne", "Nations Unies"],
+              "actions": {
+                "États-Unis": "Reportages sur les manifestations pour l'urgence climatique",
+                "Union Européenne": "Documentaires sur les plans d'action d'urgence",
+                "Nations Unies": "Campagnes médiatiques pour une réponse internationale"
+              }
+            },
+            {
+              "nom": "Documentaires sur les impacts catastrophiques",
+              "objectifs": "Montrer les conséquences extrêmes du changement climatique",
+              "etats_concernes": ["Zones côtières", "Zones tropicales", "Écosystèmes"],
+              "actions": {
+                "Zones côtières": "Reportages sur la montée des eaux",
+                "Zones tropicales": "Documentaires sur les limites de l'habitabilité",
+                "Écosystèmes": "Campagnes médiatiques sur les risques d'effondrement"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

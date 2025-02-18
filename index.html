@@ -22,6 +22,7 @@
         <button onclick="showTab('state-info-tab')">Informations sur les États</button>
         <button onclick="showTab('country-tab')">Stratégie par pays</button>
         <button onclick="showTab('negociation-tab')">Négociation par pays</button>
+        <button onclick="showTab('actors-tab')">Négociation par acteur</button>
     </nav>
 </header>
 
@@ -75,6 +76,78 @@
             <p>
                 La simulation vise à reproduire les négociations climatiques internationales en mettant en lumière les enjeux, les acteurs et les mécanismes de prise de décision. L'objectif est de sensibiliser les participants aux défis de la lutte contre le changement climatique et de les encourager à trouver des solutions équilibrées et durables.
             </p>
+
+            <!-- Nouveau contenu ajouté -->
+            <h3>L'objectif de la COP</h3>
+            <div class="general-column-layout">
+
+                <!-- Colonne 1 : Tableau des objectifs climatiques -->
+                <div class="general-text-column">
+                    <h4>Objectifs Climatiques</h4>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Objectif</th>
+                            <th>Résultat</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><strong>1.5°C</strong></td>
+                            <td>Succès total</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2°C</strong></td>
+                            <td>Succès partiel</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2-3°C</strong></td>
+                            <td>Échec relatif</td>
+                        </tr>
+                        <tr>
+                            <td><strong>>3°C</strong></td>
+                            <td>Échec total</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Fonds Verts</h4>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Montant</th>
+                            <th>Résultat</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><strong>0-50 milliards</strong></td>
+                            <td>Échec</td>
+                        </tr>
+                        <tr>
+                            <td><strong>50-100 milliards</strong></td>
+                            <td>Échec relatif</td>
+                        </tr>
+                        <tr>
+                            <td><strong>100-200 milliards</strong></td>
+                            <td>Succès partiel</td>
+                        </tr>
+                        <tr>
+                            <td><strong>200-300 milliards</strong></td>
+                            <td>Succès total</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Colonne 2 : Graphique -->
+                <div class="general-chart-column">
+                    <h4>Trajectoires Climatiques</h4>
+                    <div class="chart-container">
+                        <canvas id="generalClimateChart"></canvas>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Section États -->
@@ -109,6 +182,40 @@
             <p>
                 L'Organisation des Nations Unies (ONU) facilite les négociations climatiques en fournissant un cadre de discussion et en coordonnant les efforts internationaux. Le GIEC (Groupe d'experts intergouvernemental sur l'évolution du climat) joue un rôle clé en fournissant des données scientifiques pour éclairer les décisions politiques.
             </p>
+            <h3>Action du GIEC dans une COP</h3>
+            <table class="giec-table">
+                <thead>
+                <tr>
+                    <th>Actions</th>
+                    <th>Description</th>
+                    <th>Acteurs concernés</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Fourniture de données scientifiques</td>
+                    <td>Publication de rapports d'évaluation servant de base scientifique aux négociations.</td>
+                    <td>États, ONG, Entreprises, Médias</td>
+                </tr>
+                <tr>
+                    <td>Sensibilisation et vulgarisation</td>
+                    <td>Diffusion de résumés pour décideurs rédigés dans un langage accessible.</td>
+                    <td>États, Médias</td>
+                </tr>
+                <tr>
+                    <td>Interaction avec les acteurs clés</td>
+                    <td>Dialogue avec les États, ONG, entreprises et médias pour expliquer les conclusions scientifiques.</td>
+                    <td>États, ONG, Entreprises, Médias</td>
+                </tr>
+                <tr>
+                    <td>Modalités d'action</td>
+                    <td>Maintien de la neutralité, collaboration scientifique et validation par les États.</td>
+                    <td>États, Chercheurs</td>
+                </tr>
+                </tbody>
+            </table>
+
+
         </div>
 
         <!-- Section Lobbies -->
@@ -118,6 +225,40 @@
             <p>
                 Les lobbies représentent les intérêts des industries et des secteurs économiques. Ils influencent les décisions politiques en défendant des positions souvent liées à leurs activités. Leur rôle est controversé, mais ils sont un acteur incontournable des négociations climatiques.
             </p>
+
+            <h3>Action des Lobbies (Entreprises) dans une COP</h3>
+            <table class="lobbies-table">
+                <thead>
+                <tr>
+                    <th>Actions</th>
+                    <th>Description</th>
+                    <th>Acteurs concernés</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Influence sur les négociations</td>
+                    <td>Les lobbies exercent une influence sur les décisions politiques en défendant les intérêts de leur secteur économique, en particulier lorsqu'il s'agit du pétrole.</td>
+                    <td>États, ONG, Médias</td>
+                </tr>
+                <tr>
+                    <td>Propositions de solutions technologiques</td>
+                    <td>Ils proposent des innovations pour réduire les émissions de GES tout en favorisant la croissance économique. Cela peut passer la production de carburant moins émetteur, mais encore des énergies fossiles.</td>
+                    <td>États, Entreprises, ONG</td>
+                </tr>
+                <tr>
+                    <td>Financement des initiatives climatiques</td>
+                    <td>Participation au financement de projets environnementaux en échange d'une influence sur les réglementations (dans la plupart des cas pour freiner les réductions des émissions de GES).</td>
+                    <td>États, ONG</td>
+                </tr>
+                <tr>
+                    <td>Communication et lobbying médiatique</td>
+                    <td>Utilisation des médias pour orienter l'opinion publique en faveur de leurs stratégies, le plus souvent favorables aux énergies fossiles.</td>
+                    <td>Médias, Public</td>
+                </tr>
+                </tbody>
+            </table>
+
         </div>
 
         <!-- Section ONG -->
@@ -127,6 +268,39 @@
             <p>
                 Les Organisations Non Gouvernementales (ONG) jouent un rôle crucial en sensibilisant le public, en plaidant pour des politiques climatiques ambitieuses et en surveillant les engagements des États. Elles apportent une perspective indépendante et militent pour la justice climatique.
             </p>
+            <h3>Action des ONG (ex : Greenpeace) dans une COP</h3>
+            <table class="ong-table">
+                <thead>
+                <tr>
+                    <th>Actions</th>
+                    <th>Description</th>
+                    <th>Acteurs concernés</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Plaidoyer pour des politiques climatiques ambitieuses</td>
+                    <td>Les ONG font pression pour des objectifs de réduction des émissions plus stricts et des engagements financiers plus conséquents.</td>
+                    <td>États, Médias, Public</td>
+                </tr>
+                <tr>
+                    <td>Veille et transparence</td>
+                    <td>Surveillance des engagements climatiques des États et des entreprises pour garantir la transparence et la responsabilité.</td>
+                    <td>États, Entreprises, Médias</td>
+                </tr>
+                <tr>
+                    <td>Sensibilisation et mobilisation de l'opinion publique</td>
+                    <td>Campagnes de communication pour informer le public et influencer l'opinion publique en faveur de l'action climatique.</td>
+                    <td>Médias, Public</td>
+                </tr>
+                <tr>
+                    <td>Partenariats et collaborations</td>
+                    <td>Collaboration avec d'autres ONG, scientifiques et institutions pour renforcer l'impact de leurs actions.</td>
+                    <td>ONG, Chercheurs, Institutions internationales</td>
+                </tr>
+                </tbody>
+            </table>
+
         </div>
 
         <!-- Section Médias -->
@@ -136,6 +310,39 @@
             <p>
                 Les médias jouent un rôle essentiel en informant le public sur les enjeux climatiques et en couvrant les négociations internationales. Ils influencent l'opinion publique et contribuent à la transparence des processus décisionnels.
             </p>
+            <h3>Action des Médias dans une COP</h3>
+            <table class="medias-table">
+                <thead>
+                <tr>
+                    <th>Actions</th>
+                    <th>Description</th>
+                    <th>Acteurs concernés</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Couverture médiatique des négociations</td>
+                    <td>Les médias informent le public sur les avancées des négociations et les engagements pris par les États.</td>
+                    <td>États, ONG, Public</td>
+                </tr>
+                <tr>
+                    <td>Influence de l'opinion publique</td>
+                    <td>Ils orientent le débat public en fonction de la manière dont les informations sont présentées et analysées.</td>
+                    <td>Public, États, ONG</td>
+                </tr>
+                <tr>
+                    <td>Visibilité des acteurs</td>
+                    <td>Les médias donnent une tribune aux acteurs influents, amplifiant leurs discours et positions.</td>
+                    <td>États, ONG, Lobbies</td>
+                </tr>
+                <tr>
+                    <td>Fact-checking et transparence</td>
+                    <td>Vérification des faits pour garantir la transparence des informations diffusées lors des COP.</td>
+                    <td>Public, ONG</td>
+                </tr>
+                </tbody>
+            </table>
+
         </div>
     </div>
 
@@ -317,7 +524,7 @@
 
     <!-- Onglet Négociation par pays -->
     <div id="negociation-tab" class="tab-content">
-        <h2>Négociation par pays</h2>
+        <h3>Négociation par pays</h3>
 
         <!-- Sélecteur de pays NEW-->
         <div class="state-selector">
@@ -360,6 +567,45 @@
                 <!-- Les scénarios seront injectés ici par JavaScript -->
             </div>
         </div>
+    </div>
+    <!-- Onglet Négociation par acteurs -->
+    <div id="actors-tab" class="tab-content">
+        <h3>Stratégies des Acteurs Non-Étatiques</h3>
+
+        <!-- Sélecteur d'acteurs -->
+        <div class="state-selector">
+            <label for="actors-select">Choisissez un acteur :</label>
+            <select id="actors-select" onchange="loadActorsScenario(currentScenario)">
+                <option value="Greenpeace">Greenpeace</option>
+                <option value="BlackRock">BlackRock</option>
+                <option value="TotalEnergies">TotalEnergies</option>
+                <option value="GIEC">GIEC</option>
+                <option value="Médias">Médias</option>
+            </select>
+        </div>
+
+        <!-- Boutons pour sélectionner les scénarios -->
+        <div id="actors-scenario-buttons">
+            <button onclick="loadActorsScenario('SSP1 + RCP1.9')">SSP1 + RCP1.9</button>
+            <button onclick="loadActorsScenario('SSP2 + RCP4.5')">SSP2 + RCP4.5</button>
+            <button onclick="loadActorsScenario('SSP3 + RCP6.0')">SSP3 + RCP6.0</button>
+            <button onclick="loadActorsScenario('SSP5 + RCP8.5')">SSP5 + RCP8.5</button>
+        </div>
+
+        <!-- Tableau pour afficher les stratégies -->
+        <table id="actors-strategies-table">
+            <thead>
+            <tr>
+                <th>Nom de la stratégie</th>
+                <th>Objectifs</th>
+                <th>États concernés</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Les lignes seront ajoutées dynamiquement par JavaScript -->
+            </tbody>
+        </table>
     </div>
 </main>
 

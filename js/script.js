@@ -189,8 +189,202 @@ function loadNegociationScenario(scenario) {
         });
 }
 
+// Fonction pour initialiser le graphique des trajectoires climatiques
+function initGeneralClimateChart() {
+    const ctx = document.getElementById('generalClimateChart').getContext('2d');
+
+    // Données pour les trajectoires climatiques
+    const data = {
+        labels: ['2025', '2035', '2045', '2055', '2065', '2075', '2085', '2095', '2100'],
+        datasets: [
+            {
+                label: 'SSP1 + RCP1.9 (1.5°C)',
+                data: [1.0, 1.2, 1.3, 1.4, 1.5, 1.5, 1.5, 1.5, 1.5],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2,
+                fill: false,
+            },
+            {
+                label: 'SSP2 + RCP4.5 (2°C)',
+                data: [1.0, 1.3, 1.6, 1.9, 2.2, 2.5, 2.8, 3.1, 3.4],
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                fill: false,
+            },
+            {
+                label: 'SSP3 + RCP6.0 (2-3°C)',
+                data: [1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0],
+                borderColor: 'rgba(255, 206, 86, 1)',
+                borderWidth: 2,
+                fill: false,
+            },
+            {
+                label: 'SSP5 + RCP8.5 (>3°C)',
+                data: [1.0, 1.8, 2.6, 3.4, 4.2, 5.0, 5.8, 6.6, 7.4],
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 2,
+                fill: false,
+            },
+            {
+                label: 'Objectif COP (1.5°C)',
+                data: [1.0, 1.2, 1.3, 1.4, 1.5, 1.5, 1.5, 1.5, 1.5],
+                borderColor: 'rgba(0, 0, 0, 1)',
+                borderWidth: 2,
+                borderDash: [5, 5],
+                fill: false,
+            },
+        ],
+    };
+
+    // Options du graphique
+    const options = {
+        scales: {
+            y: {
+                beginAtZero: false,
+                title: {
+                    display: true,
+                    text: 'Température (°C)',
+                },
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Année',
+                },
+            },
+        },
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+        },
+    };
+
+    // Création du graphique
+    new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: options,
+    });
+}
+
+// Appeler la fonction pour initialiser le graphique au chargement de la page
+document.addEventListener('DOMContentLoaded', () => {
+    initGeneralClimateChart();
+});
+
+// Fonction pour mettre à jour les informations de l'acteur sélectionné
+function updateActorsInfo() {
+    const actor = document.getElementById("actors-select").value;
+    const objectivesElement = document.getElementById("actors-objectives");
+    const statesElement = document.getElementById("actors-states");
+    const strategiesContent = document.getElementById("actors-strategies-content");
+
+    // Charger les données des acteurs depuis actors.json
+    fetch("data/actors.json")
+        .then(response => response.json())
+        .then(data => {
+            const actorData = data.acteurs_non_étatiques.find(a => a.nom === actor);
+            if (actorData) {
+                // Mettre à jour les informations de base
+                objectivesElement.textContent = actorData.strategies[0].strategies_action[0].objectifs;
+                statesElement.textContent = actorData.strategies[0].strategies_action[0].etats_concernes.join(", ");
+
+                // Afficher les stratégies pour le scénario par défaut (SSP1 + RCP1.9)
+                loadActorsScenario("SSP1 + RCP1.9");
+            } else {
+                strategiesContent.innerHTML = "<p>Aucune donnée disponible pour cet acteur.</p>";
+            }
+        })
+        .catch(error => {
+            console.error("Erreur lors du chargement des données des acteurs :", error);
+            strategiesContent.innerHTML = "<p>Erreur lors du chargement des données.</p>";
+        });
+}
+
 // Variable globale pour stocker le scénario actuel
 let currentScenario = "SSP1 + RCP1.9"; // Scénario par défaut
+
+// Fonction pour charger les stratégies d'un acteur pour un scénario donné
+function loadActorsScenario(scenario) {
+    const actor = document.getElementById("actors-select").value;
+    const tableBody = document.querySelector("#actors-strategies-table tbody");
+
+    // Mettre à jour le scénario actuel
+    currentScenario = scenario;
+
+    // Charger les données des acteurs depuis actors.json
+    fetch("data/actors.json")
+        .then(response => response.json())
+        .then(data => {
+            console.log("Données chargées :", data); // Log pour vérifier les données
+
+            // Vérifier que la clé existe
+            if (!data["acteurs non-étatiques"]) {
+                console.error("La clé 'acteurs non-étatiques' est manquante dans les données.");
+                return;
+            }
+
+            const actorData = data["acteurs non-étatiques"].find(a => a.nom === actor);
+            if (actorData) {
+                const scenarioData = actorData.strategies.find(s => s.scenario === scenario);
+                if (scenarioData) {
+                    // Vider le tableau avant de le remplir
+                    tableBody.innerHTML = "";
+
+                    // Ajouter les stratégies dans le tableau
+                    scenarioData.strategies_action.forEach(strategy => {
+                        const row = document.createElement("tr");
+
+                        // Colonne Nom de la stratégie
+                        const nameCell = document.createElement("td");
+                        nameCell.textContent = strategy.nom;
+                        row.appendChild(nameCell);
+
+                        // Colonne Objectifs
+                        const objectivesCell = document.createElement("td");
+                        objectivesCell.textContent = strategy.objectifs;
+                        row.appendChild(objectivesCell);
+
+                        // Colonne États concernés
+                        const statesCell = document.createElement("td");
+                        statesCell.textContent = strategy.etats_concernes.join(", ");
+                        row.appendChild(statesCell);
+
+                        // Colonne Actions
+                        const actionsCell = document.createElement("td");
+                        const actionsList = document.createElement("ul");
+                        Object.entries(strategy.actions).forEach(([state, action]) => {
+                            const actionItem = document.createElement("li");
+                            actionItem.innerHTML = `<strong>${state} :</strong> ${action}`;
+                            actionsList.appendChild(actionItem);
+                        });
+                        actionsCell.appendChild(actionsList);
+                        row.appendChild(actionsCell);
+
+                        // Ajouter la ligne au tableau
+                        tableBody.appendChild(row);
+                    });
+                } else {
+                    tableBody.innerHTML = "<tr><td colspan='4'>Aucune donnée disponible pour ce scénario.</td></tr>";
+                }
+            } else {
+                tableBody.innerHTML = "<tr><td colspan='4'>Aucune donnée disponible pour cet acteur.</td></tr>";
+            }
+        })
+        .catch(error => {
+            console.error("Erreur lors du chargement des données des acteurs :", error);
+            tableBody.innerHTML = "<tr><td colspan='4'>Erreur lors du chargement des données.</td></tr>";
+        });
+}
+
+// Initialiser l'onglet "Négociation par acteurs" avec Greenpeace et SSP1 + RCP1.9 par défaut
+document.addEventListener("DOMContentLoaded", () => {
+    const actorsSelect = document.getElementById("actors-select");
+    actorsSelect.value = "Greenpeace"; // Définir Greenpeace comme acteur par défaut
+    loadActorsScenario("SSP1 + RCP1.9"); // Charger le scénario par défaut
+});
+
 
 
 function showTab(tabId) {
