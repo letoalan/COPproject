@@ -631,6 +631,8 @@ function updateScenarioEvolutionChart(scenario) {
             ],
         },
         options: {
+            responsive: true,
+            maintainAspectRatio: false, // Désactiver le maintien du ratio pour ajuster la hauteur
             scales: {
                 y: {
                     beginAtZero: false,
@@ -672,6 +674,20 @@ function updateScenarioEvolutionChart(scenario) {
                         display: true,
                         text: "Année",
                     },
+                },
+            },
+            plugins: {
+                legend: {
+                    position: "top", // Déplacer la légende sous le graphique
+                    labels: {
+                        padding: 10, // Réduire l'espacement autour des éléments de la légende
+                    },
+                },
+            },
+            layout: {
+                padding: {
+                    top: 20, // Espace au-dessus du graphique
+                    bottom: 10, // Espace sous la légende
                 },
             },
         },
