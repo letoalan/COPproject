@@ -506,6 +506,9 @@ function updateScenarioChart(data) {
                     },
                 },
                 y: {
+                    beginAtZero: true,
+                    min: 0, // Fixer l'échelle minimale à 0
+                    max: 12, // Fixer l'échelle maximale à 10
                     title: {
                         display: true,
                         text: "Efficacité du scénario",
