@@ -1288,6 +1288,84 @@ function updateGesSectorsChart(stateData) {
     });
 }
 
+// Fonction pour mettre à jour les informations des acteurs non étatiques
+function updateActorsInfo() {
+    const actor = document.getElementById("actor-select").value;
+    const tableBody = document.querySelector("#actors-info-table tbody");
+    const actorsImage = document.getElementById("actors-image");
+
+    // Vider le tableau actuel
+    tableBody.innerHTML = '';
+
+    // Mettre à jour l'image en fonction de l'acteur sélectionné
+    let imagePath = "";
+    switch (actor) {
+        case "BlackRock":
+            imagePath = "images/brk.jpg";
+            break;
+        case "TotalEnergies":
+            imagePath = "images/TES.jpg";
+            break;
+        case "GIEC":
+            imagePath = "images/ipcc.jpg";
+            break;
+        case "Green Peace":
+            imagePath = "images/gp.jpg"; // Ajoutez une image pour Green Peace si nécessaire
+            break;
+        default:
+            imagePath = ""; // Image par défaut ou vide
+    }
+    actorsImage.src = imagePath;
+
+    // Récupérer les données de l'acteur sélectionné depuis actors-info.json
+    fetch('data/actors-info.json')
+        .then(response => response.json())
+        .then(data => {
+            const actorData = data.find(a => a.Acteur === actor);
+
+            if (actorData) {
+                // Créer les lignes du tableau pour chaque propriété
+                Object.entries(actorData).forEach(([key, value]) => {
+                    if (key !== 'Acteur') { // Exclure la clé "Acteur" car elle est déjà affichée dans le sélecteur
+                        const row = document.createElement('tr');
+                        const keyCell = document.createElement('td');
+                        const valueCell = document.createElement('td');
+
+                        keyCell.textContent = key;
+                        valueCell.textContent = value;
+
+                        row.appendChild(keyCell);
+                        row.appendChild(valueCell);
+                        tableBody.appendChild(row);
+                    }
+                });
+            } else {
+                // Afficher un message si l'acteur n'est pas trouvé
+                const row = document.createElement('tr');
+                const cell = document.createElement('td');
+                cell.colSpan = 2;
+                cell.textContent = 'Données non disponibles pour cet acteur';
+                row.appendChild(cell);
+                tableBody.appendChild(row);
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors du chargement des données:', error);
+            const row = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.colSpan = 2;
+            cell.textContent = 'Erreur lors du chargement des données';
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+        });
+}
+
+// Initialiser l'onglet "Informations sur les acteurs non étatiques" avec BlackRock par défaut
+document.addEventListener("DOMContentLoaded", () => {
+    const actorsSelect = document.getElementById("actor-select");
+    actorsSelect.value = "BlackRock"; // Définir BlackRock comme acteur par défaut
+    updateActorsInfo(); // Charger les données par défaut
+});
 
 // Modifier la fonction DOMContentLoaded pour afficher l'onglet "COP-tab" par défaut
 document.addEventListener("DOMContentLoaded", () => {

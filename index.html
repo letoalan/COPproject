@@ -13,6 +13,15 @@
 </head>
 <body>
 <header>
+    <!-- Vidéo d'arrière-plan -->
+    <video autoplay muted loop id="header-video">
+        <source src="video/Bakou.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo.
+    </video>
+
+    <!-- Fond blanc transparent -->
+    <div class="header-overlay"></div>
+
     <h1>Simulation de COP</h1>
     <h2>Mission académique au développement durable - Académie de Limoges</h2>
     <nav>
@@ -20,6 +29,7 @@
         <button onclick="showTab('simulation-tab')">Les objectifs de la simulation</button>
         <button onclick="showTab('scenario-tab')">Scénario du GIEC</button>
         <button onclick="showTab('state-info-tab')">Informations sur les États</button>
+        <button onclick="showTab('actors-info-tab')">Informations sur les acteurs non étatiques</button>
         <button onclick="showTab('country-tab')">Stratégie par pays</button>
         <button onclick="showTab('negociation-tab')">Négociation par pays</button>
         <button onclick="showTab('actors-tab')">Négociation par acteur</button>
@@ -521,6 +531,45 @@
             </div>
         </div>
     </div>
+
+    <div id="actors-info-tab" class="tab-content">
+        <h3>Informations sur les Acteurs Non-Étatiques</h3>
+        <div class="actor-selector">
+            <label for="actor-select">Choisissez un acteur :</label>
+            <select id="actor-select" onchange="updateActorsInfo()">
+                <option value="BlackRock">BlackRock</option>
+                <option value="TotalEnergies">TotalEnergies</option>
+                <option value="GIEC">GIEC</option>
+                <option value="Green Peace">Green Peace</option>
+            </select>
+        </div>
+
+        <!-- Conteneur pour l'image et le tableau -->
+        <div class="actors-container">
+            <!-- Conteneur de gauche pour l'image -->
+            <div class="actors-image-container">
+                <img id="actors-image" src="" alt="Image de l'acteur" class="actors-image">
+            </div>
+
+            <!-- Conteneur de droite pour le tableau -->
+            <div class="actors-table-container">
+                <table id="actors-info-table">
+                    <thead>
+                    <tr>
+                        <th>Indicateur</th>
+                        <th>Valeur</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Les lignes seront ajoutées dynamiquement par JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <!-- Onglet Négociation par pays -->
     <div id="negociation-tab" class="tab-content">

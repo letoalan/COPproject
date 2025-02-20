@@ -13,14 +13,49 @@ body {
     padding: 20px;
 }
 
+/* Styles pour le header */
 header {
+    position: relative;
+    overflow: hidden;
     text-align: center;
-    margin-bottom: 20px;
+    padding: 20px;
+    color: #2c3e50;
+    background-color: rgba(255, 255, 255, 0.8); /* Fond blanc transparent */
+    border-radius: 10px; /* Arrondir les bords du header */
+    margin: 20px; /* Ajouter une marge pour éviter que le header touche les bords de la page */
 }
 
-header h1 {
-    font-size: 2.5rem;
-    color: #2c3e50;
+/* Styles pour la vidéo d'arrière-plan */
+#header-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Place la vidéo en arrière-plan */
+    border-radius: 10px; /* Arrondir les bords de la vidéo */
+}
+
+/* Styles pour le fond blanc transparent */
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2); /* Fond blanc transparent */
+    z-index: 0; /* Place l'overlay au-dessus de la vidéo mais en dessous du contenu */
+    border-radius: 10px; /* Arrondir les bords de l'overlay */
+}
+
+/* Styles pour le contenu du header */
+header h1,
+header h2,
+header nav {
+    position: relative;
+    z-index: 1; /* Place le contenu au-dessus de l'overlay et de la vidéo */
 }
 
 nav {
@@ -1046,4 +1081,108 @@ main {
     #strategie-etats-table td {
         white-space: normal; /* Permettre le retour à la ligne sur mobile */
     }
+}
+
+/* Styles pour le tableau des acteurs non étatiques */
+#actors-info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Styles pour le conteneur principal des acteurs */
+.actors-container {
+    display: flex;
+    gap: 20px; /* Espace entre les deux conteneurs */
+    margin-top: 20px;
+}
+
+/* Styles pour le conteneur de l'image */
+.actors-image-container {
+    flex: 0 0 40%; /* Largeur fixe de 40% */
+    background-color: #ecf0f1; /* Fond légèrement gris */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styles pour l'image de l'acteur */
+.actors-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour le conteneur du tableau */
+.actors-table-container {
+    flex: 1; /* Occupe l'espace restant */
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour le tableau des acteurs non étatiques */
+#actors-info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0; /* Pas de marge supplémentaire */
+}
+
+#actors-info-table th,
+#actors-info-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#actors-info-table th {
+    background-color: #27ae60; /* Couleur verte */
+    color: white;
+    font-weight: bold;
+}
+
+#actors-info-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+#actors-info-table td {
+    vertical-align: top;
+}
+
+/* Styles pour le sélecteur d'acteurs */
+#actors-info-tab .actor-selector-selector {
+    margin: 20px 0;
+}
+
+#actors-info-tab .actor-selector label {
+    font-size: 1.1rem;
+    margin-right: 10px;
+}
+
+#actors-info-tab .actor-selector select {
+    padding: 8px 15px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#actors-info-tab .actor-selector select:hover {
+    border-color: #3498db; /* Couleur de la bordure au survol */
+}
+
+#actors-info-tab .actor-selector select:focus {
+    border-color: #3498db; /* Couleur de la bordure lorsqu'il est sélectionné */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Effet de focus */
 }
