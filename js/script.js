@@ -1301,16 +1301,16 @@ function updateActorsInfo() {
     let imagePath = "";
     switch (actor) {
         case "BlackRock":
-            imagePath = "images/brk.jpg";
+            imagePath = "images/BRK.jpg";
             break;
         case "TotalEnergies":
             imagePath = "images/TES.jpg";
             break;
         case "GIEC":
-            imagePath = "images/ipcc.jpg";
+            imagePath = "images/IPCC.jpg";
             break;
         case "Green Peace":
-            imagePath = "images/gp.jpg"; // Ajoutez une image pour Green Peace si nécessaire
+            imagePath = "images/GP.jpg"; // Ajoutez une image pour Green Peace si nécessaire
             break;
         default:
             imagePath = ""; // Image par défaut ou vide
