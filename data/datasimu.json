@@ -1,0 +1,311 @@
+{
+  "countryData": [
+    {
+      "name": "Brésil",
+      "color": "#e6194b",
+      "tooltip": "Colombie\nPérou\nBolivie\nVenezuela\nÉquateur\nGuyana\nSuriname\nParaguay\nArgentine",
+      "baseEmissions": 3.45,
+      "population": 370,
+      "poverty": "emergent",
+      "vulnerability": "high"
+    },
+    {
+      "name": "Chili",
+      "color": "#3cb44b",
+      "tooltip": "Argentine\nParaguay\nUruguay\nChili\nBolivie",
+      "baseEmissions": 2.20,
+      "population": 76,
+      "poverty": "emergent",
+      "vulnerability": "medium"
+    },
+    {
+      "name": "Émirats Arabes Unis",
+      "color": "#ffe119",
+      "tooltip": "Arabie Saoudite\nKoweït\nQatar\nIrak\nIran\nOman\nBahreïn\nJordanie\nYémen\nSyrie\nLiban",
+      "baseEmissions": 3.03,
+      "population": 190,
+      "poverty": "favored",
+      "vulnerability": "low"
+    },
+    {
+      "name": "États-Unis",
+      "color": "#4363d8",
+      "tooltip": "Canada\nAustralie\nRoyaume-Uni\nNouvelle-Zélande\nIrlande\nAfrique du Sud\nIsraël",
+      "baseEmissions": 4.13,
+      "population": 475,
+      "poverty": "favored",
+      "vulnerability": "low"
+    },
+    {
+      "name": "France",
+      "color": "#f58231",
+      "tooltip": "Allemagne\nItalie\nEspagne\nBelgique\nPays-Bas\nPortugal\nSuisse\nAutriche\nDanemark\nNorvège\nSuède\nFinlande\nGrèce",
+      "baseEmissions": 2.62,
+      "population": 305,
+      "poverty": "favored",
+      "vulnerability": "low"
+    },
+    {
+      "name": "Haïti",
+      "color": "#911eb4",
+      "tooltip": "Cuba\nJamaïque\nRépublique Dominicaine\nBahamas\nTrinité-et-Tobago\nBarbade\nSainte-Lucie\nGrenade\nAntilles néerlandaises\nGuadeloupe\nMartinique\nAntigua-et-Barbuda\nSaint-Vincent-et-les-Grenadines",
+      "baseEmissions": 2.48,
+      "population": 40,
+      "poverty": "poor",
+      "vulnerability": "high"
+    },
+    {
+      "name": "Île Maurice",
+      "color": "#46f0f0",
+      "tooltip": "Comores\nSeychelles\nMaldives\nMadagascar\nLa Réunion\nMayotte\nTanzanie\nMozambique",
+      "baseEmissions": 2.07,
+      "population": 32,
+      "poverty": "poor",
+      "vulnerability": "medium"
+    },
+    {
+      "name": "Inde",
+      "color": "#f032e6",
+      "tooltip": "Pakistan\nBangladesh\nSri Lanka\nNépal\nAfghanistan\nMaldives\nBhoutan\nBirmanie\nMalaisie",
+      "baseEmissions": 3.86,
+      "population": 1865,
+      "poverty": "emergent",
+      "vulnerability": "high"
+    },
+    {
+      "name": "Mexique",
+      "color": "#bcf60c",
+      "tooltip": "Guatemala\nHonduras\nNicaragua\nCosta Rica\nPanama\nSalvador\nBelize\nRépublique dominicaine\nCuba\nJamaïque",
+      "baseEmissions": 2.35,
+      "population": 180,
+      "poverty": "emergent",
+      "vulnerability": "medium"
+    },
+    {
+      "name": "Sénégal",
+      "color": "#fabebe",
+      "tooltip": "Côte d'Ivoire\nGhana\nNigeria\nMali\nBurkina Faso\nNiger\nTchad\nGuinée\nTogo\nBénin\nCameroun\nGabon\nRépublique démocratique du Congo\nSoudan",
+      "baseEmissions": 3.11,
+      "population": 405,
+      "poverty": "poor",
+      "vulnerability": "medium"
+    },
+    {
+      "name": "Russie",
+      "color": "#008080",
+      "tooltip": "Kazakhstan\nUkraine\nBiélorussie\nPologne\nRoumanie\nOuzbékistan\nMongolie\nTurkménistan\nKirghizistan\nTadjikistan\nGéorgie\nArménie\nAzerbaïdjan\nMoldavie",
+      "baseEmissions": 3.73,
+      "population": 310,
+      "poverty": "favored",
+      "vulnerability": "medium"
+    },
+    {
+      "name": "Chine",
+      "color": "#e6beff",
+      "tooltip": "Vietnam\nPhilippines\nCorée du Nord\nThaïlande\nIndonésie\nMalaisie\nMyanmar\nCambodge\nJapon\nCorée du Sud\nTaiwan\nHong Kong\nSingapour",
+      "baseEmissions": 4.55,
+      "population": 2090,
+      "poverty": "emergent",
+      "vulnerability": "high"
+    },
+    {
+      "name": "Vanuatu",
+      "color": "#9a6324",
+      "tooltip": "Tuvalu\nFidji\nPapouasie-Nouvelle-Guinée\nSamoa\nTonga\nKiribati\nSalomon\nMicronésie\nPolynésie française\nÎles Marshall\nNauru\nPalau\nÉtats fédérés de Micronésie",
+      "baseEmissions": 1.65,
+      "population": 12,
+      "poverty": "poor",
+      "vulnerability": "high"
+    },
+    {
+      "name": "Égypte",
+      "color": "#808000",
+      "tooltip": "Maroc\nAlgérie\nTunisie\nLibye\nÉthiopie\nÉrythrée\nDjibouti\nSomalie\nKenya\nOuganda\nRwanda\nBurundi",
+      "baseEmissions": 2.67,
+      "population": 380,
+      "poverty": "emergent",
+      "vulnerability": "high"
+    }
+  ],
+  "subCountryData": {
+    "Brésil": [
+      { "name": "Colombie", "population": 50, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Pérou", "population": 33, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Bolivie", "population": 12, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Venezuela", "population": 28, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Équateur", "population": 18, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Guyana", "population": 1, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Suriname", "population": 1, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Paraguay", "population": 7, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Argentine", "population": 45, "poverty": "emergent", "vulnerability": "medium" }
+    ],
+    "Chili": [
+      { "name": "Argentine", "population": 45, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Paraguay", "population": 7, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Uruguay", "population": 3, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Chili", "population": 19, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Bolivie", "population": 12, "poverty": "poor", "vulnerability": "high" }
+    ],
+    "Émirats Arabes Unis": [
+      { "name": "Arabie Saoudite", "population": 35, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Koweït", "population": 4, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Qatar", "population": 3, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Irak", "population": 40, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Iran", "population": 84, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Oman", "population": 5, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Bahreïn", "population": 2, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Jordanie", "population": 10, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Yémen", "population": 30, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Syrie", "population": 17, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Liban", "population": 7, "poverty": "emergent", "vulnerability": "medium" }
+    ],
+    "États-Unis": [
+      { "name": "Canada", "population": 38, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Australie", "population": 26, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Royaume-Uni", "population": 67, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Nouvelle-Zélande", "population": 5, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Irlande", "population": 5, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Afrique du Sud", "population": 60, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Israël", "population": 9, "poverty": "favored", "vulnerability": "low" }
+    ],
+    "France": [
+      { "name": "Allemagne", "population": 83, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Italie", "population": 60, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Espagne", "population": 47, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Belgique", "population": 12, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Pays-Bas", "population": 17, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Portugal", "population": 10, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Suisse", "population": 9, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Autriche", "population": 9, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Danemark", "population": 6, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Norvège", "population": 5, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Suède", "population": 10, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Finlande", "population": 6, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Grèce", "population": 10, "poverty": "favored", "vulnerability": "medium" }
+    ],
+    "Haïti": [
+      { "name": "Cuba", "population": 11, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Jamaïque", "population": 3, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "République Dominicaine", "population": 11, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Bahamas", "population": 0.4, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Trinité-et-Tobago", "population": 1, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Barbade", "population": 0.3, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Sainte-Lucie", "population": 0.2, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Grenade", "population": 0.1, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Antilles néerlandaises", "population": 0.3, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Guadeloupe", "population": 0.4, "poverty": "favored", "vulnerability": "medium" },
+      { "name": "Martinique", "population": 0.4, "poverty": "favored", "vulnerability": "medium" },
+      { "name": "Antigua-et-Barbuda", "population": 0.1, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Saint-Vincent-et-les-Grenadines", "population": 0.1, "poverty": "emergent", "vulnerability": "high" }
+    ],
+    "Île Maurice": [
+      { "name": "Comores", "population": 1, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Seychelles", "population": 0.1, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Maldives", "population": 0.5, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Madagascar", "population": 28, "poverty": "poor", "vulnerability": "high" },
+      { "name": "La Réunion", "population": 1, "poverty": "favored", "vulnerability": "medium" },
+      { "name": "Mayotte", "population": 0.3, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Tanzanie", "population": 61, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Mozambique", "population": 31, "poverty": "poor", "vulnerability": "high" }
+    ],
+    "Inde": [
+      { "name": "Pakistan", "population": 221, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Bangladesh", "population": 165, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Sri Lanka", "population": 22, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Népal", "population": 29, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Afghanistan", "population": 39, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Maldives", "population": 0.5, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Bhoutan", "population": 1, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Birmanie", "population": 54, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Malaisie", "population": 32, "poverty": "emergent", "vulnerability": "medium" }
+    ],
+    "Mexique": [
+      { "name": "Guatemala", "population": 18, "poverty": "poor", "vulnerability": "medium" },
+      { "name": "Honduras", "population": 10, "poverty": "poor", "vulnerability": "medium" },
+      { "name": "Nicaragua", "population": 7, "poverty": "poor", "vulnerability": "medium" },
+      { "name": "Costa Rica", "population": 5, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Panama", "population": 4, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Salvador", "population": 6, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Belize", "population": 0.4, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "République dominicaine", "population": 11, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Cuba", "population": 11, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Jamaïque", "population": 3, "poverty": "emergent", "vulnerability": "medium" }
+    ],
+    "Sénégal": [
+      { "name": "Côte d'Ivoire", "population": 26, "poverty": "poor", "vulnerability": "medium" },
+      { "name": "Ghana", "population": 31, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Nigeria", "population": 206, "poverty": "poor", "vulnerability": "medium" },
+      { "name": "Mali", "population": 20, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Burkina Faso", "population": 21, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Niger", "population": 24, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Tchad", "population": 16, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Guinée", "population": 13, "poverty": "poor", "vulnerability": "medium" },
+      { "name": "Togo", "population": 8, "poverty": "poor", "vulnerability": "medium" },
+      { "name": "Bénin", "population": 12, "poverty": "poor", "vulnerability": "medium" },
+      { "name": "Cameroun", "population": 27, "poverty": "poor", "vulnerability": "medium" },
+      { "name": "Gabon", "population": 2, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "République démocratique du Congo", "population": 90, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Soudan", "population": 44, "poverty": "poor", "vulnerability": "high" }
+    ],
+    "Russie": [
+      { "name": "Kazakhstan", "population": 19, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Ukraine", "population": 44, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Biélorussie", "population": 9, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Pologne", "population": 38, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Roumanie", "population": 19, "poverty": "emergent", "vulnerability": "low" },
+      { "name": "Ouzbékistan", "population": 34, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Mongolie", "population": 3, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Turkménistan", "population": 6, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Kirghizistan", "population": 7, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Tadjikistan", "population": 9, "poverty": "poor", "vulnerability": "medium" },
+      { "name": "Géorgie", "population": 4, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Arménie", "population": 3, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Azerbaïdjan", "population": 10, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Moldavie", "population": 4, "poverty": "emergent", "vulnerability": "medium" }
+    ],
+    "Chine": [
+      { "name": "Vietnam", "population": 97, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Philippines", "population": 110, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Corée du Nord", "population": 26, "poverty": "poor", "vulnerability": "medium" },
+      { "name": "Thaïlande", "population": 70, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Indonésie", "population": 274, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Malaisie", "population": 32, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Myanmar", "population": 54, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Cambodge", "population": 17, "poverty": "poor", "vulnerability": "medium" },
+      { "name": "Japon", "population": 126, "poverty": "favored", "vulnerability": "medium" },
+      { "name": "Corée du Sud", "population": 52, "poverty": "favored", "vulnerability": "low" },
+      { "name": "Taiwan", "population": 24, "poverty": "favored", "vulnerability": "medium" },
+      { "name": "Hong Kong", "population": 7, "poverty": "favored", "vulnerability": "medium" },
+      { "name": "Singapour", "population": 6, "poverty": "favored", "vulnerability": "medium" }
+    ],
+    "Vanuatu": [
+      { "name": "Tuvalu", "population": 0.01, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Fidji", "population": 1, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Papouasie-Nouvelle-Guinée", "population": 9, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Samoa", "population": 0.2, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Tonga", "population": 0.1, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Kiribati", "population": 0.1, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Salomon", "population": 0.7, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Micronésie", "population": 0.1, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Polynésie française", "population": 0.3, "poverty": "favored", "vulnerability": "medium" },
+      { "name": "Îles Marshall", "population": 0.06, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Nauru", "population": 0.01, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "Palau", "population": 0.02, "poverty": "emergent", "vulnerability": "high" },
+      { "name": "États fédérés de Micronésie", "population": 0.1, "poverty": "poor", "vulnerability": "high" }
+    ],
+    "Égypte": [
+      { "name": "Maroc", "population": 37, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Algérie", "population": 44, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Tunisie", "population": 12, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Libye", "population": 7, "poverty": "emergent", "vulnerability": "medium" },
+      { "name": "Éthiopie", "population": 115, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Érythrée", "population": 6, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Djibouti", "population": 1, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Somalie", "population": 16, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Kenya", "population": 54, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Ouganda", "population": 46, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Rwanda", "population": 13, "poverty": "poor", "vulnerability": "high" },
+      { "name": "Burundi", "population": 12, "poverty": "poor", "vulnerability": "high" }
+    ]
+  }
+}
