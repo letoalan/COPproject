@@ -8,15 +8,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Liste des modules et leurs contenus HTML associés
         const modules = [
-            { name: 'copTab', path: './modules/copTab.js', html: '/html/cop-tab.html' },
-            { name: 'simulationTab', path: './modules/simulationTab.js', html: '/html/simulation-tab.html' },
-            { name: 'scenarioTab', path: './modules/scenarioTab.js', html: '/html/scenario-tab.html' },
-            { name: 'stateInfoTab', path: './modules/stateInfoTab.js', html: '/html/state-info-tab.html' },
-            { name: 'actorsInfoTab', path: './modules/actorsInfoTab.js', html: '/html/actors-info-tab.html' },
-            { name: 'countryTab', path: './modules/countryTab.js', html: '/html/country-tab.html' },
-            { name: 'negociationTab', path: './modules/negociationTab.js', html: '/html/negociation-tab.html' },
-            { name: 'actorsTab', path: './modules/actorsTab.js', html: '/html/actors-tab.html' },
-            { name: 'croadsTab', path: './modules/croadsTab.js', html: '/html/croads-tab.html' }
+            { name: 'copTab', path: './modules/copTab.js', html: './html/cop-tab.html' },
+            { name: 'simulationTab', path: './modules/simulationTab.js', html: './html/simulation-tab.html' },
+            { name: 'scenarioTab', path: './modules/scenarioTab.js', html: './html/scenario-tab.html' },
+            { name: 'stateInfoTab', path: './modules/stateInfoTab.js', html: './html/state-info-tab.html' },
+            { name: 'actorsInfoTab', path: './modules/actorsInfoTab.js', html: './html/actors-info-tab.html' },
+            { name: 'countryTab', path: './modules/countryTab.js', html: './html/country-tab.html' },
+            { name: 'negociationTab', path: './modules/negociationTab.js', html: './html/negociation-tab.html' },
+            { name: 'actorsTab', path: './modules/actorsTab.js', html: './html/actors-tab.html' },
+            { name: 'croadsTab', path: './modules/croadsTab.js', html: './html/croads-tab.html' }
         ];
 
         // Charger le contenu HTML de chaque onglet
