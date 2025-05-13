@@ -7,24 +7,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
        // Solution 3: Détection automatique du préfixe de base
-function getBaseUrl() {
-    // Récupère le chemin de base à partir de l'URL actuelle
-    const baseUrl = window.location.pathname.replace(/\/[^\/]*$/, '');
-    return baseUrl === '/' ? '' : baseUrl;
-}
-
-const baseUrl = getBaseUrl();
-const modules = [
-    { name: 'copTab', path: './modules/copTab.js', html: `${baseUrl}/html/cop-tab.html` },
-    { name: 'simulationTab', path: './modules/simulationTab.js', html: `${baseUrl}/html/simulation-tab.html` },
-    { name: 'scenarioTab', path: './modules/scenarioTab.js', html: `${baseUrl}/html/scenario-tab.html` },
-    { name: 'stateInfoTab', path: './modules/stateInfoTab.js', html: `${baseUrl}/html/state-info-tab.html` },
-    { name: 'actorsInfoTab', path: './modules/actorsInfoTab.js', html: `${baseUrl}/html/actors-info-tab.html` },
-    { name: 'countryTab', path: './modules/countryTab.js', html: `${baseUrl}/html/country-tab.html` },
-    { name: 'negociationTab', path: './modules/negociationTab.js', html: `${baseUrl}/html/negociation-tab.html` },
-    { name: 'actorsTab', path: './modules/actorsTab.js', html: `${baseUrl}/html/actors-tab.html` },
-    { name: 'croadsTab', path: './modules/croadsTab.js', html: `${baseUrl}/html/croads-tab.html` }
-];
+        function getBaseUrl() {
+            // Récupère le chemin de base à partir de l'URL actuelle
+            const baseUrl = window.location.pathname.replace(/\/[^\/]*$/, '');
+            return baseUrl === '/' ? '' : baseUrl;
+        }
+        
+        const baseUrl = getBaseUrl();
+        const modules = [
+            { name: 'copTab', path: './modules/copTab.js', html: `${baseUrl}/html/cop-tab.html` },
+            { name: 'simulationTab', path: './modules/simulationTab.js', html: `${baseUrl}/html/simulation-tab.html` },
+            { name: 'scenarioTab', path: './modules/scenarioTab.js', html: `${baseUrl}/html/scenario-tab.html` },
+            { name: 'stateInfoTab', path: './modules/stateInfoTab.js', html: `${baseUrl}/html/state-info-tab.html` },
+            { name: 'actorsInfoTab', path: './modules/actorsInfoTab.js', html: `${baseUrl}/html/actors-info-tab.html` },
+            { name: 'countryTab', path: './modules/countryTab.js', html: `${baseUrl}/html/country-tab.html` },
+            { name: 'negociationTab', path: './modules/negociationTab.js', html: `${baseUrl}/html/negociation-tab.html` },
+            { name: 'actorsTab', path: './modules/actorsTab.js', html: `${baseUrl}/html/actors-tab.html` },
+            { name: 'croadsTab', path: './modules/croadsTab.js', html: `${baseUrl}/html/croads-tab.html` }
+        ];
 
         // Charger le contenu HTML de chaque onglet
         const loadedContent = await Promise.all(
