@@ -217,6 +217,438 @@
       ]
     },
     {
+      "pays": "Inde",
+      "scenarios": [
+        {
+          "nom": "SSP1 + RCP1.9",
+          "annee_pic": {
+            "min": 2025,
+            "max": 2029
+          },
+          "annee_reduction": {
+            "min": 2030,
+            "max": 2040
+          },
+          "reduction_pourcentage": {
+            "min": 50,
+            "max": 70
+          },
+          "deforestation": {
+            "min": 3,
+            "max": 5
+          },
+          "reboisement": {
+            "min": 2,
+            "max": 3
+          },
+          "contribution_milliards": {
+            "min": 25,
+            "max": 35
+          },
+          "aides_milliards": {
+            "min": 8,
+            "max": 12
+          },
+          "etats_cibles": [
+            "États-Unis",
+            "Chine",
+            "France"
+          ],
+          "demandes_principales": [
+            {
+              "pays": "États-Unis",
+              "demandes": [
+                "Augmenter contribution de 15-25%",
+                "Flexibilité sur l'année de pic"
+              ]
+            },
+            {
+              "pays": "Chine",
+              "demandes": [
+                "Pic des émissions en 2029",
+                "+12% d'aides"
+              ]
+            },
+            {
+              "pays": "France",
+              "demandes": [
+                "Réduire déforestation de 1%",
+                "-7% de contribution"
+              ]
+            }
+          ]
+        },
+        {
+          "nom": "SSP2 + RCP4.5",
+          "annee_pic": {
+            "min": 2030,
+            "max": 2034
+          },
+          "annee_reduction": {
+            "min": 2040,
+            "max": 2050
+          },
+          "reduction_pourcentage": {
+            "min": 30,
+            "max": 50
+          },
+          "deforestation": {
+            "min": 1.5,
+            "max": 3.5
+          },
+          "reboisement": {
+            "min": 1,
+            "max": 2
+          },
+          "contribution_milliards": {
+            "min": 15,
+            "max": 25
+          },
+          "aides_milliards": {
+            "min": 5,
+            "max": 8
+          },
+          "etats_cibles": [
+            "Russie",
+            "Émirats",
+            "Mexique"
+          ],
+          "demandes_principales": [
+            {
+              "pays": "Russie",
+              "demandes": [
+                "Avancer réduction à 2040",
+                "-12% de contribution"
+              ]
+            },
+            {
+              "pays": "Émirats",
+              "demandes": [
+                "+18% contribution",
+                "Flexibilité sur % de réduction"
+              ]
+            },
+            {
+              "pays": "Mexique",
+              "demandes": [
+                "+1% reboisement",
+                "+12% d'aides"
+              ]
+            }
+          ]
+        },
+        {
+          "nom": "SSP3 + RCP6.0",
+          "annee_pic": {
+            "min": 2035,
+            "max": 2039
+          },
+          "annee_reduction": {
+            "min": 2050,
+            "max": 2060
+          },
+          "reduction_pourcentage": {
+            "min": 10,
+            "max": 30
+          },
+          "deforestation": {
+            "min": 0.5,
+            "max": 2.5
+          },
+          "reboisement": {
+            "min": 0.25,
+            "max": 1.25
+          },
+          "contribution_milliards": {
+            "min": 8,
+            "max": 15
+          },
+          "aides_milliards": {
+            "min": 2,
+            "max": 4
+          },
+          "etats_cibles": [
+            "Brésil",
+            "Chili",
+            "Émirats"
+          ],
+          "demandes_principales": [
+            {
+              "pays": "Brésil",
+              "demandes": [
+                "Réduire déforestation de 1.5%",
+                "+18% d'aides"
+              ]
+            },
+            {
+              "pays": "Chili",
+              "demandes": [
+                "Avancer réduction à 2050",
+                "-15% de contribution"
+              ]
+            },
+            {
+              "pays": "Émirats Arabes Unis",
+              "demandes": [
+                "+12% contribution",
+                "Flexibilité sur pic des émissions"
+              ]
+            }
+          ]
+        },
+        {
+          "nom": "SSP5 + RCP8.5",
+          "annee_pic": {
+            "min": 2040,
+            "max": 2044
+          },
+          "annee_reduction": {
+            "min": 2060,
+            "max": 2070
+          },
+          "reduction_pourcentage": {
+            "min": -5,
+            "max": 5
+          },
+          "deforestation": {
+            "min": 0,
+            "max": 1
+          },
+          "reboisement": {
+            "min": 0,
+            "max": 0.5
+          },
+          "contribution_milliards": {
+            "min": 0,
+            "max": 0
+          },
+          "aides_milliards": {
+            "min": 0,
+            "max": 0
+          },
+          "etats_cibles": [],
+          "demandes_principales": [],
+          "compensation": "Aucun engagement climatique contraignant"
+        }
+      ]
+    },
+    {
+      "pays": "Égypte",
+      "scenarios": [
+        {
+          "nom": "SSP1 + RCP1.9",
+          "annee_pic": {
+            "min": 2024,
+            "max": 2028
+          },
+          "annee_reduction": {
+            "min": 2029,
+            "max": 2039
+          },
+          "reduction_pourcentage": {
+            "min": 55,
+            "max": 75
+          },
+          "deforestation": {
+            "min": 2,
+            "max": 4
+          },
+          "reboisement": {
+            "min": 1.5,
+            "max": 2.5
+          },
+          "contribution_milliards": {
+            "min": 10,
+            "max": 18
+          },
+          "aides_milliards": {
+            "min": 7,
+            "max": 11
+          },
+          "etats_cibles": [
+            "États-Unis",
+            "Chine",
+            "France"
+          ],
+          "demandes_principales": [
+            {
+              "pays": "États-Unis",
+              "demandes": [
+                "Augmenter contribution de 12-22%",
+                "Flexibilité sur l'année de pic"
+              ]
+            },
+            {
+              "pays": "Chine",
+              "demandes": [
+                "Pic des émissions en 2028",
+                "+9% d'aides"
+              ]
+            },
+            {
+              "pays": "France",
+              "demandes": [
+                "Réduire déforestation de 0.8%",
+                "-6% de contribution"
+              ]
+            }
+          ]
+        },
+        {
+          "nom": "SSP2 + RCP4.5",
+          "annee_pic": {
+            "min": 2029,
+            "max": 2033
+          },
+          "annee_reduction": {
+            "min": 2039,
+            "max": 2049
+          },
+          "reduction_pourcentage": {
+            "min": 35,
+            "max": 55
+          },
+          "deforestation": {
+            "min": 1,
+            "max": 3
+          },
+          "reboisement": {
+            "min": 0.75,
+            "max": 1.75
+          },
+          "contribution_milliards": {
+            "min": 6,
+            "max": 12
+          },
+          "aides_milliards": {
+            "min": 4,
+            "max": 7
+          },
+          "etats_cibles": [
+            "Russie",
+            "Émirats",
+            "Mexique"
+          ],
+          "demandes_principales": [
+            {
+              "pays": "Russie",
+              "demandes": [
+                "Avancer réduction à 2039",
+                "-9% de contribution"
+              ]
+            },
+            {
+              "pays": "Émirats",
+              "demandes": [
+                "+14% contribution",
+                "Flexibilité sur % de réduction"
+              ]
+            },
+            {
+              "pays": "Mexique",
+              "demandes": [
+                "+0.8% reboisement",
+                "+9% d'aides"
+              ]
+            }
+          ]
+        },
+        {
+          "nom": "SSP3 + RCP6.0",
+          "annee_pic": {
+            "min": 2034,
+            "max": 2038
+          },
+          "annee_reduction": {
+            "min": 2049,
+            "max": 2059
+          },
+          "reduction_pourcentage": {
+            "min": 15,
+            "max": 35
+          },
+          "deforestation": {
+            "min": 0.25,
+            "max": 2.25
+          },
+          "reboisement": {
+            "min": 0.125,
+            "max": 1.125
+          },
+          "contribution_milliards": {
+            "min": 3,
+            "max": 9
+          },
+          "aides_milliards": {
+            "min": 1.5,
+            "max": 3.5
+          },
+          "etats_cibles": [
+            "Brésil",
+            "Chili",
+            "Émirats"
+          ],
+          "demandes_principales": [
+            {
+              "pays": "Brésil",
+              "demandes": [
+                "Réduire déforestation de 1%",
+                "+14% d'aides"
+              ]
+            },
+            {
+              "pays": "Chili",
+              "demandes": [
+                "Avancer réduction à 2049",
+                "-12% de contribution"
+              ]
+            },
+            {
+              "pays": "Émirats Arabes Unis",
+              "demandes": [
+                "+9% contribution",
+                "Flexibilité sur pic des émissions"
+              ]
+            }
+          ]
+        },
+        {
+          "nom": "SSP5 + RCP8.5",
+          "annee_pic": {
+            "min": 2039,
+            "max": 2043
+          },
+          "annee_reduction": {
+            "min": 2059,
+            "max": 2069
+          },
+          "reduction_pourcentage": {
+            "min": -2.5,
+            "max": 7.5
+          },
+          "deforestation": {
+            "min": 0,
+            "max": 1
+          },
+          "reboisement": {
+            "min": 0,
+            "max": 0.5
+          },
+          "contribution_milliards": {
+            "min": 0,
+            "max": 0
+          },
+          "aides_milliards": {
+            "min": 0,
+            "max": 0
+          },
+          "etats_cibles": [],
+          "demandes_principales": [],
+          "compensation": "Aucun engagement climatique contraignant"
+        }
+      ]
+    },
+    {
       "pays": "Chili",
       "scenarios": [
         {

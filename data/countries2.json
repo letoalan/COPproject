@@ -235,6 +235,124 @@
       }
     }
   },
+  "Égypte": {
+    "SSP1 + RCP1.9": {
+      "data": [
+        5,
+        6,
+        7,
+        5,
+        4,
+        6,
+        5,
+        4
+      ],
+      "description": {
+        "Décisions clés": "Transition énergétique, agriculture durable, gestion de l'eau.",
+        "Économie": "Coûts initiaux élevés, emplois verts, diversification économique.",
+        "Social": "Réduction de la pauvreté, amélioration de la santé, éducation.",
+        "Climat/Santé": "Préservation climatique, santé améliorée.",
+        "Opinion publique": "Soutien des jeunes et des écologistes, résistance des lobbies.",
+        "Pression des lobbies": "Opposition forte (pétrole, gaz).",
+        "Coût de la vie": "Hausse initiale des prix.",
+        "Attractivité pour les décideurs": "Faible (coûts politiques et économiques à court terme).",
+        "Année de pic des émissions": 2025,
+        "Année de réduction": 2030,
+        "% de réduction": 60,
+        "Réduction de la déforestation (% par an)": 2,
+        "Surfaces reboisées (% par an)": 1,
+        "Contribution (Milliards d'Euros)": 5,
+        "Aides (Milliards d'Euros)": 8
+      }
+    },
+    "SSP2 + RCP4.5": {
+      "data": [
+        5,
+        4,
+        5,
+        3,
+        4,
+        4,
+        3,
+        4
+      ],
+      "description": {
+        "Décisions clés": "Mix énergétique, gestion modérée des ressources, adoption progressive de pratiques durables.",
+        "Économie": "Croissance stable, dépendance persistante aux secteurs traditionnels.",
+        "Social": "Inégalités persistantes, améliorations limitées.",
+        "Climat/Santé": "Émissions modérées, santé limitée.",
+        "Opinion publique": "Acceptation générale, frustration des écologistes.",
+        "Pression des lobbies": "Opposition modérée.",
+        "Coût de la vie": "Stabilité relative, risques d'inflation à long terme.",
+        "Attractivité pour les décideurs": "Modérée (équilibre entre croissance et environnement).",
+        "Année de pic des émissions": 2030,
+        "Année de réduction": 2040,
+        "% de réduction": 40,
+        "Réduction de la déforestation (% par an)": 1,
+        "Surfaces reboisées (% par an)": 0.5,
+        "Contribution (Milliards d'Euros)": 3,
+        "Aides (Milliards d'Euros)": 5
+      }
+    },
+    "SSP3 + RCP6.0": {
+      "data": [
+        5,
+        2,
+        3,
+        2,
+        4,
+        2,
+        2,
+        4
+      ],
+      "description": {
+        "Décisions clés": "Exploitation accrue des ressources, dépendance aux énergies fossiles, gestion court-termiste.",
+        "Économie": "Croissance à court terme, vulnérabilité accrue aux chocs climatiques.",
+        "Social": "Augmentation des inégalités, conflits sociaux, migrations.",
+        "Climat/Santé": "Perte de biodiversité, santé dégradée.",
+        "Opinion publique": "Soutien des lobbies, colère des écologistes et des jeunes.",
+        "Pression des lobbies": "Soutien massif (pétrole, gaz).",
+        "Coût de la vie": "Hausse à long terme, stabilité à court terme.",
+        "Attractivité pour les décideurs": "Élevée (revenus immédiats, minimisation des coûts politiques).",
+        "Année de pic des émissions": 2035,
+        "Année de réduction": 2050,
+        "% de réduction": 20,
+        "Réduction de la déforestation (% par an)": 0.5,
+        "Surfaces reboisées (% par an)": 0.2,
+        "Contribution (Milliards d'Euros)": 1,
+        "Aides (Milliards d'Euros)": 3
+      }
+    },
+    "SSP5 + RCP8.5": {
+      "data": [
+        6,
+        3,
+        4,
+        2,
+        5,
+        3,
+        2,
+        5
+      ],
+      "description": {
+        "Décisions clés": "Exploitation intensive des ressources, dépendance totale aux énergies fossiles.",
+        "Économie": "Croissance forte à court terme, effondrement à long terme.",
+        "Social": "Inégalités extrêmes, conflits sociaux, migrations massives.",
+        "Climat/Santé": "Catastrophes climatiques, crises sanitaires.",
+        "Opinion publique": "Soutien des secteurs économiques puissants, révoltes sociales.",
+        "Pression des lobbies": "Soutien total (pétrole, gaz).",
+        "Coût de la vie": "Hausse significative à long terme, stabilité à court terme.",
+        "Attractivité pour les décideurs": "Très élevée (revenus immédiats, soutien économique à court terme).",
+        "Année de pic des émissions": 2040,
+        "Année de réduction": 2060,
+        "% de réduction": 0,
+        "Réduction de la déforestation (% par an)": 0,
+        "Surfaces reboisées (% par an)": 0,
+        "Contribution (Milliards d'Euros)": 0,
+        "Aides (Milliards d'Euros)": 0
+      }
+    }
+  },
   "Émirats Arabes Unis": {
     "SSP1 + RCP1.9": {
       "data": [
@@ -459,6 +577,124 @@
         "Climat/Santé": "Catastrophes climatiques, crises sanitaires.",
         "Opinion publique": "Soutien des secteurs économiques puissants, révoltes sociales.",
         "Pression des lobbies": "Soutien total (pétrole, gaz, agriculture).",
+        "Coût de la vie": "Hausse significative à long terme, stabilité à court terme.",
+        "Attractivité pour les décideurs": "Très élevée (revenus immédiats, soutien économique à court terme).",
+        "Année de pic des émissions": 2040,
+        "Année de réduction": 2060,
+        "% de réduction": 0,
+        "Réduction de la déforestation (% par an)": 0,
+        "Surfaces reboisées (% par an)": 0,
+        "Contribution (Milliards d'Euros)": 0,
+        "Aides (Milliards d'Euros)": 0
+      }
+    }
+  },
+  "Inde": {
+    "SSP1 + RCP1.9": {
+      "data": [
+        6,
+        7,
+        8,
+        6,
+        5,
+        7,
+        6,
+        5
+      ],
+      "description": {
+        "Décisions clés": "Transition énergétique, agriculture durable, gestion de l'eau.",
+        "Économie": "Coûts initiaux élevés, emplois verts, diversification économique.",
+        "Social": "Réduction de la pauvreté, amélioration de la santé, éducation.",
+        "Climat/Santé": "Préservation climatique, santé améliorée.",
+        "Opinion publique": "Soutien des jeunes et des écologistes, résistance des lobbies.",
+        "Pression des lobbies": "Opposition forte (charbon, agriculture intensive).",
+        "Coût de la vie": "Hausse initiale des prix.",
+        "Attractivité pour les décideurs": "Faible (coûts politiques et économiques à court terme).",
+        "Année de pic des émissions": 2025,
+        "Année de réduction": 2030,
+        "% de réduction": 55,
+        "Réduction de la déforestation (% par an)": 5,
+        "Surfaces reboisées (% par an)": 3,
+        "Contribution (Milliards d'Euros)": 30,
+        "Aides (Milliards d'Euros)": 10
+      }
+    },
+    "SSP2 + RCP4.5": {
+      "data": [
+        6,
+        5,
+        6,
+        4,
+        5,
+        5,
+        4,
+        5
+      ],
+      "description": {
+        "Décisions clés": "Mix énergétique, gestion modérée des ressources, adoption progressive de pratiques durables.",
+        "Économie": "Croissance stable, dépendance persistante aux secteurs traditionnels.",
+        "Social": "Inégalités persistantes, améliorations limitées.",
+        "Climat/Santé": "Émissions modérées, santé limitée.",
+        "Opinion publique": "Acceptation générale, frustration des écologistes.",
+        "Pression des lobbies": "Opposition modérée.",
+        "Coût de la vie": "Stabilité relative, risques d'inflation à long terme.",
+        "Attractivité pour les décideurs": "Modérée (équilibre entre croissance et environnement).",
+        "Année de pic des émissions": 2030,
+        "Année de réduction": 2040,
+        "% de réduction": 35,
+        "Réduction de la déforestation (% par an)": 3,
+        "Surfaces reboisées (% par an)": 1.5,
+        "Contribution (Milliards d'Euros)": 20,
+        "Aides (Milliards d'Euros)": 5
+      }
+    },
+    "SSP3 + RCP6.0": {
+      "data": [
+        6,
+        3,
+        4,
+        2,
+        5,
+        3,
+        2,
+        5
+      ],
+      "description": {
+        "Décisions clés": "Exploitation accrue des ressources, dépendance aux énergies fossiles, gestion court-termiste.",
+        "Économie": "Croissance à court terme, vulnérabilité accrue aux chocs climatiques.",
+        "Social": "Augmentation des inégalités, conflits sociaux, migrations.",
+        "Climat/Santé": "Perte de biodiversité, santé dégradée.",
+        "Opinion publique": "Soutien des lobbies, colère des écologistes et des jeunes.",
+        "Pression des lobbies": "Soutien massif (charbon, agriculture intensive).",
+        "Coût de la vie": "Hausse à long terme, stabilité à court terme.",
+        "Attractivité pour les décideurs": "Élevée (revenus immédiats, minimisation des coûts politiques).",
+        "Année de pic des émissions": 2035,
+        "Année de réduction": 2050,
+        "% de réduction": 15,
+        "Réduction de la déforestation (% par an)": 1,
+        "Surfaces reboisées (% par an)": 0.5,
+        "Contribution (Milliards d'Euros)": 10,
+        "Aides (Milliards d'Euros)": 2
+      }
+    },
+    "SSP5 + RCP8.5": {
+      "data": [
+        7,
+        4,
+        5,
+        3,
+        6,
+        4,
+        3,
+        6
+      ],
+      "description": {
+        "Décisions clés": "Exploitation intensive des ressources, dépendance totale aux énergies fossiles.",
+        "Économie": "Croissance forte à court terme, effondrement à long terme.",
+        "Social": "Inégalités extrêmes, conflits sociaux, migrations massives.",
+        "Climat/Santé": "Catastrophes climatiques, crises sanitaires.",
+        "Opinion publique": "Soutien des secteurs économiques puissants, révoltes sociales.",
+        "Pression des lobbies": "Soutien total (charbon, industrie lourde).",
         "Coût de la vie": "Hausse significative à long terme, stabilité à court terme.",
         "Attractivité pour les décideurs": "Très élevée (revenus immédiats, soutien économique à court terme).",
         "Année de pic des émissions": 2040,

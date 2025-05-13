@@ -1,0 +1,164 @@
+{
+  "entreprises": [
+    {
+      "nom": "BlackRock",
+      "strategies": [
+        {
+          "scenario": "SSP1 + RCP1.9",
+          "strategies_action": [
+            {
+              "nom": "Investissement massif dans les énergies renouvelables",
+              "objectifs": "Atteindre la neutralité carbone",
+              "etats_concernes": ["France", "Allemagne", "États-Unis"],
+              "actions": {
+                "France": "Accorder des subventions pour encourager l'énergie solaire et éolienne",
+                "Allemagne": "Investir dans l'hydrogène vert comme énergie du futur",
+                "États-Unis": "Encourager les entreprises à investir dans les technologies propres avec des réductions fiscales"
+              }
+            },
+            {
+              "nom": "Développement de fonds verts et obligations climatiques",
+              "objectifs": "Financer des projets à faible émission",
+              "etats_concernes": ["Mexique", "Chili", "Sénégal"],
+              "actions": {
+                "Mexique": "Financer des fermes solaires dans les régions ensoleillées du nord du pays",
+                "Chili": "Développer des projets géothermiques grâce à l'activité volcanique",
+                "Sénégal": "Installer des panneaux solaires pour électrifier les zones rurales"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP2 + RCP4.5",
+          "strategies_action": [
+            {
+              "nom": "Diversification des portefeuilles vers les technologies bas carbone",
+              "objectifs": "Réduction progressive des émissions",
+              "etats_concernes": ["Chine", "Inde", "Brésil"],
+              "actions": {
+                "Chine": "Développer des véhicules électriques pour réduire la pollution dans les grandes villes",
+                "Inde": "Augmenter l'utilisation de l'énergie solaire pour diminuer la dépendance au charbon",
+                "Brésil": "Investir dans l'hydroélectricité pour tirer parti des fleuves amazoniens"
+              }
+            },
+            {
+              "nom": "Engagement actionnarial pour influencer les entreprises polluantes",
+              "objectifs": "Transformation des secteurs polluants",
+              "etats_concernes": ["Russie", "États-Unis", "Chine"],
+              "actions": {
+                "Russie": "Inciter les industries pétrolières à adopter des technologies de captage du carbone",
+                "États-Unis": "Encourager les entreprises automobiles à produire des véhicules électriques",
+                "Chine": "Exiger des réductions d'émissions dans les industries manufacturières"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP3 + RCP6.0",
+          "strategies_action": [
+            {
+              "nom": "Maintien des investissements dans les énergies fossiles tout en explorant des options de transition",
+              "objectifs": "Optimisation des profits à court terme",
+              "etats_concernes": ["Russie", "États-Unis", "Émirats Arabes Unis"],
+              "actions": {
+                "Russie": "Continuer l'exportation de gaz naturel vers l'Europe tout en investissant dans des alternatives locales",
+                "États-Unis": "Exploiter le pétrole de schiste tout en explorant des solutions de stockage d'énergie",
+                "Émirats Arabes Unis": "Maximiser les profits pétroliers pour financer la diversification économique"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP5 + RCP8.5",
+          "strategies_action": [
+            {
+              "nom": "Maximisation des investissements dans les secteurs énergétiques traditionnels",
+              "objectifs": "Rentabilité maximale à court terme",
+              "etats_concernes": ["Russie", "Inde", "Chine"],
+              "actions": {
+                "Russie": "Augmenter l'extraction de pétrole en Sibérie",
+                "Inde": "Continuer à dépendre du charbon pour l'industrie lourde",
+                "Chine": "Maintenir l'utilisation du charbon pour soutenir son industrie manufacturière"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nom": "TotalEnergies",
+      "strategies": [
+        {
+          "scenario": "SSP1 + RCP1.9",
+          "strategies_action": [
+            {
+              "nom": "Transition accélérée vers les énergies renouvelables",
+              "objectifs": "Neutralité carbone et diversification",
+              "etats_concernes": ["France", "Chili", "Sénégal"],
+              "actions": {
+                "France": "Développer des parcs éoliens en mer pour produire de l'électricité propre",
+                "Chili": "Exploiter l'énergie solaire dans le désert d'Atacama",
+                "Sénégal": "Utiliser l'énergie solaire pour alimenter les infrastructures publiques"
+              }
+            },
+            {
+              "nom": "Réduction des investissements dans le pétrole et le gaz",
+              "objectifs": "Alignement avec les objectifs de Paris",
+              "etats_concernes": ["France", "Mexique", "Égypte"],
+              "actions": {
+                "France": "Réduire la dépendance au gaz naturel et investir dans l'hydrogène vert",
+                "Mexique": "Diversifier son mix énergétique en ajoutant des énergies renouvelables",
+                "Égypte": "Développer des projets solaires et éoliens dans le désert"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP2 + RCP4.5",
+          "strategies_action": [
+            {
+              "nom": "Développement d'un mix énergétique équilibré (renouvelables + gaz naturel)",
+              "objectifs": "Réduction progressive des émissions",
+              "etats_concernes": ["Brésil", "Mexique", "Vanuatu"],
+              "actions": {
+                "Brésil": "Utiliser l'hydroélectricité tout en développant le solaire dans le nord-est",
+                "Mexique": "Combiner gaz naturel et solaire pour un mix énergétique équilibré",
+                "Vanuatu": "Investir dans des solutions d'énergie renouvelable pour réduire la dépendance aux importations de carburant"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP3 + RCP6.0",
+          "strategies_action": [
+            {
+              "nom": "Maintien des activités dans le pétrole et le gaz avec optimisation de l'efficacité énergétique",
+              "objectifs": "Maximisation des profits à court terme",
+              "etats_concernes": ["Russie", "États-Unis", "Émirats Arabes Unis"],
+              "actions": {
+                "Russie": "Maximiser l'efficacité des pipelines pour réduire les pertes énergétiques",
+                "États-Unis": "Améliorer l'efficacité du raffinage pétrolier",
+                "Émirats Arabes Unis": "Optimiser la production pétrolière pour réduire les coûts"
+              }
+            }
+          ]
+        },
+        {
+          "scenario": "SSP5 + RCP8.5",
+          "strategies_action": [
+            {
+              "nom": "Expansion agressive dans le pétrole et le gaz",
+              "objectifs": "Rentabilité maximale à court terme",
+              "etats_concernes": ["Russie", "Égypte", "Chine"],
+              "actions": {
+                "Russie": "Augmenter l'extraction en Arctique",
+                "Égypte": "Explorer de nouveaux gisements de gaz en Méditerranée",
+                "Chine": "Développer les infrastructures pour importer du gaz à bas coût"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

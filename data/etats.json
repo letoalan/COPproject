@@ -25,7 +25,7 @@
   },
   {
     "Pays": "Chine",
-    "Population": "1er mondial (1400 millions d'habitants)",
+    "Population": "2ème mondial (1409 millions d'habitants)",
     "Émissions de GES": "10.95 tonnes de CO2eq par habitant et par an",
     "PIB par habitant": "8ème mondial",
     "IDH": "79ème mondial",
@@ -34,6 +34,18 @@
     "Secteurs Émetteurs de GES": "Industrie de l'énergie: 40%, industries: 31%, agriculture:9%",
     "Impacts des Changements Climatiques": "Montée du niveau de la mer, agriculture affectée, ressources en eau modifiées",
     "Objectifs et Stratégies": "Limiter le réchauffement global, investir dans la transition énergétique, devenir un leader mondial"
+  },
+  {
+    "Pays": "Égypte",
+    "Population": "14ème mondial (108 millions d'habitants)",
+    "Émissions de GES": "2.7 tonnes de CO2eq par habitant et par an",
+    "PIB par habitant": "115ème mondial",
+    "IDH": "116ème mondial",
+    "Vulnérabilité": "19ème mondial",
+    "Énergie renouvelable": "Faible part des énergies renouvelables",
+    "Secteurs Émetteurs de GES": "Énergie: 40%, Transports: 20%, Industrie: 20%, Agriculture: 10%, Déchets: 10%",
+    "Impacts des Changements Climatiques": "Pénurie d'eau, montée du niveau de la mer (delta du Nil), agriculture affectée, vagues de chaleur",
+    "Objectifs et Stratégies": "Diversification énergétique, gestion de l'eau, développement durable, adaptation côtière"
   },
   {
     "Pays": "Émirats Arabes Unis",
@@ -58,6 +70,18 @@
     "Secteurs Émetteurs de GES": "Transports: 27%, production d'électricité: 25%, industrie: 24%",
     "Impacts des Changements Climatiques": "Montée des eaux, villes et îlots de chaleur, agriculture affectée",
     "Objectifs et Stratégies": "Affirmer le leadership climatique, poursuivre les activités économiques, investir dans des technologies plus propres"
+  },
+  {
+    "Pays": "Inde",
+    "Population": "2ème mondial (1467 millions d'habitants)",
+    "Émissions de GES": "2.4 tonnes de CO2eq par habitant et par an",
+    "PIB par habitant": "139ème mondial",
+    "IDH": "132ème mondial",
+    "Vulnérabilité": "43ème mondial",
+    "Énergie renouvelable": "25% de la production d'énergie",
+    "Secteurs Émetteurs de GES": "Énergie: 68%, Agriculture: 14%, Industrie: 11%, Déchets: 3%",
+    "Impacts des Changements Climatiques": "Sécheresses, inondations, cyclones, pénuries d'eau, agriculture affectée",
+    "Objectifs et Stratégies": "Développement durable, augmentation de la part des énergies renouvelables, adaptation aux impacts climatiques"
   },
   {
     "Pays": "France",
