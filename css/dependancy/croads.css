@@ -1,0 +1,384 @@
+#croads-tab {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#croads-tab .normal-mode {
+    padding: 20px;
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    display: block;
+}
+
+#croads-tab .container {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 1rem;
+    padding: 1rem;
+    align-items: start;
+}
+
+#croads-tab #emissionsChart-container {
+    grid-column: 1;
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 400px;
+    margin-bottom: 1rem;
+}
+
+#croads-tab #temperatureChart-container {
+    grid-column: 1;
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 400px;
+    margin-bottom: 1rem;
+}
+
+#croads-tab #temperatureSummary {
+    grid-column: 1;
+    background: white;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+#croads-tab .presentation-mode.active #temperatureSummary {
+    grid-column: 1;
+    background: white;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+#croads-tab #fundsSummary {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+#croads-tab #countryTable {
+    grid-column: 1 / span 2;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#croads-tab .chart-container canvas {
+    width: 100% !important;
+    height: 90% !important;
+}
+
+#croads-tab .legend {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.98);
+    padding: 0.8rem;
+    border-radius: 5px 0 0 5px;
+    max-height: 350px;
+    overflow-y: auto;
+    font-size: 0.82rem;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 180px;
+    z-index: 10;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+#croads-tab .legend.hidden {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+#croads-tab .legend-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #003366;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    z-index: 20;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+#croads-tab .legend-toggle:hover {
+    background: #002244;
+}
+
+#croads-tab .legend-toggle::after {
+    content: "◄";
+    margin-left: 5px;
+}
+
+#croads-tab .legend-toggle.collapsed::after {
+    content: "►";
+}
+
+#croads-tab #customLegend div {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    cursor: pointer;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+#croads-tab #customLegend div:hover {
+    background-color: #f0f0f0;
+}
+
+#croads-tab #customLegend span {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    border: 1px solid #ddd;
+}
+
+#croads-tab .summary:hover {
+    transform: translateY(-5px);
+}
+
+#croads-tab .temp-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+#croads-tab th, #croads-tab td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#croads-tab th {
+    background-color: #f2f2f2;
+}
+
+#croads-tab .presentation-mode {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f5f5f5;
+    padding: 1rem;
+    box-sizing: border-box;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+#croads-tab .presentation-mode h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #003366;
+    font-size: 1.5rem;
+}
+
+#croads-tab .presentation-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    flex: 1;
+    overflow: auto;
+}
+
+#croads-tab .presentation-main > div {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    min-height: 80px;
+}
+
+#croads-tab .presentation-table {
+    height: 10vh;
+    margin-top: 0.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#croads-tab .presentation-button {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    height: auto;
+}
+
+#croads-tab .nav-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #003366;
+    color: white;
+    border: none;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#croads-tab #prevRow {
+    left: 0;
+}
+
+#croads-tab #nextRow {
+    right: 0;
+}
+
+#croads-tab #presentationTableContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    overflow-x: auto;
+    font-size: 0.7rem;
+    padding: 0.5rem 0;
+}
+
+#croads-tab .presentation-mode.active #carbonBudgetContainerPresentation p {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+}
+
+#croads-tab .presentation-mode.active #carbonBudgetContainerPresentation p .budget-value {
+    margin-left: 0.5em;
+}
+
+#croads-tab #presentationTableContainer > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0.3rem;
+}
+
+#croads-tab #presentationTableContainer > div label {
+    margin-bottom: 0.1rem;
+    color: #003366;
+    font-weight: bold;
+}
+
+#croads-tab #presentationTableContainer > div input {
+    width: auto;
+    min-width: 40px;
+    padding: 0.1rem 0.3rem;
+    border: 1px solid #003366;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+.country-name-presentation {
+    font-weight: bold;
+    color: #003366;
+    padding: 0.2rem 0.4rem;
+    background-color: #e3f2fd;
+    border-radius: 4px;
+}
+
+#presentationModeBtn,
+#dashboardModeBtn {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #003366;
+    color: white;
+    border: none;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    bottom: 20px;
+    right: 20px;
+}
+
+#presentationModeBtn {
+    right: 90px;
+}
+
+#presentationModeBtn:hover,
+#dashboardModeBtn:hover {
+    background: #004488;
+    transform: scale(1.1);
+}
+
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    bottom: 65px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+#presentationModeBtn:hover .tooltip,
+#dashboardModeBtn:hover .tooltip {
+    opacity: 1;
+}

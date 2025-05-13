@@ -1,0 +1,45 @@
+#COP-tab {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.info-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.info-btn:hover {
+    background-color: #219653;
+}
+
+.cop-info {
+    margin-top: 20px;
+}
+
+.cop-info h3 {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.cop-info p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.cop-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

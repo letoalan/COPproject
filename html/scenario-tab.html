@@ -1,0 +1,41 @@
+<!-- Onglet Scénario -->
+<div id="scenario-tab" class="tab-content">
+    <h3>Scénarios RCP et SSP</h3>
+    <p>
+        Les <strong>RCP (Representative Concentration Pathways)</strong> décrivent les trajectoires de concentration de gaz à effet de serre dans l'atmosphère, tandis que les <strong>SSP (Shared Socioeconomic Pathways)</strong> décrivent les évolutions socio-économiques possibles. Voici une explication des 4 scénarios combinant RCP et SSP :
+    </p>
+
+    <!-- Boutons des scénarios -->
+    <div id="scenario-tab-buttons">
+        <button data-scenario="SSP1 + RCP1.9">SSP1 + RCP1.9</button>
+        <button data-scenario="SSP2 + RCP4.5">SSP2 + RCP4.5</button>
+        <button data-scenario="SSP3 + RCP6.0">SSP3 + RCP6.0</button>
+        <button data-scenario="SSP5 + RCP8.5">SSP5 + RCP8.5</button>
+    </div>
+
+    <!-- Conteneur pour les trois colonnes -->
+    <div class="scenario-column-layout">
+        <!-- Colonne de description (25%) -->
+        <div class="scenario-description-column">
+            <h3 id="scenario-title">Sélectionnez un scénario</h3>
+            <p id="scenario-text">Cliquez sur un bouton pour afficher les détails du scénario.</p>
+            <img id="scenario-image" src="" alt="Image du scénario" style="max-width: 100%; display: none;">
+        </div>
+
+        <!-- Graphique des performances (30%) -->
+        <div class="scenario-efficacité-chart">
+            <div class="chart-container">
+                <h3 class="chart-title">Efficacité du Scénario</h3>
+                <canvas id="scenarioChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Graphique d'évolution des scénarios (45%) -->
+        <div class="scenario-evolution-chart">
+            <div class="chart-container">
+                <h3 class="chart-title">Évolution des Scénarios (2025 - 2100)</h3>
+                <canvas id="scenarioEvolutionChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>

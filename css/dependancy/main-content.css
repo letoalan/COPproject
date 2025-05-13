@@ -1,0 +1,39 @@
+main {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.tab-content h3 {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.tab-content h4 {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.tab-content p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}

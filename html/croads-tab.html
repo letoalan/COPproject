@@ -1,0 +1,91 @@
+<!-- Ajoutez cette section après les autres onglets : -->
+<div id="croads-tab" class="tab-content">
+    <!-- Le contenu de index-C.html va ici -->
+    <div class="normal-mode">
+        <header>
+            <h1>Simulateur climatique - Émissions GES par pays</h1>
+        </header>
+
+        <div class="container">
+            <div class="chart-container" id="emissionsChart-container">
+                <canvas id="emissionsChart"></canvas>
+                <div class="legend" id="customLegend"></div>
+                <button class="legend-toggle">Légende</button>
+            </div>
+            <div class="chart-container" id="temperatureChart-container">
+                <canvas id="temperatureChart"></canvas>
+            </div>
+            <div class="summary" id="temperatureSummary">
+                <!-- Contenu généré dynamiquement -->
+            </div>
+            <div id="fundsSummary" class="funds-panel">
+                <!-- Contenu généré dynamiquement -->
+            </div>
+        </div>
+
+        <table id="countryTable">
+            <thead>
+            <tr>
+                <th>Pays</th>
+                <th>Année pic</th>
+                <th>Année réduction</th>
+                <th>Réduction</th>
+                <th>Déforestation</th>
+                <th>Reboisement</th>
+                <th>Fonds Alloués (Mrd €)</th>
+            </tr>
+            </thead>
+            <tbody id="countryTableBody">
+            <!-- Lignes générées dynamiquement -->
+            </tbody>
+        </table>
+
+    </div>
+    <div id="presentationMode" class="presentation-mode">
+        <h2>Configuration Pays</h2>
+        <div class="presentation-main">
+        </div>
+        <div class="presentation-table">
+            <div class="presentation-button">
+                <button id="prevRow" class="nav-btn">◀</button>
+                <button id="nextRow" class="nav-btn">▶</button>
+            </div>
+            <div id="presentationTableContainer">
+                <div class="country-info">
+                    <div class="country-name-presentation"></div> </div>
+                <div class="input-group">
+                    <label>Année pic</label>
+                    <input type="number" data-key="peakYear" data-country-index="" data-input-index="0" value="" min="2025" max="2100">
+                </div>
+                <div class="input-group">
+                    <label>Année réduction</label>
+                    <input type="number" data-key="reductionYear" data-country-index="" data-input-index="1" value="" min="2025" max="2100">
+                </div>
+                <div class="input-group">
+                    <label>Réduction (%)</label>
+                    <input type="number" data-key="reduction" data-country-index="" data-input-index="2" value="" min="0" max="100">
+                </div>
+                <div class="input-group">
+                    <label>Déforestation (%)</label>
+                    <input type="number" data-key="deforestation" data-country-index="" data-input-index="3" value="" min="0" max="100">
+                </div>
+                <div class="input-group">
+                    <label>Reforestation (%)</label>
+                    <input type="number" data-key="reforestation" data-country-index="" data-input-index="4" value="" min="0" max="100">
+                </div>
+                <div class="input-group">
+                    <label>Fonds (Mrd €)</label>
+                    <input type="number" data-key="allocatedFunds" data-country-index="" data-input-index="5" value="" min="0">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="presentationModeBtn" class="presentation-btn" title="Mode présentation">
+        🖥️ <span class="tooltip">Présentation</span>
+    </button>
+
+    <button id="dashboardModeBtn" class="dashboard-btn" title="Mode dashboard">
+        📊  <span class="tooltip">Dashboard</span>
+    </button>
+</div>

@@ -1,0 +1,72 @@
+@media (max-width: 768px) {
+    #scenario-tab-buttons, #country-tab-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #scenario-tab-buttons button, #country-tab-buttons button {
+        width: 100%;
+    }
+
+    .scenario-column-layout,
+    .country-column-layout {
+        flex-direction: column;
+    }
+
+    .scenario-description-column,
+    .country-description-column {
+        flex: 1;
+    }
+
+    .scenario-charts-column,
+    .country-charts-column {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .scenario-performance-chart,
+    .scenario-evolution-chart,
+    .country-radar-chart,
+    .country-co2-chart {
+        flex: 1 1 auto;
+        max-height: none;
+    }
+
+    .state-selector select {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    #state-info-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #strategie-etats-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #strategie-etats-table th,
+    #strategie-etats-table td {
+        padding: 8px 10px;
+    }
+
+    #strategie-etats-table td {
+        white-space: normal;
+    }
+}
+
+@media (max-width: 1200px) {
+    #croads-tab .container,
+    #croads-tab .presentation-main {
+        grid-template-columns: 1fr;
+    }
+
+    #croads-tab #fundsSummary {
+        grid-column: 1;
+        grid-row: auto;
+    }
+}

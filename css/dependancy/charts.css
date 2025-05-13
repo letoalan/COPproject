@@ -1,0 +1,38 @@
+.chart-title {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    z-index: 3;
+    font-size: 1.5rem;
+    color: #3498db;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+}
+
+.chart-container {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chart-container canvas {
+    position: relative;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+}
+
+#country-map, #scenario-country-map {
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}

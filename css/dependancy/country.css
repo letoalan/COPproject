@@ -1,0 +1,76 @@
+/* Conteneur de la colonne de description */
+.country-description-column {
+    flex: 0 0 40%;
+    position: relative;
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Arrière-plan du drapeau */
+.country-flag-background {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Dimension explicite */
+    height: 100%; /* Dimension explicite */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+/* Overlay de contenu */
+.country-content-overlay {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.7); /* Opacité réduite pour visibilité du drapeau */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Éléments dans l'overlay */
+.country-content-overlay h3,
+.country-content-overlay h4,
+.country-content-overlay table,
+.country-content-overlay #country-map {
+    position: relative;
+    z-index: 3;
+}
+
+/* Activation du drapeau dans les onglets concernés */
+#country-tab .country-flag-background,
+#state-info-tab .country-flag-background {
+    display: block;
+}
+
+/* Disposition des colonnes */
+.country-column-layout {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Colonne des graphiques */
+.country-charts-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Graphique radar */
+.country-radar-chart {
+    flex: 1;
+    max-height: 400px;
+}
+
+/* Graphique CO2 */
+.country-co2-chart {
+    flex: 1;
+    max-height: 400px;
+}

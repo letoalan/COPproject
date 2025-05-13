@@ -1,0 +1,81 @@
+<!-- Onglet Stratégie par pays -->
+<div id="country-tab" class="tab-content" style="display: none;">
+  <h2>Analyse par Pays</h2>
+
+  <!-- Sélecteur de pays -->
+  <div class="state-selector">
+    <label for="country-select">Choisissez un pays :</label>
+    <select id="country-select" data-action="update-country">
+      <option value="Brésil">Brésil</option>
+      <option value="Chili">Chili</option>
+      <option value="Égypte">Égypte</option>
+      <option value="Émirats Arabes Unis">Émirats Arabes Unis</option>
+      <option value="États-Unis">États-Unis</option>
+      <option value="Russie">Russie</option>
+      <option value="France">France</option>
+      <option value="Haïti">Haïti</option>
+      <option value="Inde">Inde</option>
+      <option value="Île Maurice">Île Maurice</option>
+      <option value="Sénégal">Sénégal</option>
+      <option value="Vanuatu">Vanuatu</option>
+      <option value="Mexique">Mexique</option>
+      <option value="République Populaire de Chine">République Populaire de Chine</option>
+    </select>
+  </div>
+
+  <!-- Boutons pour sélectionner les scénarios -->
+  <div id="country-tab-buttons">
+    <button data-scenario="SSP1 + RCP1.9">SSP1 + RCP1.9</button>
+    <button data-scenario="SSP2 + RCP4.5">SSP2 + RCP4.5</button>
+    <button data-scenario="SSP3 + RCP6.0">SSP3 + RCP6.0</button>
+    <button data-scenario="SSP5 + RCP8.5">SSP5 + RCP8.5</button>
+  </div>
+
+  <!-- Conteneur pour les deux colonnes -->
+  <div class="country-column-layout">
+    <!-- Colonne de gauche : Tableau et carte -->
+    <div class="country-description-column">
+      <div class="country-flag-background" data-country=""></div>
+      <div class="country-content-overlay">
+        <div id="country-description">
+          <h4>Description du Scénario</h4>
+          <table id="country-description-table">
+            <thead>
+            <tr>
+              <th>Paramètre</th>
+              <th>Valeur</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Les lignes du tableau seront ajoutées dynamiquement par JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <h3>Carte du Pays</h3>
+          <div id="country-map" style="height: 300px; margin-top: 20px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colonne de droite : Deux graphiques -->
+    <div class="country-charts-column">
+      <!-- Radar Chart -->
+      <div class="country-radar-chart">
+        <div class="chart-container">
+          <h3 class="chart-title">Efficacité politique du Scénario</h3>
+          <canvas id="radarChart"></canvas>
+        </div>
+      </div>
+
+      <!-- CO2 Chart -->
+      <div class="country-co2-chart">
+        <div class="chart-container">
+          <h3 class="chart-title">Émissions de CO2, Déforestation et Reboisement</h3>
+          <canvas id="co2Chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

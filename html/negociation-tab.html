@@ -1,0 +1,52 @@
+<div id="negociation-tab" class="tab-content" style="display: none;">
+    <h3>Négociation par pays</h3>
+
+    <!-- Sélecteur de pays -->
+    <div class="state-selector">
+        <label for="negociation-country-select">Choisissez un pays :</label>
+        <select id="negociation-country-select" data-action="update-negociation">
+            <option value="Brésil">Brésil</option>
+            <option value="Chili">Chili</option>
+            <option value="Égypte">Égypte</option>
+            <option value="Émirats Arabes Unis">Émirats Arabes Unis</option>
+            <option value="États-Unis">États-Unis</option>
+            <option value="Russie">Russie</option>
+            <option value="France">France</option>
+            <option value="Haïti">Haïti</option>
+            <option value="Inde">Inde</option>
+            <option value="Île Maurice">Île Maurice</option>
+            <option value="Sénégal">Sénégal</option>
+            <option value="Vanuatu">Vanuatu</option>
+            <option value="Mexique">Mexique</option>
+            <option value="République Populaire de Chine">République Populaire de Chine</option>
+        </select>
+    </div>
+
+    <!-- Boutons pour sélectionner les scénarios -->
+    <div id="negociation-scenario-buttons">
+        <button data-scenario="SSP1 + RCP1.9">SSP1 + RCP1.9</button>
+        <button data-scenario="SSP2 + RCP4.5">SSP2 + RCP4.5</button>
+        <button data-scenario="SSP3 + RCP6.0">SSP3 + RCP6.0</button>
+        <button data-scenario="SSP5 + RCP8.5">SSP5 + RCP8.5</button>
+    </div>
+
+    <!-- Section pour les informations de base -->
+    <div id="negociation-infos-base">
+        <div class="negociation-flag-background" data-country=""></div>
+        <div class="negociation-content-overlay">
+            <h3>Informations de base</h3>
+            <p><strong>Contribution :</strong> <span id="negociation-contribution">-</span> milliards</p>
+            <p><strong>Aides reçues :</strong> <span id="negociation-aides">-</span> milliards</p>
+        </div>
+    </div>
+
+    <!-- Section pour les scénarios de négociation -->
+    <div id="negociation-scenarios">
+        <h3>Scénarios de négociation</h3>
+        <div id="negociation-scenarios-content">
+            <div class="loading-state">
+                <p>Chargement des données en cours...</p>
+            </div>
+        </div>
+    </div>
+</div>

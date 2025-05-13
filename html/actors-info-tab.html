@@ -1,0 +1,36 @@
+<div id="actors-info-tab" class="tab-content">
+    <h3>Informations sur les Acteurs Non-Étatiques</h3>
+    <div class="actor-selector">
+        <label for="actor-select">Choisissez un acteur :</label>
+        <select id="actor-select" data-action="update-actor">
+            <option value="BlackRock">BlackRock</option>
+            <option value="TotalEnergies">TotalEnergies</option>
+            <option value="GIEC">GIEC</option>
+            <option value="Green Peace">Green Peace</option>
+        </select>
+    </div>
+
+    <!-- Conteneur pour l'image et le tableau -->
+    <div class="actors-container">
+        <!-- Conteneur de gauche pour l'image -->
+        <div class="actors-image-container">
+            <img id="actors-image" src="" alt="Image de l'acteur" class="actors-image">
+        </div>
+
+        <!-- Conteneur de droite pour le tableau -->
+        <div class="actors-table-container">
+            <table id="actors-info-table">
+                <thead>
+                <tr>
+                    <th>Indicateur</th>
+                    <th>Valeur</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Les lignes seront ajoutées dynamiquement par JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

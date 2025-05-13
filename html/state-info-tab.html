@@ -1,0 +1,55 @@
+<!-- Onglet Informations sur les États -->
+<div id="state-info-tab" class="tab-content">
+  <h3>Informations détaillées sur les États</h3>
+
+  <div class="state-selector">
+    <label for="state-select">Sélectionnez un État :</label>
+    <select id="state-select" data-action="update-state">
+      <option value="Brésil">Brésil</option>
+      <option value="Chili">Chili</option>
+      <option value="Chine">Chine</option>
+      <option value="Égypte">Égypte</option>
+      <option value="Émirats Arabes Unis">Émirats Arabes Unis</option>
+      <option value="États-Unis">États-Unis</option>
+      <option value="France">France</option>
+      <option value="Haïti">Haïti</option>
+      <option value="Inde">Inde</option>
+      <option value="Île Maurice">Île Maurice</option>
+      <option value="Mexique">Mexique</option>
+      <option value="Russie">Russie</option>
+      <option value="Sénégal">Sénégal</option>
+      <option value="Vanuatu">Vanuatu</option>
+    </select>
+  </div>
+
+  <div class="state-info-container">
+    <div class="country-flag-background" data-country=""></div>
+    <div class="country-content-overlay">
+      <table id="state-info-table">
+        <thead>
+        <tr>
+          <th>Indicateur</th>
+          <th>Valeur</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Contenu dynamique -->
+        </tbody>
+      </table>
+
+      <!-- Conteneurs pour les graphiques -->
+      <div class="chart-container">
+        <h3 class="chart-title">Population et Émissions de GES</h3>
+        <canvas id="populationEmissionsChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>Comparaison des Rangs</h3>
+        <canvas id="ranksChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3 class="chart-title">Répartition des Secteurs Émetteurs de GES</h3>
+        <canvas id="gesSectorsChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
