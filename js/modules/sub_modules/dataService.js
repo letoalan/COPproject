@@ -7,7 +7,7 @@ export async function loadData() {
     try {
         console.log('Début de loadData');
         console.log('Tentative de fetch ../data/datasimu.json');
-        const response = await fetch('../data/datasimu.json');
+        const response = await fetch('data/datasimu.json');
         console.log('Réponse fetch:', response.status, response.statusText);
         if (!response.ok) {
             throw new Error(`Erreur HTTP: ${response.status} ${response.statusText}`);

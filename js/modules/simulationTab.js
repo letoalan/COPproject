@@ -183,7 +183,7 @@ async function initGeneralClimateChart() {
 
 async function loadAdditionalData() {
     try {
-        const response = await fetch('/data/exemples.json');
+        const response = await fetch('data/exemples.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
