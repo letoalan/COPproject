@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             throw new Error('Élément main introuvable');
         }
 
-        // Solution 3: Détection automatique du préfixe de base
+       // Solution 3: Détection automatique du préfixe de base
         function getBaseUrl() {
             // Récupère le chemin de base à partir de l'URL actuelle
             const baseUrl = window.location.pathname.replace(/\/[^\/]*$/, '');
             return baseUrl === '/' ? '' : baseUrl;
         }
-
+        
         const baseUrl = getBaseUrl();
         const modules = [
             { name: 'copTab', path: './modules/copTab.js', html: `${baseUrl}/html/cop-tab.html` },
