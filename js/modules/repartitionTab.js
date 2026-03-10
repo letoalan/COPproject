@@ -211,7 +211,8 @@ function extractStudents(jsonData) {
         const firstName = row['Prénom'] || '';
         const lastName = row['Nom'] || '';
         const fullName = row['Nom Complet'] || `${firstName} ${lastName}`.trim();
-        return { firstName, lastName, fullName };
+        const etablissement = row['Établissement'] || 'Individuel';
+        return { firstName, lastName, fullName, etablissement };
     }).filter(s => s.fullName);
 }
 
@@ -220,13 +221,18 @@ function reconstructFromStep1(step1Data) {
     step1Data.forEach(row => {
         const del = delegations.find(d => d.name === row['Délégation']);
         if (del) {
-            del.members.push({ fullName: row['Nom Complet'], role: row['Rôle'] });
+            del.members.push({
+                fullName: row['Nom Complet'],
+                role: row['Rôle'],
+                etablissement: row['Établissement'] || 'Individuel'
+            });
         }
     });
 }
 
 function assignStep1(students) {
     initDelegations();
+    // For Step 1, we still want to ensure variety, but we match establishments if possible
     const shuffled = [...students].sort(() => Math.random() - 0.5);
     for (let i = 0; i < Math.min(shuffled.length, delegations.length); i++) {
         delegations[i].members.push({ ...shuffled[i], role: 'Chef de délégation' });
@@ -241,30 +247,77 @@ function assignStep1(students) {
 }
 
 function assignStep2(students) {
+    assignStep2GroupAware(students);
+}
+
+function assignStep2GroupAware(students) {
     if (delegations.length === 0) initDelegations();
-    const shuffled = [...students].sort(() => Math.random() - 0.5);
-    shuffled.forEach((student, index) => {
-        const delIndex = index % delegations.length;
-        delegations[delIndex].members.push({ ...student, role: 'Membre' });
+
+    // 1. Grouper par établissement
+    const groupsByEtab = students.reduce((acc, s) => {
+        const etab = s.etablissement || 'Individuel';
+        if (!acc[etab]) acc[etab] = [];
+        acc[etab].push(s);
+        return acc;
+    }, {});
+
+    // 2. PRIORITÉ 1 : Groupes intacts (≤5 élèves)
+    const intactGroups = Object.keys(groupsByEtab).filter(etab => groupsByEtab[etab].length <= 5);
+    intactGroups.forEach(etab => {
+        const group = groupsByEtab[etab];
+        const targetDel = findLeastLoadedDelegation();
+        group.forEach(student => {
+            targetDel.members.push({ ...student, role: 'Membre (groupe)' });
+        });
+        delete groupsByEtab[etab]; // Retirer du pool
     });
+
+    // 3. PRIORITÉ 2 : Dyades pour les groupes restants
+    Object.keys(groupsByEtab).forEach(etab => {
+        const group = groupsByEtab[etab];
+        for (let i = 0; i < group.length; i += 2) {
+            const dyade = group.slice(i, i + 2);
+            // S'il reste un seul élève à la fin, il sera "solo"
+            if (dyade.length === 2) {
+                const target = findLeastLoadedDelegation();
+                dyade.forEach(s => target.members.push({ ...s, role: 'Membre (dyade)' }));
+            } else {
+                const target = findLeastLoadedDelegation();
+                dyade.forEach(s => target.members.push({ ...s, role: 'Membre solo' }));
+            }
+        }
+    });
+}
+
+function findLeastLoadedDelegation() {
+    return delegations.reduce((min, del) =>
+        del.members.length < min.members.length ? del : min
+        , delegations[0]);
 }
 
 function downloadTemplate(step) {
     const wb = XLSX.utils.book_new();
     if (step === 1) {
-        const data = [['Prénom', 'Nom'], ['Jean', 'Dupont'], ['Marie', 'Curie']];
+        const data = [
+            ['Prénom', 'Nom', 'Établissement', 'Notes'],
+            ['Jean', 'Dupont', 'Lycée A', ''],
+            ['Marie', 'Curie', 'Collège B', '']
+        ];
         const ws = XLSX.utils.aoa_to_sheet(data);
+
+        // Add hidden sheet for delegations if needed, but Step 1 is simple
         XLSX.utils.book_append_sheet(wb, ws, "Élèves");
         XLSX.writeFile(wb, `template-etape1.xlsx`);
     } else {
-        const header = [['Prénom', 'Nom']];
-        const emptyRows = Array(25).fill(['', '']);
+        const header = [['Prénom', 'Nom', 'Établissement', 'Notes']];
+        const emptyRows = Array(25).fill(['', '', '', '']);
         const ws1 = XLSX.utils.aoa_to_sheet(header.concat(emptyRows));
         XLSX.utils.book_append_sheet(wb, ws1, "Compléter");
-        const refData = [['Nom Complet', 'Délégation', 'Catégorie', 'Rôle']];
+
+        const refData = [['Nom Complet', 'Délégation', 'Catégorie', 'Rôle', 'Établissement']];
         delegations.forEach(del => {
             del.members.forEach(m => {
-                refData.push([m.fullName, del.name, del.category, m.role]);
+                refData.push([m.fullName, del.name, del.category, m.role, m.etablissement || '']);
             });
         });
         const ws2 = XLSX.utils.aoa_to_sheet(refData);
@@ -286,13 +339,20 @@ function renderResults() {
         if (catMembersCount > 0) {
             const headerRow = document.createElement('tr');
             headerRow.className = `table-category-header ${getCategoryClass(cat)}`;
-            headerRow.innerHTML = `<td colspan="3">${cat} (${catMembersCount} membres)</td>`;
+            headerRow.innerHTML = `<td colspan="4">${cat} (${catMembersCount} membres)</td>`;
             flatTableBody.appendChild(headerRow);
 
             catDelegations.forEach(del => {
                 del.members.sort((a, b) => {
-                    const roles = { 'Chef de délégation': 1, 'Co-leader': 2, 'Membre': 3 };
-                    return roles[a.role] - roles[b.role];
+                    const rolesOrder = {
+                        'Chef de délégation': 1,
+                        'Co-leader': 2,
+                        'Membre (groupe)': 3,
+                        'Membre (dyade)': 4,
+                        'Membre solo': 5,
+                        'Membre': 6
+                    };
+                    return (rolesOrder[a.role] || 99) - (rolesOrder[b.role] || 99);
                 }).forEach(member => {
                     const row = document.createElement('tr');
                     const roleClass = member.role === 'Chef de délégation' ? 'role-chef' :
@@ -301,6 +361,7 @@ function renderResults() {
                         <td><span class="role-icon">${getRoleIcon(member.role)}</span> <strong>${member.fullName}</strong></td>
                         <td>${del.icon} ${del.name}</td>
                         <td><span class="role-badge ${roleClass}">${member.role}</span></td>
+                        <td><small>${member.etablissement || 'Individuel'}</small></td>
                     `;
                     flatTableBody.appendChild(row);
                 });
@@ -317,7 +378,11 @@ function renderResults() {
                 card.className = 'delegation-card';
                 let membersHtml = del.members.map(m => `
                     <div class="member-item ${m.role === 'Chef de délégation' ? 'role-chef' : m.role === 'Co-leader' ? 'role-coleader' : ''}">
-                        <span class="role-icon">${getRoleIcon(m.role)}</span> ${m.fullName}
+                        <span class="role-icon">${getRoleIcon(m.role)}</span> 
+                        <div class="member-info">
+                            <span class="member-name">${m.fullName}</span>
+                            <span class="member-school">${m.etablissement}</span>
+                        </div>
                     </div>
                 `).join('');
                 card.innerHTML = `<div class="card-header">${del.icon} ${del.name}</div><div class="card-body">${membersHtml}</div>`;
@@ -374,7 +439,11 @@ function renderHierarchyGroup(container, group) {
         card.className = 'delegation-card';
         const membersHtml = del.members.map(m => `
             <div class="member-item ${m.role === 'Chef de délégation' ? 'role-chef' : m.role === 'Co-leader' ? 'role-coleader' : ''}">
-                <span class="role-icon">${getRoleIcon(m.role)}</span> ${m.fullName}
+                <span class="role-icon">${getRoleIcon(m.role)}</span> 
+                <div class="member-info">
+                    <span class="member-name">${m.fullName}</span>
+                    <span class="member-school">${m.etablissement}</span>
+                </div>
             </div>
         `).join('');
         card.innerHTML = `
@@ -394,7 +463,13 @@ function exportExcel() {
     const exportData = [];
     delegations.forEach(del => {
         del.members.forEach(m => {
-            exportData.push({ 'Nom Complet': m.fullName, 'Délégation': del.name, 'Catégorie': del.category, 'Rôle': m.role });
+            exportData.push({
+                'Nom Complet': m.fullName,
+                'Délégation': del.name,
+                'Catégorie': del.category,
+                'Rôle': m.role,
+                'Établissement': m.etablissement || 'Individuel'
+            });
         });
     });
     const ws = XLSX.utils.json_to_sheet(exportData);
@@ -418,9 +493,16 @@ function exportPDF() {
         yPos += 10;
         const tableData = [];
         catDelegations.forEach(del => {
-            del.members.forEach(m => { tableData.push([m.fullName, del.name, m.role]); });
+            del.members.forEach(m => {
+                tableData.push([m.fullName, del.name, m.role, m.etablissement || '']);
+            });
         });
-        doc.autoTable({ startY: yPos, head: [['Élève', 'Délégation', 'Rôle']], body: tableData, theme: 'grid' });
+        doc.autoTable({
+            startY: yPos,
+            head: [['Élève', 'Délégation', 'Rôle', 'Établissement']],
+            body: tableData,
+            theme: 'grid'
+        });
         yPos = doc.lastAutoTable.finalY + 15;
     });
     doc.save("Repartition_COP.pdf");
