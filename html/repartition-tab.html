@@ -1,0 +1,113 @@
+<div id="repartition-tab" class="tab-content">
+    <div class="repartition-container">
+        <header class="repartition-header">
+            <h2>Répartition des délégations</h2>
+            <p class="subtitle">Assignation intelligente pour la simulation COP</p>
+        </header>
+
+        <div class="steps-grid">
+            <!-- Étape 1 -->
+            <section class="step-card" id="step1">
+                <div class="step-header">
+                    <span class="step-number">1</span>
+                    <h3>Chefs de délégation</h3>
+                    <span id="status1" class="status-icon hidden">✅</span>
+                </div>
+                <p>Assignez les chefs (14 États + 5 acteurs) et les co-leaders.</p>
+                <div class="actions">
+                    <button class="icon-btn" id="download-template-1" title="Télécharger le template Excel">
+                        <span class="icon">📥</span>
+                    </button>
+                    <label for="fileInput1" class="upload-btn primary">
+                        Charger Étape 1
+                    </label>
+                    <input type="file" id="fileInput1" accept=".xlsx" hidden>
+                </div>
+            </section>
+
+            <!-- Étape 2 -->
+            <section class="step-card" id="step2">
+                <div class="step-header">
+                    <span class="step-number">2</span>
+                    <h3>Compléter les délégations</h3>
+                    <span id="status2" class="status-icon hidden">✅</span>
+                </div>
+                <p>Ajoutez le reste des membres aux délégations existantes.</p>
+                <div class="actions">
+                    <button class="icon-btn" id="download-template-2" title="Télécharger le template Excel">
+                        <span class="icon">📥</span>
+                    </button>
+                    <label for="fileInput2" class="upload-btn secondary">
+                        Charger Étape 2
+                    </label>
+                    <input type="file" id="fileInput2" accept=".xlsx" hidden>
+                </div>
+            </section>
+        </div>
+
+        <!-- Section Résultats -->
+        <div id="resultSection" class="hidden">
+            <div class="result-header">
+                <h3>Résultats de l'attribution</h3>
+                <div class="export-actions">
+                    <button class="btn-outline" id="export-excel-btn">
+                        <span class="icon">📊</span> Excel
+                    </button>
+                    <button class="btn-outline" id="export-pdf-btn">
+                        <span class="icon">📄</span> PDF
+                    </button>
+                </div>
+            </div>
+
+            <div class="view-tabs">
+                <button class="tab-btn active" data-view="hierarchy">Hiérarchie COP</button>
+                <button class="tab-btn" data-view="grouped">Vue Dynamique</button>
+                <button class="tab-btn" data-view="flat">Tableau Plat</button>
+            </div>
+
+            <!-- Vue Hiérarchique -->
+            <div id="hierarchyView" class="view-content active">
+                <section class="main-category">
+                    <div class="category-header">
+                        <span class="folder-icon">📁</span>
+                        <h4>ÉTATS (14)</h4>
+                    </div>
+                    <div id="etats-container" class="subgroups-container">
+                        <!-- Injecté par repartitionTab.js -->
+                    </div>
+                </section>
+
+                <section class="main-category">
+                    <div class="category-header">
+                        <span class="folder-icon">📁</span>
+                        <h4>NON-ÉTATS (5)</h4>
+                    </div>
+                    <div id="non-etats-container" class="subgroups-container">
+                        <!-- Injecté par repartitionTab.js -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Vue Groupée -->
+            <div id="groupedView" class="view-content">
+                <!-- Injecté par JS -->
+            </div>
+
+            <!-- Tableau Plat -->
+            <div id="flatView" class="view-content">
+                <table id="resultTable" class="repartition-table">
+                    <thead>
+                        <tr>
+                            <th>Élève</th>
+                            <th>Délégation</th>
+                            <th>Rôle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Injecté par JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

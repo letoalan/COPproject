@@ -11,8 +11,47 @@ nav button {
     cursor: pointer;
     border-radius: 5px;
     font-size: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
 nav button:hover {
     background-color: #2980b9;
+}
+
+nav button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    background-color: #3498db;
+    border-radius: 2px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        width: 0;
+        left: 50%;
+    }
+
+    to {
+        width: 80%;
+        left: 10%;
+    }
+}
+
+/* Specific button colors */
+nav button[data-tab="croads-tab"] {
+    background-color: #e74c3c;
+}
+
+nav button[data-tab="croads-tab"]:hover {
+    background-color: #c0392b;
+}
+
+nav button[data-tab="croads-tab"].active::after {
+    background-color: #e74c3c;
 }

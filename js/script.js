@@ -6,15 +6,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             throw new Error('Élément main introuvable');
         }
 
-       // Solution 3: Détection automatique du préfixe de base
+        // Solution 3: Détection automatique du préfixe de base
         function getBaseUrl() {
             // Récupère le chemin de base à partir de l'URL actuelle
             const baseUrl = window.location.pathname.replace(/\/[^\/]*$/, '');
             return baseUrl === '/' ? '' : baseUrl;
         }
-        
+
         const baseUrl = getBaseUrl();
         const modules = [
+            { name: 'repartitionTab', path: './modules/repartitionTab.js', html: `${baseUrl}/html/repartition-tab.html` },
             { name: 'copTab', path: './modules/copTab.js', html: `${baseUrl}/html/cop-tab.html` },
             { name: 'simulationTab', path: './modules/simulationTab.js', html: `${baseUrl}/html/simulation-tab.html` },
             { name: 'scenarioTab', path: './modules/scenarioTab.js', html: `${baseUrl}/html/scenario-tab.html` },
@@ -81,6 +82,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         const navButtons = document.querySelectorAll('nav button[data-tab]');
         navButtons.forEach((button) => {
             button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
                 document.querySelectorAll('.tab-content').forEach((tab) => {
                     tab.style.display = 'none';
                 });
@@ -94,10 +100,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         });
 
-        // Afficher l'onglet par défaut (par exemple, cop-tab)
-        const defaultTab = document.getElementById('cop-tab');
+        // Afficher l'onglet par défaut (par exemple, repartition-tab)
+        const defaultTabName = 'repartition-tab';
+        const defaultTab = document.getElementById(defaultTabName);
         if (defaultTab) {
             defaultTab.style.display = 'block';
+            const defaultButton = document.querySelector(`nav button[data-tab="${defaultTabName}"]`);
+            if (defaultButton) defaultButton.classList.add('active'); // Optional: check if buttons have active state
         }
     } catch (error) {
         console.error('Erreur globale:', error);

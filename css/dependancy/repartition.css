@@ -1,0 +1,450 @@
+/* Scoped styles for Répartition feature */
+.repartition-container {
+    --primary-blue: #3498db;
+    --primary-hover: #2980b9;
+    --secondary-gray: #7f8c8d;
+    --bg-light: #f8f9fa;
+    --border-color: #dee2e6;
+    --text-dark: #2c3e50;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.repartition-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--bg-light);
+}
+
+.repartition-header h2 {
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.repartition-header .subtitle {
+    font-size: 1rem;
+    color: var(--secondary-gray);
+}
+
+/* Steps Grid */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.step-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.step-number {
+    background: var(--primary-blue);
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.step-card h3 {
+    margin: 0 !important;
+    font-size: 1.2rem !important;
+}
+
+.status-icon {
+    margin-left: auto;
+}
+
+.status-icon.hidden {
+    display: none;
+}
+
+/* Buttons */
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.upload-btn {
+    flex: 1;
+    text-align: center;
+    padding: 8px 15px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.upload-btn.primary {
+    background: var(--primary-blue);
+}
+
+.upload-btn.secondary {
+    background: var(--secondary-gray);
+}
+
+.upload-btn:hover {
+    filter: brightness(1.1);
+}
+
+.icon-btn {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+/* Results Section */
+#resultSection {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--bg-light);
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.export-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-outline {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-outline:hover {
+    background: var(--bg-light);
+}
+
+/* View Tabs */
+.view-tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 1.5rem;
+    background: var(--bg-light);
+    padding: 4px;
+    border-radius: 6px;
+    width: fit-content;
+}
+
+.tab-btn {
+    padding: 6px 15px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--secondary-gray);
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.tab-btn.active {
+    background: #fff;
+    color: var(--primary-blue);
+    box-shadow: var(--shadow-sm);
+}
+
+.tab-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+.view-content {
+    display: none;
+}
+
+.view-content.active {
+    display: block;
+}
+
+/* Hierarchy & Grouped Views */
+.main-category {
+    margin-bottom: 2rem;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 5px;
+}
+
+.category-header h4 {
+    margin: 0 !important;
+    font-size: 1.4rem !important;
+}
+
+.hierarchy-group-section {
+    margin-bottom: 1.5rem;
+}
+
+.hierarchy-group-section h3 {
+    font-size: 1rem !important;
+    margin-bottom: 0.8rem !important;
+    color: var(--primary-blue);
+}
+
+.delegation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.delegation-card {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.card-header {
+    background: var(--bg-light);
+    padding: 8px 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.member-item {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.member-item.role-chef {
+    font-weight: bold;
+    color: #c0392b;
+}
+
+.member-item.role-coleader {
+    font-weight: bold;
+    color: #2980b9;
+}
+
+.role-icon {
+    font-size: 0.9rem;
+    width: 16px;
+    display: inline-flex;
+    justify-content: center;
+}
+
+/* Category Colors */
+.cat-onu {
+    border-color: #3498db !important;
+}
+
+.cat-onu h4,
+.cat-onu h3,
+.cat-onu.table-category-header {
+    background-color: #3498db !important;
+    color: white !important;
+}
+
+.cat-ftn {
+    border-color: #e74c3c !important;
+}
+
+.cat-ftn h4,
+.cat-ftn h3,
+.cat-ftn.table-category-header {
+    background-color: #e74c3c !important;
+    color: white !important;
+}
+
+.cat-ong {
+    border-color: #2ecc71 !important;
+}
+
+.cat-ong h4,
+.cat-ong h3,
+.cat-ong.table-category-header {
+    background-color: #2ecc71 !important;
+    color: white !important;
+}
+
+.cat-medias {
+    border-color: #f39c12 !important;
+}
+
+.cat-medias h4,
+.cat-medias h3,
+.cat-medias.table-category-header {
+    background-color: #f39c12 !important;
+    color: white !important;
+}
+
+.cat-etats-dev {
+    border-color: #34495e !important;
+}
+
+.cat-etats-dev h4,
+.cat-etats-dev h3,
+.cat-etats-dev.table-category-header {
+    background-color: #34495e !important;
+    color: white !important;
+}
+
+.cat-etats-petrol {
+    border-color: #95a5a6 !important;
+}
+
+.cat-etats-petrol h4,
+.cat-etats-petrol h3,
+.cat-etats-petrol.table-category-header {
+    background-color: #95a5a6 !important;
+    color: white !important;
+}
+
+.cat-etats-brics {
+    border-color: #8e44ad !important;
+}
+
+.cat-etats-brics h4,
+.cat-etats-brics h3,
+.cat-etats-brics.table-category-header {
+    background-color: #8e44ad !important;
+    color: white !important;
+}
+
+.cat-etats-pvd {
+    border-color: #16a085 !important;
+}
+
+.cat-etats-pvd h4,
+.cat-etats-pvd h3,
+.cat-etats-pvd.table-category-header {
+    background-color: #16a085 !important;
+    color: white !important;
+}
+
+.cat-etats-menaces {
+    border-color: #2980b9 !important;
+}
+
+.cat-etats-menaces h4,
+.cat-etats-menaces h3,
+.cat-etats-menaces.table-category-header {
+    background-color: #2980b9 !important;
+    color: white !important;
+}
+
+/* Flat Table */
+.repartition-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.repartition-table th {
+    background-color: var(--primary-blue);
+    color: white;
+    text-align: left;
+    padding: 12px;
+}
+
+.repartition-table td {
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table-category-header {
+    background-color: #ecf0f1;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.table-category-header td {
+    padding: 12px 10px !important;
+}
+
+.role-badge {
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.role-chef {
+    background: #fadbd8;
+    color: #c0392b;
+}
+
+.role-coleader {
+    background: #d6eaf8;
+    color: #2980b9;
+}
+
+.role-membre {
+    background: #ebedef;
+    color: #7f8c8d;
+}
+
+/* Navbar Special Button */
+nav button[data-tab="repartition-tab"] {
+    background-color: #27ae60;
+    font-weight: bold;
+}
+
+nav button[data-tab="repartition-tab"]:hover {
+    background-color: #219150;
+}
+
+nav button[data-tab="repartition-tab"].active::after {
+    background-color: #3498db;
+    /* Blue line under green button */
+}

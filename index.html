@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,39 +10,47 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <!-- Ajouter Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"></script>
+    <!-- Ajouter SheetJS et jsPDF pour l'onglet Répartition -->
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 </head>
+
 <body>
-<header>
-    <!-- Vidéo d'arrière-plan -->
-    <video autoplay muted loop id="header-video">
-        <source src="medias/video/Bakou.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas la vidéo.
-    </video>
-    <!-- Fond blanc transparent -->
-    <div class="header-overlay"></div>
-    <h1>Simulation de COP</h1>
-    <h2>Mission académique au développement durable - Académie de Limoges</h2>
-    <nav>
-        <button data-tab="cop-tab">Présentation des COP</button>
-        <button data-tab="simulation-tab">Les objectifs de la simulation</button>
-        <button data-tab="scenario-tab">Scénario du GIEC</button>
-        <button data-tab="state-info-tab">Informations sur les États</button>
-        <button data-tab="actors-info-tab">Informations sur les acteurs non étatiques</button>
-        <button data-tab="country-tab">Stratégie par pays</button>
-        <button data-tab="negociation-tab">Négociation par pays</button>
-        <button data-tab="actors-tab">Négociation par acteur</button>
-        <button data-tab="croads-tab">C-Roads sim</button>
-    </nav>
-</header>
-<main>
-    <!-- Contenu injecté dynamiquement par script2.js -->
-</main>
-<footer>
-    <p>Pour la Mission académique à l'éducation au développement durable - Académie de Limoges - AD - 2025</p>
-</footer>
-<!-- Ajouter Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script type="module" src="js/script.js"></script>
+    <header>
+        <!-- Vidéo d'arrière-plan -->
+        <video autoplay muted loop id="header-video">
+            <source src="medias/video/belem.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la vidéo.
+        </video>
+        <!-- Fond blanc transparent -->
+        <div class="header-overlay"></div>
+        <h1>Simulation de COP</h1>
+        <h2>Mission académique au développement durable - Académie de Limoges</h2>
+        <nav>
+            <button data-tab="repartition-tab">Répartition</button>
+            <button data-tab="cop-tab">Présentation des COP</button>
+            <button data-tab="simulation-tab">Les objectifs de la simulation</button>
+            <button data-tab="scenario-tab">Scénario du GIEC</button>
+            <button data-tab="state-info-tab">Informations sur les États</button>
+            <button data-tab="actors-info-tab">Informations sur les acteurs non étatiques</button>
+            <button data-tab="country-tab">Stratégie par pays</button>
+            <button data-tab="negociation-tab">Négociation par pays</button>
+            <button data-tab="actors-tab">Négociation par acteur</button>
+            <button data-tab="croads-tab">C-Roads sim</button>
+        </nav>
+    </header>
+    <main>
+        <!-- Contenu injecté dynamiquement par script2.js -->
+    </main>
+    <footer>
+        <p>Pour la Mission académique à l'éducation au développement durable - Académie de Limoges - AD - 2025</p>
+    </footer>
+    <!-- Ajouter Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="js/script.js"></script>
 </body>
+
 </html>
