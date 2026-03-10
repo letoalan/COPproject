@@ -132,18 +132,18 @@ async function updateStateVisualizations(stateData) {
 function createPopulationEmissionsChart(stateData) {
     const ctx = document.getElementById('populationEmissionsChart').getContext('2d');
 
-    // Extraire les données
-    const population = parseFloat(stateData['Population'].match(/(\d+(\.\d+)?)/)[0]);
+    // Extraire le rang de la population et les émissions
+    const populationRank = parseInt(stateData['Population'].match(/\d+/)[0]);
     const emissions = parseFloat(stateData['Émissions de GES'].match(/(\d+(\.\d+)?)/)[0]);
 
     return new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Population (millions)', 'Émissions de GES (tonnes CO2eq)'],
+            labels: ['Données'],
             datasets: [
                 {
-                    label: 'Population (millions)',
-                    data: [population, null],
+                    label: 'Rang mondial (Population)',
+                    data: [populationRank],
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 1,
@@ -151,7 +151,7 @@ function createPopulationEmissionsChart(stateData) {
                 },
                 {
                     label: 'Émissions de GES (tonnes CO2eq)',
-                    data: [null, emissions],
+                    data: [emissions],
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255, 99, 132, 1)',
                     borderWidth: 1,
@@ -161,13 +161,23 @@ function createPopulationEmissionsChart(stateData) {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false,
+            },
+            plugins: {
+                tooltip: {
+                    position: 'average'
+                }
+            },
             scales: {
                 'y-axis-population': {
                     type: 'linear',
                     position: 'left',
-                    title: { display: true, text: 'Population (millions)' },
+                    title: { display: true, text: 'Rang mondial (Population)' },
                     beginAtZero: true,
-                    max: Math.ceil(population * 1.2)
+                    max: 200
                 },
                 'y-axis-emissions': {
                     type: 'linear',
@@ -211,13 +221,22 @@ function createRanksChart(stateData) {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false,
+            },
+            plugins: {
+                tooltip: {
+                    position: 'average'
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true,
-                    reverse: true,
                     title: {
                         display: true,
-                        text: 'Classement (1 = meilleur)'
+                        text: 'Classement (Plus petit = Meilleur)'
                     }
                 }
             }
@@ -262,14 +281,16 @@ function createGesSectorsChart(stateData) {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 title: {
                     display: true,
                     text: 'Top 3 des Secteurs Émetteurs de GES'
                 },
                 tooltip: {
+                    position: 'average',
                     callbacks: {
-                        label: function(context) {
+                        label: function (context) {
                             return `${context.label}: ${context.raw}%`;
                         }
                     }

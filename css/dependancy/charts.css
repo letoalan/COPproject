@@ -1,35 +1,33 @@
-.chart-title {
-    position: absolute;
-    bottom: 10px;
-    left: 15px;
-    z-index: 3;
-    font-size: 1.5rem;
-    color: #3498db;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 5px;
+.chart-title,
+.chart-container h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.2rem;
+    color: var(--primary-color, #3498db);
+    position: static;
 }
 
 .chart-container {
+    box-sizing: border-box;
     background-color: #fff;
-    padding: 15px;
-    border-radius: 5px;
+    padding: 20px;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 400px;
     position: relative;
-    overflow: hidden;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .chart-container canvas {
-    position: relative;
+    display: block;
     width: 100% !important;
-    height: 100% !important;
-    object-fit: contain;
+    flex: 1;
+    min-height: 0;
 }
 
-#country-map, #scenario-country-map {
+#country-map,
+#scenario-country-map {
     width: 100%;
     height: 300px;
     border-radius: 5px;

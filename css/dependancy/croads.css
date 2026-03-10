@@ -20,26 +20,18 @@
     align-items: start;
 }
 
-#croads-tab #emissionsChart-container {
-    grid-column: 1;
-    background: white;
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative;
-    height: 400px;
-    margin-bottom: 1rem;
-}
-
+#croads-tab #emissionsChart-container,
 #croads-tab #temperatureChart-container {
     grid-column: 1;
     background: white;
     border-radius: 10px;
-    padding: 1rem;
+    padding: 1.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
-    height: 400px;
+    height: 450px;
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 #croads-tab #temperatureSummary {
@@ -94,8 +86,10 @@
 }
 
 #croads-tab .chart-container canvas {
+    display: block;
     width: 100% !important;
-    height: 90% !important;
+    flex: 1;
+    min-height: 0;
 }
 
 #croads-tab .legend {
@@ -109,7 +103,7 @@
     overflow-y: auto;
     font-size: 0.82rem;
     border: 1px solid #ddd;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 180px;
     z-index: 10;
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -183,7 +177,8 @@
     line-height: 1.2;
 }
 
-#croads-tab th, #croads-tab td {
+#croads-tab th,
+#croads-tab td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
@@ -228,7 +223,7 @@
     overflow: auto;
 }
 
-#croads-tab .presentation-main > div {
+#croads-tab .presentation-main>div {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -314,20 +309,20 @@
     margin-left: 0.5em;
 }
 
-#croads-tab #presentationTableContainer > div {
+#croads-tab #presentationTableContainer>div {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 0.3rem;
 }
 
-#croads-tab #presentationTableContainer > div label {
+#croads-tab #presentationTableContainer>div label {
     margin-bottom: 0.1rem;
     color: #003366;
     font-weight: bold;
 }
 
-#croads-tab #presentationTableContainer > div input {
+#croads-tab #presentationTableContainer>div input {
     width: auto;
     min-width: 40px;
     padding: 0.1rem 0.3rem;
