@@ -255,39 +255,6 @@
     border-bottom: 1px solid var(--border-color);
 }
 
-.card-body {
-    padding: 10px;
-}
-
-.member-item {
-    margin-bottom: 5px;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.member-item.role-chef {
-    font-weight: bold;
-    color: #c0392b;
-}
-
-.member-item.role-coleader {
-    font-weight: bold;
-    color: #2980b9;
-}
-
-.role-icon {
-    font-size: 0.9rem;
-    width: 16px;
-    display: inline-flex;
-    justify-content: center;
-}
-
-/* Category Colors */
-.cat-onu {
-    border-color: #3498db !important;
-}
 
 .cat-onu h4,
 .cat-onu h3,
