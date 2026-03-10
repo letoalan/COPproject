@@ -381,6 +381,7 @@ function renderResults() {
                         <span class="role-icon">${getRoleIcon(m.role)}</span> 
                         <div class="member-info">
                             <span class="member-name">${m.fullName}</span>
+                            <span class="member-school-separator"> - </span>
                             <span class="member-school">${m.etablissement}</span>
                         </div>
                     </div>
@@ -442,6 +443,7 @@ function renderHierarchyGroup(container, group) {
                 <span class="role-icon">${getRoleIcon(m.role)}</span> 
                 <div class="member-info">
                     <span class="member-name">${m.fullName}</span>
+                    <span class="member-school-separator"> - </span>
                     <span class="member-school">${m.etablissement}</span>
                 </div>
             </div>

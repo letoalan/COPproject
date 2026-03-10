@@ -27,6 +27,31 @@
     color: var(--secondary-gray);
 }
 
+.member-info {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0;
+    line-height: 1.2;
+    flex-wrap: wrap;
+}
+
+.member-name {
+    font-weight: 600;
+}
+
+.member-school-separator {
+    margin: 0 4px;
+    color: var(--secondary-gray);
+    opacity: 0.7;
+}
+
+.member-school {
+    font-size: 0.8rem;
+    color: var(--secondary-gray);
+    font-style: italic;
+}
+
 /* Steps Grid */
 .steps-grid {
     display: grid;
