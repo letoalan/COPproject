@@ -50,6 +50,10 @@
             <div class="result-header">
                 <h3>Résultats de l'attribution</h3>
                 <div class="export-actions">
+                    <button class="btn-outline" id="restore-btn" title="Importer une répartition à partir d'un fichier Excel">
+                        <span class="icon">🔄</span> Restaurer
+                    </button>
+                    <input type="file" id="restore-file-input" accept=".xlsx" hidden>
                     <button class="btn-outline" id="export-excel-btn">
                         <span class="icon">📊</span> Excel
                     </button>
@@ -80,7 +84,7 @@
                 <section class="main-category">
                     <div class="category-header">
                         <span class="folder-icon">📁</span>
-                        <h4>NON-ÉTATS (5)</h4>
+                        <h4>ORGANISATIONS (5)</h4>
                     </div>
                     <div id="non-etats-container" class="subgroups-container">
                         <!-- Injecté par repartitionTab.js -->

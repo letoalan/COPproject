@@ -139,6 +139,7 @@ function setupEventListeners() {
     const downloadBtn2 = document.getElementById('download-template-2');
     const exportExcelBtn = document.getElementById('export-excel-btn');
     const exportPdfBtn = document.getElementById('export-pdf-btn');
+    const restoreBtn = document.getElementById('restore-btn');
 
     if (fileInput1) fileInput1.onchange = (e) => handleUpload(e, 1);
     if (fileInput2) fileInput2.onchange = (e) => handleUpload(e, 2);
@@ -146,6 +147,17 @@ function setupEventListeners() {
     if (downloadBtn2) downloadBtn2.onclick = () => downloadTemplate(2);
     if (exportExcelBtn) exportExcelBtn.onclick = () => exportExcel();
     if (exportPdfBtn) exportPdfBtn.onclick = () => exportPDF();
+    if (restoreBtn) {
+        const restoreFileInput = document.getElementById('restore-file-input');
+        restoreBtn.onclick = () => restoreFileInput.click();
+        if (restoreFileInput) {
+            restoreFileInput.onchange = (e) => {
+                if (e.target.files.length > 0) {
+                    restoreState(e.target.files[0]);
+                }
+            };
+        }
+    }
 
     // Internal tab switching
     document.querySelectorAll('.view-tabs .tab-btn').forEach(btn => {
@@ -508,4 +520,65 @@ function exportPDF() {
         yPos = doc.lastAutoTable.finalY + 15;
     });
     doc.save("Repartition_COP.pdf");
+}
+
+async function restoreState(file) {
+    try {
+        let data;
+        if (file) {
+            console.log(`Restoring state from uploaded file: ${file.name}...`);
+            data = await file.arrayBuffer();
+        } else {
+            // Fallback to default file if no file provided (backward compatibility or auto-restore)
+            console.log("Restoring state from default Repartition_COP.xlsx...");
+            const response = await fetch('Repartition_COP.xlsx');
+            if (!response.ok) {
+                alert("Aucun fichier n'a été sélectionné et le fichier par défaut Repartition_COP.xlsx n'a pas été trouvé.");
+                return;
+            }
+            data = await response.arrayBuffer();
+        }
+
+        const workbook = XLSX.read(new Uint8Array(data), { type: 'array' });
+        
+        // On cherche la feuille "Attribution" (format d'export) ou la première feuille
+        const sheetName = workbook.SheetNames.find(name => name === "Attribution") || workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
+        const jsonData = XLSX.utils.sheet_to_json(sheet);
+
+        if (jsonData.length === 0) {
+            alert("Le fichier Excel est vide ou possède un format invalide.");
+            return;
+        }
+
+        initDelegations();
+        
+        jsonData.forEach(row => {
+            const delName = row['Délégation'];
+            const del = delegations.find(d => d.name === delName);
+            if (del) {
+                const firstName = row['Prénom'] || '';
+                const lastName = row['Nom'] || '';
+                del.members.push({
+                    fullName: row['Nom Complet'] || `${firstName} ${lastName}`.trim(),
+                    role: row['Rôle'] || 'Membre',
+                    etablissement: row['Établissement'] || 'Individuel'
+                });
+            }
+        });
+
+        renderResults();
+        document.getElementById('resultSection').classList.remove('hidden');
+        
+        // Cocher les étapes pour montrer que c'est chargé
+        const status1 = document.getElementById('status1');
+        const status2 = document.getElementById('status2');
+        if (status1) status1.classList.remove('hidden');
+        if (status2) status2.classList.remove('hidden');
+        
+        alert(`Importation réussie : ${jsonData.length} membres importés.`);
+    } catch (error) {
+        console.error("Erreur lors de l'importation:", error);
+        alert("Une erreur technique est survenue lors de la lecture du fichier Excel.");
+    }
 }
