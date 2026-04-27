@@ -35,8 +35,17 @@ export function renderInfographic(impact, container) {
           <span class="kpi-label">Coût assurantiel climatique</span>
         </div>
         <div class="kpi-card kpi-fund">
-          <span class="kpi-value">${green_fund_need > 0 ? green_fund_need.toFixed(1) + ' Mrd€/an' : 'Donateur'}</span>
-          <span class="kpi-label">Besoin Fonds Vert</span>
+          <div class="kpi-split">
+            <div class="split-item">
+              <span class="kpi-value">${impact.green_fund_contribution.toFixed(1)} Mrd€</span>
+              <span class="kpi-label">Contribution</span>
+            </div>
+            <div class="split-item">
+              <span class="kpi-value">${impact.green_fund_need.toFixed(1)} Mrd€</span>
+              <span class="kpi-label">Aide reçue</span>
+            </div>
+          </div>
+          <div class="kpi-footer-note">Bilan : ${impact.green_fund_net >= 0 ? '+' : ''}${impact.green_fund_net.toFixed(1)} Mrd€</div>
         </div>
         <div class="kpi-card kpi-risk" style="border-top: 4px solid ${political_risk.color}">
           <span class="kpi-value" style="color:${political_risk.color}">${political_risk.score.toFixed(1)}/10</span>
@@ -67,7 +76,7 @@ export function renderInfographic(impact, container) {
         <div class="inf-finance">
           PIB : ${country.gdp_mrd} Mrd€ · Empreinte actuelle : ${country.base_empreinte_t} t/hab
         </div>
-        <div class="inf-conclusion">${generateConclusion(country, scenario, political_risk, invest_annual_mrd, impact.forest_effort)}</div>
+        <div class="inf-conclusion">${generateConclusion(country, scenario, political_risk, invest_annual_mrd, impact.forest_effort, impact.green_fund_net)}</div>
       </div>
     </div>
   `;
@@ -118,7 +127,7 @@ function translateSector(sector) {
 /**
  * Génère le texte de conclusion automatique
  */
-function generateConclusion(country, scenario, political_risk, invest, forest) {
+function generateConclusion(country, scenario, political_risk, invest, forest, green_fund_net) {
   const effort = invest > country.gdp_mrd * 0.04 ? 'très élevé' :
                  invest > country.gdp_mrd * 0.02 ? 'significatif' : 'modéré';
   
@@ -129,9 +138,14 @@ function generateConclusion(country, scenario, political_risk, invest, forest) {
   const forest_txt = forest.deforestation > 80 ? 
     "un arrêt quasi-total de la déforestation" : 
     `une réduction de ${forest.deforestation.toFixed(0)}% de la déforestation`;
+
+  const fund_txt = green_fund_net > 0 ? 
+    `Le pays bénéficie d'une aide nette de ${green_fund_net.toFixed(1)} Mrd€ des Fonds Verts.` :
+    (green_fund_net < 0 ? `L'État contribue net à hauteur de ${Math.abs(green_fund_net).toFixed(1)} Mrd€ aux Fonds Verts mondiaux.` : 
+    "Le bilan des Fonds Verts est neutre pour cet État.");
     
   return `Pour ${country.name}, le scénario ${scenario.label} implique un effort financier ${effort}
-    (${invest.toFixed(1)} Mrd€/an). Parallèlement, l'effort forestier prévoit ${forest_txt} 
+    (${invest.toFixed(1)} Mrd€/an). ${fund_txt} Parallèlement, l'effort forestier prévoit ${forest_txt} 
     et un reboisement de ${forest.reforestation.toFixed(0)}%. Les coûts assurantiels évoluent d'un facteur
     ${scenario.insurance_multiplier}x. À long terme, ${risk_txt}.`;
 }

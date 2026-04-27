@@ -15,6 +15,8 @@ export function computeImpact(countryId, scenarioId, simulatorParams) {
   const scenario = SCENARIOS[scenarioId];
   if (!scenario) return null;
 
+  const generosity = simulatorParams.generosity || 1.0;
+
   // Détermination des taux selon le scénario choisi
   let reductionRate = 0;
   let deforestationEffort = 0; // % de réduction de la déforestation
@@ -55,27 +57,57 @@ export function computeImpact(countryId, scenarioId, simulatorParams) {
   });
 
   // A. Coût d'investissement transition
-  const invest_annual_mrd = computeInvestmentCost(country, reductionRate);
+  const invest_annual_mrd = computeInvestmentCost(country, reductionRate)
+    * (2 - generosity);
+  // Pessimiste (0.5) → coûts ×1.5  |  Optimiste (1.5) → coûts ×0.5
 
-  // B. Impact sur le PIB
-  const forest_gdp_cost = (localParams.reforestation / 100 * 0.3) + (Math.max(0, 1 - localParams.deforestation / 100) * 0.1);
+  // L'effort forestier est un BÉNÉFICE net sur le PIB (correction bug d'inversion)
+  const forest_gdp_benefit = (reforestationEffort * 0.1) + (deforestationEffort * 0.05);
   const gdp_impact = {
-    short: scenario.gdp_impact_short - (country.fossil_dependency_pct / 100 * 0.5) - forest_gdp_cost,
-    mid:   scenario.gdp_impact_mid - forest_gdp_cost,
-    long:  scenario.gdp_impact_long + (country.climate_vuln_index / 10 * 3)
+    short: scenario.gdp_impact_short
+           - (country.fossil_dependency_pct / 100 * 0.5)
+           + forest_gdp_benefit,
+    mid:   scenario.gdp_impact_mid + forest_gdp_benefit,
+    long:  scenario.gdp_impact_long + (country.climate_vuln_index / 10 * 3),
   };
 
-  // D. Besoins en Fonds Verts (Aide internationale)
-  // Facteur d'ambition mondiale (0 pour BAU à 4 pour scénario 80%)
-  const fund_factor_map = { "S0": 0, "S1": 1, "S2": 2.5, "S3": 4 };
-  const green_fund_multiplier = fund_factor_map[scenarioId] || 0;
-  
-  let green_fund_need = 0;
-  if (localParams.poverty === "poor") {
-    const base_adaptation = (country.climate_vuln_index / 10) * (country.gdp_mrd * 0.05);
-    const transition_support = invest_annual_mrd * 0.7;
-    green_fund_need = (base_adaptation + transition_support) * green_fund_multiplier;
+  // D. Besoins en Fonds Verts (Aide internationale vs Contribution)
+  let green_fund_need         = 0;
+  let green_fund_contribution = 0;
+  let green_fund_real_pool    = 0;
+  let green_fund_pol_note     = null;
+
+  if (simulatorParams.negotiated_aid !== undefined) {
+    green_fund_need         = simulatorParams.negotiated_aid;
+    green_fund_contribution = simulatorParams.negotiated_contribution;
+    green_fund_real_pool    = simulatorParams.negotiated_realPool ?? 0;
+    green_fund_pol_note     = simulatorParams.negotiated_polNote ?? null;
+  } else {
+    // Fallback : calcul théorique pour TOUS les pays (pas seulement poverty=poor)
+    const fund_factor_map = { "S0": 0, "S1": 1, "S2": 2.5, "S3": 4 };
+    const mult = fund_factor_map[scenarioId] || 0;
+    const base_adaptation    = (country.climate_vuln_index / 10) * (country.gdp_mrd * 0.05);
+    const support_weight     = localParams.poverty === 'poor' ? 0.7
+                             : localParams.poverty === 'emergent' ? 0.2 : 0.05;
+    const transition_support = invest_annual_mrd * support_weight;
+    green_fund_need          = (base_adaptation + transition_support) * mult;
+
+    console.log(`[IMPACT-FIN][${countryId}] Theoretical Fallback:`, {
+        adaptation: base_adaptation.toFixed(2),
+        support: transition_support.toFixed(2),
+        multiplier: mult,
+        final_need: green_fund_need.toFixed(2)
+    });
   }
+
+  // Bilan Net Fonds Verts (positif = aide reçue, négatif = contribution versée)
+  const green_fund_net = green_fund_need - green_fund_contribution;
+
+  console.log(`[IMPACT-FIN][${countryId}] Final Green Fund:`, {
+    need: green_fund_need.toFixed(2),
+    contribution: green_fund_contribution.toFixed(2),
+    net: green_fund_net.toFixed(2)
+  });
 
   // E. Effets de la forêt (Déforestation / Reboisement) sur le coût assurantiel
   const forest_insurance_impact = (localParams.deforestation / 100 * 0.2) - (localParams.reforestation / 100 * 0.1);
@@ -85,8 +117,9 @@ export function computeImpact(countryId, scenarioId, simulatorParams) {
     * (1 + forest_insurance_impact);
 
   // F. Risque de déstabilisation politique (avec mitigation par les fonds verts)
-  // Les fonds verts reçus réduisent le risque politique (max -2 points)
-  const green_fund_mitigation = Math.min(2, (green_fund_need / country.gdp_mrd) * 10);
+  // Seules les aides reçues nettes réduisent le risque politique
+  const mitigation_value = Math.max(0, green_fund_net);
+  const green_fund_mitigation = Math.min(2, (mitigation_value / country.gdp_mrd) * 10);
   const pol_risk_obj = computePoliticalRisk(country, scenario, reductionRate);
   
   const political_risk = {
@@ -102,19 +135,23 @@ export function computeImpact(countryId, scenarioId, simulatorParams) {
   // H. Postes carbone prioritaires
   const carbon_posts = computeCarbonPosts(country, reductionRate);
 
-  return { 
-    country, 
-    scenario, 
-    invest_annual_mrd, 
+  return {
+    country,
+    scenario,
+    invest_annual_mrd,
     gdp_impact,
-    insurance_cost_mrd, 
-    political_risk, 
+    insurance_cost_mrd,
+    political_risk,
     green_fund_need,
+    green_fund_contribution,
+    green_fund_net,
+    green_fund_real_pool,   // NOUVEAU : pool réellement collecté
+    green_fund_pol_note,    // NOUVEAU : note politique (icon, type, rationale)
     carbon_posts,
     forest_effort: {
-        deforestation: deforestationEffort * 100,
-        reforestation: reforestationEffort * 100
-    }
+      deforestation: deforestationEffort * 100,
+      reforestation: reforestationEffort * 100,
+    },
   };
 }
 
@@ -122,21 +159,39 @@ export function computeImpact(countryId, scenarioId, simulatorParams) {
  * Calcule le coût annuel d'investissement pour la transition
  */
 function computeInvestmentCost(country, reductionRate) {
-  // Base calibrée France = 108 Mrd€ pour 80%
-  // Scalé par PIB relatif et dépendance fossile
   const BASE_FRANCE_80PCT = 108;
-  const gdp_ratio = country.gdp_mrd / 2800;
-  const fossil_factor = country.fossil_dependency_pct / 46;
-  const result = BASE_FRANCE_80PCT * gdp_ratio * fossil_factor * (reductionRate / 0.8);
-  
+  const gdp_ratio  = country.gdp_mrd / 2800;
+  const fossil_raw = country.fossil_dependency_pct / 46;
+
+  // FIX 1 : plafonner fossil_factor (évite ×2.13 pour EAU/Égypte)
+  const fossil_factor = Math.min(fossil_raw, 1.80);
+
+  // FIX 2 : amortissement logarithmique pour grandes économies
+  // (évite 1682 Mrd€ pour les États-Unis et 1232 Mrd€ pour la Chine)
+  const scale_damper = gdp_ratio <= 3
+    ? gdp_ratio
+    : 3 + Math.log10(gdp_ratio - 2) * 2.5;
+
+  const raw = BASE_FRANCE_80PCT * scale_damper * fossil_factor * (reductionRate / 0.8);
+
+  // FIX 3 : plafond à 4.2% du PIB/an (borne haute IEA net-zéro)
+  const cap    = country.gdp_mrd * 0.042 * (reductionRate / 0.8);
+  const result = Math.min(raw, cap);
+
+  // FIX 4 : plancher pour micro-États (évite 0.07 Mrd€ pour Vanuatu)
+  const floor = reductionRate > 0 ? 0.5 : 0;
+
   console.log(`[IMPACT][${country.name}] Invest Calculation:`, {
-    gdp_ratio: gdp_ratio.toFixed(3),
-    fossil_factor: fossil_factor.toFixed(3),
-    reduction_factor: (reductionRate / 0.8).toFixed(3),
-    result_mrd: result.toFixed(2)
+    gdp_ratio:        gdp_ratio.toFixed(3),
+    fossil_factor_raw: fossil_raw.toFixed(3),
+    fossil_factor_cap: fossil_factor.toFixed(3),
+    scale_damper:     scale_damper.toFixed(3),
+    raw_mrd:          raw.toFixed(2),
+    cap_mrd:          cap.toFixed(2),
+    result_mrd:       Math.max(floor, result).toFixed(2),
   });
-  
-  return result;
+
+  return Math.max(floor, result);
 }
 
 /**
