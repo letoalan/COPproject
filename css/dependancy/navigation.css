@@ -55,3 +55,15 @@ nav button[data-tab="croads-tab"]:hover {
 nav button[data-tab="croads-tab"].active::after {
     background-color: #e74c3c;
 }
+
+nav button[data-tab="impact-tab"] {
+    background-color: #003366;
+}
+
+nav button[data-tab="impact-tab"]:hover {
+    background-color: #002244;
+}
+
+nav button[data-tab="impact-tab"].active::after {
+    background-color: #003366;
+}

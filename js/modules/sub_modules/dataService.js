@@ -4,6 +4,9 @@ export let countryData = [];
 export let subCountryData = {};
 
 export async function loadData() {
+    if (countryData && countryData.length > 0) {
+        return true;
+    }
     try {
         console.log('Début de loadData');
         console.log('Tentative de fetch ../data/datasimu.json');

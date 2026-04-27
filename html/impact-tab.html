@@ -1,0 +1,32 @@
+<!-- html/impact-tab.html -->
+<div id="impact-tab" class="tab-content hidden">
+    <div class="impact-header-controls">
+        <div class="control-group">
+            <label for="impact-country-select">État sélectionné :</label>
+            <select id="impact-country-select">
+                <!-- Rempli dynamiquement -->
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label>Scénario climatique :</label>
+            <div class="scenario-selector">
+                <button class="scen-btn active" data-scenario="S0">Inaction (BAU)</button>
+                <button class="scen-btn" data-scenario="S1">Modéré (-20%)</button>
+                <button class="scen-btn" data-scenario="S2">Soutenu (-50%)</button>
+                <button class="scen-btn" data-scenario="S3">Maximal (-80%)</button>
+            </div>
+        </div>
+
+        <button id="btn-export-infographic" class="export-btn">
+            <span class="icon">📥</span> Exporter l'infographie (PNG)
+        </button>
+    </div>
+
+    <div id="impact-infographic" class="impact-main-container">
+        <!-- Rendu dynamique par impactDisplay.js -->
+        <div class="placeholder-message">
+            Sélectionnez un pays pour visualiser son profil d'impact.
+        </div>
+    </div>
+</div>

@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             { name: 'countryTab', path: './modules/countryTab.js', html: `${baseUrl}/html/country-tab.html` },
             { name: 'negociationTab', path: './modules/negociationTab.js', html: `${baseUrl}/html/negociation-tab.html` },
             { name: 'actorsTab', path: './modules/actorsTab.js', html: `${baseUrl}/html/actors-tab.html` },
-            { name: 'croadsTab', path: './modules/croadsTab.js', html: `${baseUrl}/html/croads-tab.html` }
+            { name: 'croadsTab', path: './modules/croadsTab.js', html: `${baseUrl}/html/croads-tab.html` },
+            { name: 'impactTab', path: './modules/impactTab.js', html: `${baseUrl}/html/impact-tab.html` }
         ];
         // Charger le contenu HTML de chaque onglet
         const loadedContent = await Promise.all(

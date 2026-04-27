@@ -58,6 +58,9 @@ async function showScenario(scenario) {
         // 3. Mettre à jour l'état actif des boutons
         updateActiveScenarioButton(scenario);
 
+        // 4. Exposer pour les autres modules (Impact)
+        window.selectedScenarioGIEC = scenario;
+
     } catch (error) {
         console.error("Erreur lors du chargement du scénario:", error);
         throw error;
