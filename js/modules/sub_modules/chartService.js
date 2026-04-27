@@ -3,13 +3,13 @@ import {
     labels,
     BAU_TEMP_INCREASE,
     MIN_TEMP_INCREASE,
-    BAU_CUMULATIVE,
-    BAU_EMISSIONS_2100,
-    CARBON_SENSITIVITY,
+    TCRE_MEDIAN,
+    COVERAGE_CORRECTION,
     CARBON_BUDGET_1_5C,
     CARBON_BUDGET_2C,
     totalWorldPopulation,
-    displayOrder
+    displayOrder,
+    DEBUG_TRAJECTORY
 } from './config.js';
 import { countryData } from './dataService.js';
 
@@ -68,7 +68,8 @@ function getEmissionsChartData() {
                 (country.name === "Chine") ? 2080 : 2100,
                 (country.name === "Chine") ? 5 : 0,
                 0,
-                0
+                0,
+                country.name
             )
         }))
     };
@@ -143,26 +144,52 @@ function getTemperatureChartOptions() {
 }
 
 // Génération des trajectoires d'émissions
-export function generateTrajectory(baseEmission, peakYear, reductionYear, reductionRate, deforestation, reforestation) {
+export function generateTrajectory(baseEmission, peakYear, reductionYear, reductionRate, deforestation, reforestation, countryName = 'Unknown') {
     const effectiveReductionYear = Math.max(peakYear, reductionYear);
-
-    return labels.map(year => {
+    const trajectory = labels.map(year => {
         if (year < peakYear) {
             const growthYears = year - 2025;
             return baseEmission * Math.pow(1.01, growthYears);
         } else if (year < effectiveReductionYear) {
-            const peakEmission = baseEmission * Math.pow(1.01, peakYear - 2025);
-            return peakEmission;
+            return baseEmission * Math.pow(1.01, peakYear - 2025);
         } else {
             const peakEmission = baseEmission * Math.pow(1.01, peakYear - 2025);
             const yearsReducing = year - effectiveReductionYear;
             const effectiveReductionRate = Math.min(reductionRate, 95) / 100;
-            const remainingEmissionsFactor = Math.pow(1 - effectiveReductionRate, yearsReducing / 5);
+            const remainingEmissionsFactor = Math.pow(1 - effectiveReductionRate, yearsReducing);
+            
+            /**
+             * MODULATION FORESTIÈRE :
+             * - deforestation (0-100%) : facteur (1 + defor/200) -> Max +50%
+             * - reforestation (0-100%) : facteur (1 - refor/150) -> Min -66%
+             * Unité : Pourcentages UI normalisés en fractions de forçage.
+             * Effet net (defor=refor) : Positif (la déforestation pèse plus lourd /200 vs /150).
+             * Exemple (40, 40) : (1.2) * (0.73) = 0.876 -> Réduction nette de ~12% vs BAU.
+             */
             const deforestationFactor = 1 + (deforestation / 200);
             const reforestationFactor = Math.max(0.5, 1 - (reforestation / 150));
+            
             return Math.max(peakEmission * 0.05, peakEmission * remainingEmissionsFactor * deforestationFactor * reforestationFactor);
         }
     });
+
+    if (DEBUG_TRAJECTORY) {
+        const peakEm = baseEmission * Math.pow(1.01, peakYear - 2025);
+        const cumContrib = calculateCumulative(trajectory);
+        console.log(`[TRAJECTORY][${countryName}] peakEmissions=${peakEm.toFixed(2)}, annualRate=${reductionRate}%, floorEm=${(peakEm*0.05).toFixed(2)}, cumContrib=${cumContrib.toFixed(1)} GtCO2`);
+    }
+
+    return trajectory;
+}
+
+// Fonction utilitaire pour l'intégrale d'une trajectoire
+function calculateCumulative(data) {
+    let sum = 0;
+    for (let i = 1; i < labels.length; i++) {
+        const delta = labels[i] - labels[i-1];
+        sum += (data[i-1] + data[i]) * delta / 2;
+    }
+    return sum;
 }
 
 // Mise à jour des données d'émissions
@@ -183,7 +210,8 @@ function updateEmissionsData() {
             reductionYear,
             reductionRate,
             deforestation,
-            reforestation
+            reforestation,
+            countryData[index].name
         );
     });
 }
@@ -192,14 +220,38 @@ export function updateTemperatureProjection() {
     const yearlyEmissions = calculateRealEmissionsProfile();
 
     // 2. Calcul de la température avec réponse dynamique
-    const tempProjection = calculateDynamicTemperature(yearlyEmissions);
+    const { tempProjection, totalCumulativeEmissions } = calculateDynamicTemperature(yearlyEmissions);
 
     // 3. Mise à jour du graphique
     temperatureChart.data.datasets[0].data = tempProjection;
     temperatureChart.update();
-    updateTemperatureDisplay(tempProjection[tempProjection.length - 1],
-        tempProjection.reduce((sum, t) => sum + t, 0));
+    
+    updateTemperatureDisplay(
+        tempProjection[tempProjection.length - 1],
+        totalCumulativeEmissions
+    );
+
+    // Enregistrement de l'état pour audit
+    window.lastSimulatorState = {
+        totalCumulativeEmissions,
+        perCountryContribution: countryData.map((c, i) => ({
+            name: c.name,
+            cumEmissions: calculateCumulative(emissionsChart.data.datasets[i].data),
+            peakYear: +document.querySelector(`input[data-country-index="${i}"][data-input-index="0"]`)?.value,
+            annualRate: +document.querySelector(`input[data-country-index="${i}"][data-input-index="2"]`)?.value
+        })),
+        calibrationParams: { TCRE: TCRE_MEDIAN, COVERAGE_CORRECTION, B15: CARBON_BUDGET_1_5C, B2: CARBON_BUDGET_2C },
+        temperatureBreakdown: {
+            T_base: MIN_TEMP_INCREASE,
+            T_from_emissions: totalCumulativeEmissions * TCRE_MEDIAN,
+            T_correction: COVERAGE_CORRECTION,
+            T_final: tempProjection[tempProjection.length - 1]
+        }
+    };
 }
+
+// Fonction de diagnostic exportée
+window.getSimulatorState = () => window.lastSimulatorState || "No state recorded yet. Interact with the UI first.";
 
 // Calcule le profil réel des émissions année par année
 function calculateRealEmissionsProfile() {
@@ -212,9 +264,6 @@ function calculateRealEmissionsProfile() {
 
 // Modèle climatique dynamique avec inflexions
 function calculateDynamicTemperature(yearlyEmissions) {
-    // Utilisation directe de BAU_CUMULATIVE importé depuis config.js
-    const CALIBRATION_FACTOR = (BAU_TEMP_INCREASE - MIN_TEMP_INCREASE) / BAU_CUMULATIVE;
-
     let cumulativeEmissions = 0;
     const tempProjection = [];
     let climateInertia = MIN_TEMP_INCREASE;
@@ -226,22 +275,23 @@ function calculateDynamicTemperature(yearlyEmissions) {
         }
 
         // Vérification du scénario BAU
-        const isBAUScenario = countryData.every(country =>
-            document.querySelector(`input[data-country-index="${countryData.indexOf(country)}"][data-input-index="1"]`).value === "2100" &&
-            document.querySelector(`input[data-country-index="${countryData.indexOf(country)}"][data-input-index="2"]`).value === "0"
-        );
+        const isBAUScenario = countryData.every(country => {
+            const countryIdx = countryData.indexOf(country);
+            const redYearInput = document.querySelector(`input[data-country-index="${countryIdx}"][data-input-index="1"]`);
+            const redRateInput = document.querySelector(`input[data-country-index="${countryIdx}"][data-input-index="2"]`);
+            return redYearInput?.value === "2100" && redRateInput?.value === "0";
+        });
 
-        // Forçage à 3.3°C si scénario BAU détecté
         const immediateTemp = isBAUScenario && i === labels.length - 1
             ? BAU_TEMP_INCREASE
-            : MIN_TEMP_INCREASE + (cumulativeEmissions * CALIBRATION_FACTOR);
+            : MIN_TEMP_INCREASE + (cumulativeEmissions * TCRE_MEDIAN) + COVERAGE_CORRECTION;
 
         const currentTemp = (immediateTemp + climateInertia * 2) / 3;
         climateInertia = currentTemp;
         tempProjection.push(currentTemp);
     }
 
-    return tempProjection;
+    return { tempProjection, totalCumulativeEmissions: cumulativeEmissions };
 }
 
 // Affichage de la température
